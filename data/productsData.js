@@ -12,8 +12,8 @@ const productsData = [
     title: 'Chapas / Compensados',
     description: `Compensados Plastificados e Resinados de qualidade entre 5mm e 25mm.`,
     imgSrc: '/static/images/wood.jpg',
-    //href: '/blog/chacom',
-    href: '/construction',
+    href: '/blog/chacom',
+    //href: '/construction',
   },
   {
     title: 'Paraju',
@@ -54,7 +54,7 @@ const productsData = [
     href: '/construction',
   },
   {
-    title: 'Diversos',
+    title: 'Outros',
     description: `Temos produtos variados para complementar seu projeto, como: 
     Verniz, Colas, Pregos, Fechaduras para Portas, Dobradiças entre outros.`,
     imgSrc: '/static/images/wood.jpg',
