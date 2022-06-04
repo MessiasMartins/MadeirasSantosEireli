@@ -12,7 +12,7 @@ const productsData = [
     title: 'Chapas / Compensados',
     description: `Compensados Plastificados e Resinados de qualidade entre 5mm e 25mm.`,
     imgSrc: '/static/images/wood.jpg',
-    href: '/blog/chacom',
+    href: '/products/chacom',
     //href: '/construction',
   },
   {
