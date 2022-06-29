@@ -37,14 +37,13 @@ const Card = ({ title, description, imgSrc, href }) => (
           {description}
         </p>
         {href && (
-          //A Linha 46 é a resposnavel pela mensagem (Saiba Mais) que aparecerá antes da Seta
+          //A Linha 46 é a resposnavel pela mensagem (Saiba Mais) que aparecerá antes da Seta             &rarr; = seta
+
           <Link
             href={href}
             className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
             aria-label={`Link to ${title}`}
-          >
-            &rarr;
-          </Link>
+          ></Link>
         )}
       </div>
     </div>
