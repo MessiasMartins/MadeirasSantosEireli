@@ -8,7 +8,7 @@ export default function FourZeroFour() {
           className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 
         md:text-8xl md:leading-14 md:border-r-2 md:px-6"
         >
-          Conteúdo em construção!
+          Em construção!
         </h1>
       </div>
       <div className="max-w-md">
