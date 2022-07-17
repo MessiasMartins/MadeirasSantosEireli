@@ -132,14 +132,14 @@ export default function Home({ posts }) {
           </p>
           <div className="text-center lg:text-2xl md:text-2xl font-extrabold pt-6 pb-4 leading-7 grid grid-cols-3 gap-4 center sm:text-sm">
             <div>• Madeiras em Geral</div>
-            <div>• Madeirites / Chapas / Compensados</div>
+            <div>• Madeirites / Chapas</div>
             <div>• Paraju</div>
-            <div>• Decks de Madeira</div>
+            <div>• Deck de Madeira</div>
             <div>• Portas</div>
             <div>• Marcos e Rodapés</div>
             <div>• Telhas</div>
             <div>• Madeiras para Telhado</div>
-            <div>• Outros</div>
+            <div>• Tábuas de Pinus</div>
           </div>
           <div className="pb-3 mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-center">
             <div className="rounded-md shadow">
