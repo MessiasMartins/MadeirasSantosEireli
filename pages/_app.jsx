@@ -8,7 +8,7 @@ import CookieConsent from 'react-cookie-consent'
 
 export default function App({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
