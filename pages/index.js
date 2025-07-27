@@ -45,7 +45,8 @@ export default function Home({ posts }) {
                 <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                   O conhecimento de mais de 30 anos de experiência no setor madeireiro aliado a uma
                   administração dinâmica e atendimento intimista.<br></br>
-                  <br></br>Conte conosco!
+                  <br></br>
+                  <b>Conte conosco!</b>
                 </p>
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                   <div className="rounded-md shadow">
@@ -73,7 +74,7 @@ export default function Home({ posts }) {
                       href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025"
                       className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
                         text-base font-medium rounded-md text-gray-900 bg-indigo-100 hover:bg-indigo-200 md:py-4 
-                        md:text-lg md:px-5 sm: text-center"
+                        md:text-lg md:px-5 sm:text-center"
                     >
                       Como Chegar?
                     </a>
@@ -129,7 +130,7 @@ export default function Home({ posts }) {
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Localização & Contatos
+            Localização e Contatos
           </h2>
         </div>
         <div>
