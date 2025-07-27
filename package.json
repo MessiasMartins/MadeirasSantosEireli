@@ -1,11 +1,11 @@
 {
   "name": "mdsantos",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "start": "next-remote-watch ./data",
     "dev": "NODE_OPTIONS=--openssl-legacy-provider next dev",
-    "build": "next build && node ./scripts/generate-sitemap",
+    "build": "next build && NODE_OPTIONS=--openssl-legacy-provider node ./scripts/generate-sitemap",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
