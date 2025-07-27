@@ -39,7 +39,7 @@ export default function Home({ posts }) {
                   <span className="block xl:inline">Madeiras de qualidade para o seu</span>{' '}
                   <span className="block text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 xl:inline">
                     {' '}
-                    atual Projeto!
+                    Projeto!
                   </span>
                 </h1>
                 <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
