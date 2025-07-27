@@ -1,17 +1,18 @@
 const siteMetadata = {
-  title: 'Madeiras Santos EIRELI - Qualidade, Preço Baixo e Entrega Ágil',
-  author: 'Audere - Agência e Desenvolvimento de Produtos para a Web',
-  headerTitle: 'Madeiras Santos EIRELI',
+  title: 'Madeiras Santos - Qualidade, Preço Baixo e Entrega Ágil',
+  author: 'Audere - Desenvolvimento Web',
+  headerTitle: 'Madeiras Santos LTDA',
   description:
-    'Madeiras de Qualidade, Preço Baixo, e Entrega Ágil com a confiança de mais de 30 anos de Experiência no mercado. Belo Horizonte Minas Gerais',
+    'Madeiras de Qualidade, Preço Baixo e Entrega Ágil. Conte com mais de 30 anos de Experiência no mercado!',
   language: 'pt-BR',
   siteUrl: 'https://madeirassantos.com.br',
   siteRepo: '#',
   siteLogo: '/static/images/logo_google2.png',
+  siteName: 'Madeiras Santos LTDA',
   image: '/static/images/logo_google2.png',
   socialBanner: '/static/images/L-1.png',
   //***Conteudo para as demais páginas adaptados para SEO***/
-  otherTitle: 'Madeiras Santos EIRELI. Qualidade, Preço e Tradição',
+  otherTitle: 'Madeiras Santos. Qualidade, Preço e Tradição',
   //otherDescripition:'#',
   //authorImg:'/static/images/audere23.png',
   email: 'comercial@madeirassantos.com.br',
@@ -54,7 +55,7 @@ const siteMetadata = {
       metadata: '0',
       // theme example: light, dark, dark_dimmed, dark_high_contrast
       // transparent_dark, preferred_color_scheme, custom
-      theme: 'dark',
+      theme: 'light',
       // theme when dark mode
       darkTheme: 'transparent_dark',
       // If the theme option above is set to 'custom`
