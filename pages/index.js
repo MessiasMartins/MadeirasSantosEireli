@@ -43,7 +43,7 @@ export default function Home({ posts }) {
                   </span>
                 </h1>
                 <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                  O conhecimento de mais de 30 anos de experiência no setor madeireiro aliado a uma
+                  O conhecimento de mais de 35 anos de experiência no setor madeireiro aliado a uma
                   administração dinâmica e atendimento intimista.<br></br>
                   <br></br>
                   <b>Conte conosco!</b>

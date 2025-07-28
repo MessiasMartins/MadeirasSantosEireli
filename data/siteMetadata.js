@@ -1,9 +1,9 @@
 const siteMetadata = {
-  title: 'Madeiras Santos - Qualidade, Preço Baixo e Entrega Ágil',
+  title: 'Madeiras Santos – Madeireira em Belo Horizonte | Qualidade, Preço e Entrega Ágil',
   author: 'Audere - Desenvolvimento Web',
   headerTitle: 'Madeiras Santos LTDA',
   description:
-    'Madeiras de Qualidade, Preço Baixo e Entrega Ágil. Conte com mais de 30 anos de Experiência no mercado!',
+    'Madeiras de Qualidade, Preço Baixo e Entrega Ágil. Conte com mais de 35 anos de experiência no mercado!',
   language: 'pt-BR',
   siteUrl: 'https://madeirassantos.com.br',
   siteRepo: '#',
