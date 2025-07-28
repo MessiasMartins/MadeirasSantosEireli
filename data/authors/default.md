@@ -10,15 +10,15 @@ github: https://github.com
 
 # Sobre a Madeiras Santos
 
-A **Madeiras Santos**, localizada em **Belo Horizonte, Minas Gerais**, reúne mais de **35 anos de tradição** no setor madeireiro, **apoiada na experiência de seus gestores** e combinando know-how técnico, atendimento personalizado e preços competitivos:contentReference[oaicite:3]{index=3}.
+A **Madeiras Santos**, localizada em **Belo Horizonte, Minas Gerais**, reúne mais de **35 anos de tradição** no setor madeireiro, **apoiada na experiência de seus gestores** e combinando know-how técnico, atendimento personalizado e preços competitivos.
 
 ## Nosso Propósito
 
 Somos movidos por três pilares:
 
-- **Qualidade**: trabalhamos com madeiras de qualidade, tratadas e beneficiadas (tábuas, chapas, portas, decks e mais) disponíveis em estoque no local para conferência imediata por parte do cliente:contentReference[oaicite:4]{index=4}.
-- **Preço justo**: oferta de condições comerciais competitivas sem abrir mão da procedência e do atendimento humanizado:contentReference[oaicite:5]{index=5}.
-- **Entrega ágil e logística inteligente**: entrega terceirizada, com opção de agendamento, além de fácil acesso por estar próximo aos principais corredores viários de BH:contentReference[oaicite:6]{index=6}.
+- **Qualidade**: trabalhamos com madeiras de qualidade, tratadas e beneficiadas (tábuas, chapas, portas, decks e mais) disponíveis em estoque no local para conferência imediata por parte do cliente.
+- **Preço justo**: oferta de condições comerciais competitivas sem abrir mão da procedência e do atendimento humanizado.
+- **Entrega ágil e logística inteligente**: entrega terceirizada, com opção de agendamento, além de fácil acesso por estar próximo aos principais corredores viários de BH.
 
 ---
 
@@ -32,8 +32,8 @@ Somos movidos por três pilares:
 
 ## Diferenciais que fazem a diferença
 
-- Atendimento personalizado, atendendo tanto atacado quanto varejo:contentReference[oaicite:7]{index=7}.
-- Estoque local que permite verificar a qualidade do produto antes do carregamento:contentReference[oaicite:8]{index=8}.
+- Atendimento personalizado, atendendo tanto atacado quanto varejo.
+- Estoque local que permite verificar a qualidade do produto antes do carregamento.
 - Opção de entrega agendada com equipe terceirizada.
 - Localização estratégica no Santa Amélia, facilitando visitação e logística.
 
@@ -44,9 +44,9 @@ Trabalhamos com um portfólio de produtos para:
 - **Construção civil e marcenaria**
 - **Madeiras em geral** (Pinus tratado, Eucalipto, Cambará, Angelim Pedra, Madeira Plástica)
 - **Chapas** (Madeirite, compensados resinados e plastificados)
-- **Decks**, **portas**, **rodapés**, **telhas (coloniais, PVC e vidro)**, marcos, forros, telhados, etc.:contentReference[oaicite:9]{index=9}.
+- **Decks**, **portas**, **rodapés**, **telhas (coloniais, PVC e vidro)**, marcos, forros, telhados, etc.
 
-No nosso blog, explicamos os benefícios dos **compensados resinados e plastificados**, ideais para projetos que exigem resistência, durabilidade e versatilidade:contentReference[oaicite:10]{index=10}.
+No nosso blog, explicamos os benefícios dos **compensados resinados e plastificados**, ideais para projetos que exigem resistência, durabilidade e versatilidade.
 
 ---
 
