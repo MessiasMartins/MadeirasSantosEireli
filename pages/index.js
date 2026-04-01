@@ -57,7 +57,53 @@ export default function Home() {
         />
       </Head>
       <div className="relative overflow-hidden divide-y divide-gray-200 dark:divide-gray-300">
-        <div className="max-w-7xl mx-auto">
+        <section className="relative min-h-[78vh] lg:hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/static/images/wood.jpg"
+            alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
+            width="1000"
+            height="1000"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-black/65" />
+          <main className="relative z-10 px-4 pt-10 pb-8">
+            <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-white">
+              <span className="block">Madeiras de qualidade para o seu</span>
+              <span className="block text-primary-400">Projeto!</span>
+            </h1>
+            <p className="mt-5 text-2xl leading-relaxed text-gray-200">
+              O conhecimento de mais de 35 anos de experiência no setor madeireiro aliado a uma
+              administração dinâmica e atendimento intimista.
+            </p>
+            <p className="mt-4 text-2xl font-bold text-gray-100">Conte conosco!</p>
+            <div className="mt-6 space-y-3">
+              <a
+                href={siteMetadata.whatsapp}
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
+              >
+                Whatsapp
+              </a>
+              <a
+                href={`mailto:${siteMetadata.email}`}
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-indigo-100 hover:bg-indigo-200"
+              >
+                E-Mail
+              </a>
+              <a
+                href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025"
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-indigo-100 hover:bg-indigo-200"
+              >
+                Como Chegar?
+              </a>
+            </div>
+          </main>
+        </section>
+
+        <div className="hidden lg:block max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 bg-white dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
             <svg
               className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
@@ -119,7 +165,7 @@ export default function Home() {
             </main>
           </div>
         </div>
-        <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-100">
+        <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-100">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
