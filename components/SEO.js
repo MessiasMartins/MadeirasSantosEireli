@@ -4,13 +4,15 @@ import siteMetadata from '@/data/siteMetadata'
 
 const CommonSEO = ({ title, description, author, ogType, ogImage, twImage }) => {
   const router = useRouter()
+  const canonicalUrl = `${siteMetadata.siteUrl}${router.asPath}`.split('?')[0]
   return (
     <Head>
       <title>{title}</title>
       <meta name="robots" content="follow, index" />
       <meta name="description" content={description} />
       <meta name="author" content={siteMetadata.author} />
-      <meta property="og:url" content={`${siteMetadata.siteUrl}${router.asPath}`} />
+      <link rel="canonical" href={canonicalUrl} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={siteMetadata.title} />
       <meta property="og:author" content={siteMetadata.author} />
@@ -22,7 +24,7 @@ const CommonSEO = ({ title, description, author, ogType, ogImage, twImage }) => 
         <meta property="og:image" content={ogImage} key={ogImage} />
       )}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={siteMetadata.twitter} />
+      {siteMetadata.twitter && <meta name="twitter:site" content={siteMetadata.twitter} />}
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={twImage} />
@@ -139,7 +141,6 @@ export const BlogSEO = ({ authorDetails, title, summary, date, lastmod, url, ima
       <Head>
         {date && <meta property="article:published_time" content={publishedAt} />}
         {lastmod && <meta property="article:modified_time" content={modifiedAt} />}
-        <link rel="canonical" href={`${siteMetadata.siteUrl}${router.asPath}`} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
