@@ -10,7 +10,7 @@ github: https://github.com
 
 # Sobre a Madeiras Santos
 
-A **Madeiras Santos**, localizada em **Belo Horizonte, Minas Gerais**, reúne mais de **35 anos de tradição** no setor madeireiro, **apoiada na experiência de seus gestores** e combinando know-how técnico, atendimento personalizado e preços competitivos.
+A **Madeiras Santos**, localizada em **Belo Horizonte, Minas Gerais**, reúne mais de **40 anos de tradição** no setor madeireiro, **apoiada na experiência de seus gestores** e combinando know-how técnico, atendimento personalizado e preços competitivos.
 
 ## Nosso Propósito
 

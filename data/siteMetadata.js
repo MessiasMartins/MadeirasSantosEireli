@@ -3,7 +3,7 @@ const siteMetadata = {
   author: 'Audere - Desenvolvimento Web',
   headerTitle: 'Madeiras Santos',
   description:
-    'Madeiras de Qualidade, Preço Baixo e Entrega Ágil. Conte com mais de 35 anos de experiência no mercado!',
+    'Madeiras de Qualidade, Preço Baixo e Entrega Ágil. Conte com mais de 40 anos de experiência no mercado!',
   language: 'pt-BR',
   siteUrl: 'https://madeirassantos.com.br',
   siteRepo: '#',

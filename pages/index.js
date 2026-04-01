@@ -76,7 +76,7 @@ export default function Home() {
               <span className="block text-primary-600">Projeto!</span>
             </h1>
             <p className="mt-4 max-w-[28ch] text-lg leading-relaxed text-gray-800 sm:text-2xl">
-              O conhecimento de mais de 35 anos de experiência no setor madeireiro aliado a uma
+              O conhecimento de mais de 40 anos de experiência no setor madeireiro aliado a uma
               administração dinâmica e atendimento intimista.
             </p>
             <p className="mt-3 text-xl font-bold text-gray-900 sm:text-2xl">Conte conosco!</p>
@@ -124,7 +124,7 @@ export default function Home() {
                   </span>
                 </h1>
                 <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                  O conhecimento de mais de 35 anos de experiência no setor madeireiro aliado a uma
+                  O conhecimento de mais de 40 anos de experiência no setor madeireiro aliado a uma
                   administração dinâmica e atendimento intimista.<br></br>
                   <br></br>
                   <b>Conte conosco!</b>
@@ -182,7 +182,7 @@ export default function Home() {
       <div className="grid-cols-2 divide-y divide-gray-200 dark:divide-gray-700">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Por que escolher a Madeiras Santos?
+            Por que a Madeiras Santos?
           </h2>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
@@ -192,20 +192,20 @@ export default function Home() {
               {features.map((feature) => (
                 <div
                   key={feature.name}
-                  className="rounded-2xl bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md dark:bg-gray-900"
+                  className="rounded-2xl bg-green-600 p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <dt>
-                    <div className="mb-3 inline-flex rounded-full bg-emerald-100 p-3 dark:bg-emerald-900/30">
+                    <div className="mb-3 inline-flex rounded-full bg-white/15 p-3">
                       <feature.icon
-                        className="h-6 w-6 text-emerald-700 dark:text-emerald-300"
+                        className="h-6 w-6 text-white"
                         aria-hidden="true"
                       />
                     </div>
-                    <p className="text-xl font-bold leading-7 text-gray-900 dark:text-gray-100">
+                    <p className="text-xl font-bold leading-7 text-white">
                       {feature.name}
                     </p>
                   </dt>
-                  <dd className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-300">
+                  <dd className="mt-2 text-base leading-7 text-white/95">
                     {feature.description}
                   </dd>
                 </div>
