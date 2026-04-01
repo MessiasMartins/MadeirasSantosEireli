@@ -33,8 +33,8 @@ module.exports = withBundleAnalyzer({
       use: ['@svgr/webpack'],
     })
 
-    if (!dev && !isServer) {
-      // Replace React with Preact only in client production build
+    if (!dev && !isServer && process.env.NEXT_USE_PREACT === 'true') {
+      // Replace React with Preact only when explicitly enabled
       Object.assign(config.resolve.alias, {
         react: 'preact/compat',
         'react-dom/test-utils': 'preact/test-utils',

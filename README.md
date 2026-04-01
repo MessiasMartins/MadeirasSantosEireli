@@ -77,6 +77,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
+### Optional Preact compatibility mode
+
+By default, production builds use React compatibility mode for maximum framework stability.
+
+If you want to force Preact aliases in client production builds, set:
+
+```bash
+NEXT_USE_PREACT=true
+```
+
+This switch is useful for controlled performance experiments without impacting default deploy stability.
+
 ## Extend / Customize
 
 `data/siteMetadata.js` - contains most of the site related information which should be modified for a user's need.
