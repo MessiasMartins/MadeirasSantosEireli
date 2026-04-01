@@ -5,7 +5,6 @@ import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 //import formatDate from '@/lib/utils/formatDate'
 import features from '@/components/Features'
-import Image from 'next/dist/client/image'
 import Head from 'next/head'
 
 import NewsletterForm from '@/components/NewsletterForm'
@@ -112,14 +111,15 @@ export default function Home({ posts }) {
           </div>
         </div>
         <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-100">
-          <Image
+          <img
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
             src="/static/images/wood.jpg"
             alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
-            width={1000}
-            height={1000}
-            priority
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            width="1000"
+            height="1000"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
       </div>
