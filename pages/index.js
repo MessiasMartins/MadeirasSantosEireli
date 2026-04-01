@@ -57,7 +57,7 @@ export default function Home() {
         />
       </Head>
       <div className="relative overflow-hidden divide-y divide-gray-200 dark:divide-gray-300">
-        <section className="relative min-h-[78vh] lg:hidden">
+        <section className="relative min-h-[72vh] lg:hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="absolute inset-0 h-full w-full object-cover"
@@ -70,32 +70,32 @@ export default function Home() {
             decoding="async"
           />
           <div className="absolute inset-0 bg-white/70" />
-          <main className="relative z-10 px-4 pt-10 pb-8">
+          <main className="relative z-10 px-4 pt-8 pb-8">
             <h1 className="max-w-[20ch] text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl">
               <span className="block">Madeiras de qualidade para o seu</span>
               <span className="block text-primary-600">Projeto!</span>
             </h1>
-            <p className="mt-5 max-w-[26ch] text-xl leading-relaxed text-gray-800 sm:text-2xl">
+            <p className="mt-4 max-w-[28ch] text-lg leading-relaxed text-gray-800 sm:text-2xl">
               O conhecimento de mais de 35 anos de experiência no setor madeireiro aliado a uma
               administração dinâmica e atendimento intimista.
             </p>
-            <p className="mt-4 text-2xl font-bold text-gray-900">Conte conosco!</p>
+            <p className="mt-3 text-xl font-bold text-gray-900 sm:text-2xl">Conte conosco!</p>
             <div className="mt-6 space-y-3">
               <a
                 href={siteMetadata.whatsapp}
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
+                className="w-full min-h-[48px] flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
               >
                 Whatsapp
               </a>
               <a
                 href={`mailto:${siteMetadata.email}`}
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-indigo-100 hover:bg-indigo-200"
+                className="w-full min-h-[48px] flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-indigo-100 hover:bg-indigo-200"
               >
                 E-Mail
               </a>
               <a
                 href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-indigo-100 hover:bg-indigo-200"
+                className="w-full min-h-[48px] flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-indigo-100 hover:bg-indigo-200"
               >
                 Como Chegar?
               </a>
@@ -173,8 +173,7 @@ export default function Home() {
             alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
             width="1000"
             height="1000"
-            loading="eager"
-            fetchPriority="high"
+            loading="lazy"
             decoding="async"
           />
         </div>

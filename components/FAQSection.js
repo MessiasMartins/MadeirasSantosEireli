@@ -31,7 +31,7 @@ const FAQSection = ({ faqs = [] }) => {
                     {faq.showWhatsappButton && (
                       <a
                         href={siteMetadata.whatsapp}
-                        className="inline-flex items-center justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700"
+                        className="inline-flex min-h-[48px] items-center justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700"
                       >
                         WhatsApp
                       </a>
