@@ -70,7 +70,7 @@ export default function Home() {
             decoding="async"
           />
           <div className="absolute inset-0 bg-white/70" />
-          <main className="relative z-10 px-4 pt-8 pb-8">
+          <main className="relative z-10 px-4 pt-4 pb-8">
             <h1 className="max-w-[20ch] text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl">
               <span className="block">Madeiras de qualidade para o seu</span>
               <span className="block text-primary-600">Projeto!</span>
@@ -104,7 +104,7 @@ export default function Home() {
         </section>
 
         <div className="hidden lg:block max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-white dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+          <div className="relative z-10 pb-8 bg-gray-50 dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
             <svg
               className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
               fill="#059669"
