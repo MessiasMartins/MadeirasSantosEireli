@@ -91,3 +91,25 @@ input:-webkit-autofill:focus {
     transform: translateY(0);
   }
 }
+
+.faq-item .faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 220ms ease;
+}
+
+.faq-item .faq-answer > dd {
+  overflow: hidden;
+}
+
+.faq-item[open] .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-item .faq-chevron {
+  transition: transform 220ms ease;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(45deg);
+}
