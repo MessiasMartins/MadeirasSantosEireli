@@ -5,7 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 //import formatDate from '@/lib/utils/formatDate'
 import features from '@/components/Features'
-import Image from 'next/image'
+import Image from 'next/dist/client/image'
 import Head from 'next/head'
 
 import NewsletterForm from '@/components/NewsletterForm'
