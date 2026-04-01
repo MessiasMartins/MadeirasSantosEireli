@@ -196,18 +196,11 @@ export default function Home() {
                 >
                   <dt>
                     <div className="mb-3 inline-flex rounded-full bg-white/15 p-3">
-                      <feature.icon
-                        className="h-6 w-6 text-white"
-                        aria-hidden="true"
-                      />
+                      <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
                     </div>
-                    <p className="text-xl font-bold leading-7 text-white">
-                      {feature.name}
-                    </p>
+                    <p className="text-xl font-bold leading-7 text-white">{feature.name}</p>
                   </dt>
-                  <dd className="mt-2 text-base leading-7 text-white/95">
-                    {feature.description}
-                  </dd>
+                  <dd className="mt-2 text-base leading-7 text-white/95">{feature.description}</dd>
                 </div>
               ))}
             </dl>
