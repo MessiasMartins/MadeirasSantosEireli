@@ -1,6 +1,12 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
+let withBundleAnalyzer = (nextConfig) => nextConfig
+
+try {
+  withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+  })
+} catch (error) {
+  // Fallback keeps builds working when bundle analyzer dependency is not installed
+}
 
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
