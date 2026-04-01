@@ -32,6 +32,7 @@ export default function Home() {
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <Head>
+        <link rel="preload" as="image" href="/static/images/wood.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessStructuredData) }}
