@@ -266,36 +266,48 @@ export default function Home() {
               Telefone: 031 3653-2390 <br></br>
               E-mail: comercial@madeirassantos.com.br<br></br>
             </p>
-            <div className="mt-1 flex flex-col gap-3 sm:mt-6 lg:justify-start">
-              <div className="mt-0">
-                <a
-                  href={siteMetadata.whatsapp}
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
-                    text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 
-                    md:text-lg md:px-10"
-                >
-                  Whatsapp
-                </a>
+            <div className="mt-1 sm:mt-6">
+              <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
+                <iframe
+                  title="Mapa da Madeiras Santos em Belo Horizonte"
+                  src="https://www.google.com/maps?q=Avenida%20Portugal%20901A%20Santa%20Am%C3%A9lia%20Belo%20Horizonte%20MG&output=embed"
+                  className="h-64 w-full md:h-72"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
-              <div>
-                <a
-                  href={`mailto:${siteMetadata.email}`}
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
-                    text-base font-medium rounded-md text-gray-800 bg-yellow-50 border-yellow-200 hover:bg-yellow-100 md:py-4 
-                    md:text-lg md:px-5"
-                >
-                  E-Mail
-                </a>
-              </div>
-              <div>
-                <a
-                  href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
-                    text-base font-medium rounded-md text-gray-800 bg-yellow-50 border-yellow-200 hover:bg-yellow-100 md:py-4 
-                    md:text-lg md:px-5 sm: text-center"
-                >
-                  Como Chegar?
-                </a>
+              <div className="mt-3 flex flex-col gap-3 lg:justify-start">
+                <div className="mt-0">
+                  <a
+                    href={siteMetadata.whatsapp}
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
+                      text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 
+                      md:text-lg md:px-10"
+                  >
+                    Whatsapp
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href={`mailto:${siteMetadata.email}`}
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
+                      text-base font-medium rounded-md text-gray-800 bg-yellow-50 border-yellow-200 hover:bg-yellow-100 md:py-4 
+                      md:text-lg md:px-5"
+                  >
+                    E-Mail
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
+                      text-base font-medium rounded-md text-gray-800 bg-yellow-50 border-yellow-200 hover:bg-yellow-100 md:py-4 
+                      md:text-lg md:px-5 sm: text-center"
+                  >
+                    Como Chegar?
+                  </a>
+                </div>
               </div>
             </div>
           </div>
