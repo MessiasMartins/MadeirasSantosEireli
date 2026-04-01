@@ -89,6 +89,44 @@ NEXT_USE_PREACT=true
 
 This switch is useful for controlled performance experiments without impacting default deploy stability.
 
+## Versionamento (default x atual)
+
+Resumo objetivo das versões/configurações que foram atualizadas neste ciclo.
+
+| Item | Default (antes) | Atual |
+|---|---:|---:|
+| Node (`.nvmrc`) | não definido | `24` |
+| Node (`package.json > engines.node`) | não definido | `24.x` |
+| Next.js | `11.1.2` | `12.3.7` |
+| eslint-config-next | `11.1.2` | `12.3.7` |
+| React | `17.0.2` | `17.0.2` (sem mudança) |
+| React DOM | `17.0.2` | `17.0.2` (sem mudança) |
+| Bundle analyzer | `@next/bundle-analyzer` fixo | opcional via `try/catch` no `next.config.js` |
+| Alias React→Preact (produção) | ligado por padrão | opt-in com `NEXT_USE_PREACT=true` |
+| Script `dev` | `NODE_OPTIONS=--openssl-legacy-provider next dev` | `next dev` |
+| Script `build` | `NODE_OPTIONS=--openssl-legacy-provider next build` | `next build` |
+
+## FAQ sugerido (SEO + conversão)
+
+Perguntas recomendadas para criar uma seção de Perguntas e Respostas com foco em tráfego qualificado e conversão:
+
+1. **Quais tipos de madeira vocês vendem para construção em Belo Horizonte?**
+2. **Vocês fazem entrega em BH e região metropolitana? Qual o prazo médio?**
+3. **Como solicitar orçamento rápido por WhatsApp?**
+4. **Quais medidas de tábuas, ripas, pontaletes e escoras estão disponíveis?**
+5. **Vocês trabalham com compensado plastificado e resinado? Quais espessuras?**
+6. **Como saber qual madeira é ideal para telhado, forma ou acabamento?**
+7. **Vocês atendem pessoa física e construtoras?**
+8. **Quais formas de pagamento são aceitas?**
+9. **Onde fica a Madeiras Santos e como chegar?**
+10. **Como comparar preço sem perder qualidade e durabilidade da madeira?**
+
+### Dica SEO para FAQ
+
+- Usar linguagem de busca local (ex.: “em Belo Horizonte”, “entrega em BH”).
+- Respostas diretas (40–70 palavras) + CTA no final (“fale no WhatsApp”).
+- Implementar `FAQPage` JSON-LD para elegibilidade de rich results.
+
 ## Extend / Customize
 
 `data/siteMetadata.js` - contains most of the site related information which should be modified for a user's need.
