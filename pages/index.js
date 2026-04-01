@@ -5,6 +5,8 @@ import siteMetadata from '@/data/siteMetadata'
 //import formatDate from '@/lib/utils/formatDate'
 import features from '@/components/Features'
 import Head from 'next/head'
+import FAQSection from '@/components/FAQSection'
+import faqData from '@/data/faqData'
 
 import NewsletterForm from '@/components/NewsletterForm'
 export default function Home() {
@@ -27,6 +29,18 @@ export default function Home() {
     areaServed: ['Belo Horizonte', 'Região Metropolitana de Belo Horizonte'],
     sameAs: [siteMetadata.instgram, siteMetadata.google],
   }
+  const faqStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqData.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
 
   return (
     <>
@@ -36,6 +50,10 @@ export default function Home() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessStructuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
         />
       </Head>
       <div className="relative overflow-hidden divide-y divide-gray-200 dark:divide-gray-300">
@@ -196,6 +214,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <FAQSection faqs={faqData} />
       {siteMetadata.newsletter.provider !== '' && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
