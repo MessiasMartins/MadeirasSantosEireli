@@ -196,7 +196,10 @@ export default function Home() {
                 >
                   <dt>
                     <div className="mb-3 inline-flex rounded-full bg-emerald-100 p-3 dark:bg-emerald-900/30">
-                      <feature.icon className="h-6 w-6 text-emerald-700 dark:text-emerald-300" aria-hidden="true" />
+                      <feature.icon
+                        className="h-6 w-6 text-emerald-700 dark:text-emerald-300"
+                        aria-hidden="true"
+                      />
                     </div>
                     <p className="text-xl font-bold leading-7 text-gray-900 dark:text-gray-100">
                       {feature.name}
