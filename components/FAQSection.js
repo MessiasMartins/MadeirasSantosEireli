@@ -17,7 +17,7 @@ const FAQSection = ({ faqs = [] }) => {
           {faqs.map((faq) => (
             <div
               key={faq.question}
-              className="rounded-lg border border-yellow-200 bg-yellow-100/70 dark:border-gray-700 dark:bg-gray-800"
+              className="rounded-lg border border-yellow-100 bg-yellow-50/90 dark:border-gray-700 dark:bg-gray-800"
             >
               <dt>
                 <details className="faq-item group">
