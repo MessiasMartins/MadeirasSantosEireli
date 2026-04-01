@@ -13,7 +13,10 @@ const FAQSection = ({ faqs = [] }) => {
       <div className="pb-8">
         <dl className="space-y-3">
           {faqs.map((faq) => (
-            <div key={faq.question} className="rounded-lg border border-gray-200 dark:border-gray-700">
+            <div
+              key={faq.question}
+              className="rounded-lg border border-gray-200 dark:border-gray-700"
+            >
               <dt>
                 <details className="group">
                   <summary className="cursor-pointer list-none px-4 py-4 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 sm:text-base">
