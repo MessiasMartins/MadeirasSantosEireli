@@ -1,3 +1,5 @@
+import siteMetadata from '@/data/siteMetadata'
+
 const FAQSection = ({ faqs = [] }) => {
   return (
     <section className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -22,8 +24,18 @@ const FAQSection = ({ faqs = [] }) => {
                   <summary className="cursor-pointer list-none px-4 py-4 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 sm:text-base">
                     {faq.question}
                   </summary>
-                  <dd className="px-4 pb-4 text-sm leading-6 text-gray-600 dark:text-gray-300 sm:text-base">
-                    {faq.answer}
+                  <dd className="space-y-2 px-4 pb-4 text-sm leading-6 text-gray-600 dark:text-gray-300 sm:text-base">
+                    {faq.answerLines?.map((line) => (
+                      <p key={line}>{line}</p>
+                    ))}
+                    {faq.showWhatsappButton && (
+                      <a
+                        href={siteMetadata.whatsapp}
+                        className="inline-flex items-center justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700"
+                      >
+                        WhatsApp
+                      </a>
+                    )}
                   </dd>
                 </details>
               </dt>

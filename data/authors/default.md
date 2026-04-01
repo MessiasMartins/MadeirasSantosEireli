@@ -1,5 +1,5 @@
 ---
-name: Madeiras Santos LTDA
+name: Madeiras Santos
 avatar: /static/images/logo_google2.png
 occupation: Belo Horizonte / Minas Gerais
 email: comercial@madeirassantos.com.br

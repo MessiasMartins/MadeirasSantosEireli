@@ -13,7 +13,7 @@ export default function Home() {
   const businessStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'HomeAndConstructionBusiness',
-    name: 'Madeiras Santos LTDA',
+    name: 'Madeiras Santos',
     url: siteMetadata.siteUrl,
     image: `${siteMetadata.siteUrl}/static/images/wood.jpg`,
     telephone: '+55 31 3653-2390',
@@ -37,7 +37,7 @@ export default function Home() {
       name: faq.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.answer,
+        text: faq.answerLines.join(' '),
       },
     })),
   }
