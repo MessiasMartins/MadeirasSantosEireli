@@ -69,17 +69,17 @@ export default function Home() {
             fetchPriority="high"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-black/65" />
+          <div className="absolute inset-0 bg-white/70" />
           <main className="relative z-10 px-4 pt-10 pb-8">
-            <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-white">
+            <h1 className="max-w-[20ch] text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl">
               <span className="block">Madeiras de qualidade para o seu</span>
-              <span className="block text-primary-400">Projeto!</span>
+              <span className="block text-primary-600">Projeto!</span>
             </h1>
-            <p className="mt-5 text-2xl leading-relaxed text-gray-200">
+            <p className="mt-5 max-w-[26ch] text-xl leading-relaxed text-gray-800 sm:text-2xl">
               O conhecimento de mais de 35 anos de experiência no setor madeireiro aliado a uma
               administração dinâmica e atendimento intimista.
             </p>
-            <p className="mt-4 text-2xl font-bold text-gray-100">Conte conosco!</p>
+            <p className="mt-4 text-2xl font-bold text-gray-900">Conte conosco!</p>
             <div className="mt-6 space-y-3">
               <a
                 href={siteMetadata.whatsapp}
@@ -219,15 +219,15 @@ export default function Home() {
           </h2>
         </div>
         <div>
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <p className=" pt-6 pb-8 text-lg text-gray-500 dark:text-gray-400">
               Avenida Portugal 901A - Santa Amélia, Belo Horizonte / MG <br></br>
               CEP: 31550-000 <br></br>
               Telefone: 031 3653-2390 <br></br>
               E-mail: comercial@madeirassantos.com.br<br></br>
             </p>
-            <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-              <div className="mt-0 sm:mt-0 sm:ml-3">
+            <div className="mt-5 flex flex-col gap-3 sm:mt-8 lg:justify-start">
+              <div className="mt-0">
                 <a
                   href={siteMetadata.whatsapp}
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
@@ -237,7 +237,7 @@ export default function Home() {
                   Whatsapp
                 </a>
               </div>
-              <div className="mt-3 sm:mt-0 sm:ml-3">
+              <div>
                 <a
                   href={`mailto:${siteMetadata.email}`}
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
@@ -247,7 +247,7 @@ export default function Home() {
                   E-Mail
                 </a>
               </div>
-              <div className="mt-3 sm:mt-0 sm:ml-3">
+              <div>
                 <a
                   href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
