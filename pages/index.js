@@ -41,6 +41,43 @@ export default function Home() {
       },
     })),
   }
+  const websiteStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Madeiras Santos',
+    alternateName: 'Madeiras Santos',
+    url: siteMetadata.siteUrl,
+  }
+  const siteNavigationStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: [
+      {
+        '@type': 'SiteNavigationElement',
+        position: 1,
+        name: 'Início',
+        url: `${siteMetadata.siteUrl}/`,
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        position: 2,
+        name: 'Produtos',
+        url: `${siteMetadata.siteUrl}/products`,
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        position: 3,
+        name: 'Sobre',
+        url: `${siteMetadata.siteUrl}/about`,
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        position: 4,
+        name: 'Blog',
+        url: `${siteMetadata.siteUrl}/blog`,
+      },
+    ],
+  }
 
   return (
     <>
@@ -54,6 +91,14 @@ export default function Home() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationStructuredData) }}
         />
       </Head>
       <div className="relative overflow-hidden divide-y divide-gray-200 dark:divide-gray-300">
@@ -104,7 +149,7 @@ export default function Home() {
         </section>
 
         <div className="hidden lg:block max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-gray-50 dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+          <div className="relative z-10 pb-8 bg-gray-100 dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
             <svg
               className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
               fill="#059669"
