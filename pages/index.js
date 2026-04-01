@@ -134,13 +134,13 @@ export default function Home() {
               </a>
               <a
                 href={`mailto:${siteMetadata.email}`}
-                className="w-full min-h-[48px] flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-amber-100 hover:bg-amber-200"
+                className="w-full min-h-[48px] flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-yellow-100 hover:bg-yellow-200"
               >
                 E-Mail
               </a>
               <a
                 href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025"
-                className="w-full min-h-[48px] flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-amber-100 hover:bg-amber-200"
+                className="w-full min-h-[48px] flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-yellow-100 hover:bg-yellow-200"
               >
                 Como Chegar?
               </a>
@@ -189,7 +189,7 @@ export default function Home() {
                     <a
                       href={`mailto:${siteMetadata.email}`}
                       className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
-                    text-base font-medium rounded-md text-gray-900 bg-amber-100 hover:bg-amber-200 md:py-4 
+                    text-base font-medium rounded-md text-gray-900 bg-yellow-100 hover:bg-yellow-200 md:py-4 
                     md:text-lg md:px-10"
                     >
                       E-Mail
@@ -199,7 +199,7 @@ export default function Home() {
                     <a
                       href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025"
                       className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
-                        text-base font-medium rounded-md text-gray-900 bg-amber-100 hover:bg-amber-200 md:py-4 
+                        text-base font-medium rounded-md text-gray-900 bg-yellow-100 hover:bg-yellow-200 md:py-4 
                         md:text-lg md:px-5 sm:text-center"
                     >
                       Como Chegar?
@@ -281,7 +281,7 @@ export default function Home() {
                 <a
                   href={`mailto:${siteMetadata.email}`}
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
-                    text-base font-medium rounded-md text-gray-900 bg-amber-100 hover:bg-amber-200 md:py-4 
+                    text-base font-medium rounded-md text-gray-900 bg-yellow-100 hover:bg-yellow-200 md:py-4 
                     md:text-lg md:px-5"
                 >
                   E-Mail
@@ -291,7 +291,7 @@ export default function Home() {
                 <a
                   href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
-                    text-base font-medium rounded-md text-gray-900 bg-amber-100 hover:bg-amber-200 md:py-4 
+                    text-base font-medium rounded-md text-gray-900 bg-yellow-100 hover:bg-yellow-200 md:py-4 
                     md:text-lg md:px-5 sm: text-center"
                 >
                   Como Chegar?
