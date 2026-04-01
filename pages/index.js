@@ -182,32 +182,32 @@ export default function Home() {
       <div className="grid-cols-2 divide-y divide-gray-200 dark:divide-gray-700">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Madeiras Santos
+            Por que escolher a Madeiras Santos?
           </h2>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
           </p>
-          <div className="container py-12 bg-green-600">
-            <div className="flex flex-wrap -m-4"></div>
-            <div className="mt-5">
-              <dl className="space-y-10 md:space-y-0 md:gap-x-8 md:gap-y-10">
-                {features.map((feature) => (
-                  <div key={feature.name} className="relative">
-                    <dt>
-                      <div className="relative flex items-center justify-center rounded-md pb-2">
-                        <feature.icon className="h-10 w-10" aria-hidden="true" />
-                      </div>
-                      <p className="text-center text-2xl font-extrabold  pb-2 leading-7 text-gray-100">
-                        {feature.name}
-                      </p>
-                    </dt>
-                    <dd className="text-center text- text-lg font-medium pb-2 leading-7 text-gray-100">
-                      {feature.description}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
+          <div className="mt-8 rounded-2xl bg-emerald-50 p-4 dark:bg-gray-800/60 sm:p-6">
+            <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {features.map((feature) => (
+                <div
+                  key={feature.name}
+                  className="rounded-2xl bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md dark:bg-gray-900"
+                >
+                  <dt>
+                    <div className="mb-3 inline-flex rounded-full bg-emerald-100 p-3 dark:bg-emerald-900/30">
+                      <feature.icon className="h-6 w-6 text-emerald-700 dark:text-emerald-300" aria-hidden="true" />
+                    </div>
+                    <p className="text-xl font-bold leading-7 text-gray-900 dark:text-gray-100">
+                      {feature.name}
+                    </p>
+                  </dt>
+                  <dd className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-300">
+                    {feature.description}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </div>
