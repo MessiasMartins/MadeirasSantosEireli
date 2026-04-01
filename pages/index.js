@@ -281,7 +281,7 @@ export default function Home() {
                 allowFullScreen
               />
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex h-full flex-col justify-center gap-3">
               <a
                 href={siteMetadata.whatsapp}
                 className="w-full flex items-center justify-center px-8 py-3 border border-transparent 
