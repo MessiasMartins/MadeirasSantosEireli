@@ -4,7 +4,7 @@ class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
-          <link rel="favicon.ico" sizes="76x76" href="/static/favicons/favicon.ico" />
+          <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
           <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon.ico" />
           <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon.ico" />
           <link rel="manifest" href="/static/favicons/site.webmanifest" />
