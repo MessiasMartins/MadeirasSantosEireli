@@ -10,6 +10,10 @@ import faqData from '@/data/faqData'
 
 import NewsletterForm from '@/components/NewsletterForm'
 export default function Home() {
+  const mapsEmbedSrc = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    ? `https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=Avenida+Portugal+901A,+Santa+Am%C3%A9lia,+Belo+Horizonte,+MG,+Brasil`
+    : 'https://maps.google.com/maps?width=100%25&height=400&hl=pt-BR&q=Avenida%20Portugal%20901A%20Santa%20Am%C3%A9lia%20Belo%20Horizonte%20MG&t=&z=15&ie=UTF8&iwloc=B&output=embed'
+
   const businessStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'HomeAndConstructionBusiness',
@@ -270,7 +274,7 @@ export default function Home() {
               <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
                 <iframe
                   title="Mapa da Madeiras Santos em Belo Horizonte"
-                  src="https://maps.google.com/maps?width=100%25&height=400&hl=pt-BR&q=Avenida%20Portugal%20901A%20Santa%20Am%C3%A9lia%20Belo%20Horizonte%20MG&t=&z=15&ie=UTF8&iwloc=B&output=embed"
+                  src={mapsEmbedSrc}
                   className="h-64 w-full md:h-72"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
