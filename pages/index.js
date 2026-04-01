@@ -260,13 +260,13 @@ export default function Home() {
         </div>
         <div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <p className=" pt-6 pb-8 text-lg text-gray-500 dark:text-gray-400">
+            <p className="pt-4 pb-2 text-lg text-gray-500 dark:text-gray-400 md:pt-6 md:pb-8">
               Avenida Portugal 901A - Santa Amélia, Belo Horizonte / MG <br></br>
               CEP: 31550-000 <br></br>
               Telefone: 031 3653-2390 <br></br>
               E-mail: comercial@madeirassantos.com.br<br></br>
             </p>
-            <div className="mt-5 flex flex-col gap-3 sm:mt-8 lg:justify-start">
+            <div className="mt-1 flex flex-col gap-3 sm:mt-6 lg:justify-start">
               <div className="mt-0">
                 <a
                   href={siteMetadata.whatsapp}
