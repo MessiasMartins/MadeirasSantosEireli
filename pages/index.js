@@ -5,7 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 //import formatDate from '@/lib/utils/formatDate'
 import features from '@/components/Features'
-import Image from 'next/dist/client/image'
+import Head from 'next/head'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
@@ -18,9 +18,35 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }) {
+  const businessStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'HomeAndConstructionBusiness',
+    name: 'Madeiras Santos LTDA',
+    url: siteMetadata.siteUrl,
+    image: `${siteMetadata.siteUrl}/static/images/wood.jpg`,
+    telephone: '+55 31 3653-2390',
+    email: siteMetadata.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Avenida Portugal 901A - Santa Amélia',
+      addressLocality: 'Belo Horizonte',
+      addressRegion: 'MG',
+      postalCode: '31550-000',
+      addressCountry: 'BR',
+    },
+    areaServed: ['Belo Horizonte', 'Região Metropolitana de Belo Horizonte'],
+    sameAs: [siteMetadata.instgram, siteMetadata.google],
+  }
+
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessStructuredData) }}
+        />
+      </Head>
       <div className="relative overflow-hidden divide-y divide-gray-200 dark:divide-gray-300">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 bg-white dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -85,12 +111,15 @@ export default function Home({ posts }) {
           </div>
         </div>
         <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-100">
-          <Image
+          <img
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
             src="/static/images/wood.jpg"
-            alt=""
-            width={1000}
-            height={1000}
+            alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
+            width="1000"
+            height="1000"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
       </div>
