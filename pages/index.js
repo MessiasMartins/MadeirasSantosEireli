@@ -177,7 +177,7 @@ export default function Home() {
         <div className="hidden lg:block max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 bg-gray-100 dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
             <svg
-              className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
+              className="hidden lg:block absolute right-0 inset-y-0 h-full w-24 text-white transform translate-x-1/2"
               fill="#059669"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
@@ -191,7 +191,7 @@ export default function Home() {
                   <span className="block xl:inline">Madeiras de qualidade para o seu</span>{' '}
                   <span className="block text-primary-500 xl:inline">Projeto!</span>
                 </p>
-                <p className="mt-5 text-base text-gray-600 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
+                <p className="mt-5 max-w-2xl text-base text-gray-600 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
                   Qualidade, preço justo e atendimento rápido para obras, reformas e marcenaria em
                   Belo Horizonte e região metropolitana.
                 </p>
@@ -209,7 +209,7 @@ export default function Home() {
                     Ver localização
                   </a>
                 </div>
-                <p className="mt-4 text-sm text-gray-600">
+                <p className="mt-4 max-w-2xl text-sm text-gray-600">
                   Atendimento em Belo Horizonte e região metropolitana • Orçamento rápido • Entrega
                   sob consulta
                 </p>
@@ -218,7 +218,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-100">
+        <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
@@ -287,13 +287,9 @@ export default function Home() {
         </div>
         <div className="pt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {whyChoose.map((item) => (
-            <article key={item.name} className="rounded-xl bg-emerald-50 p-5 dark:bg-gray-800/70">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                {item.name}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-300">
-                {item.description}
-              </p>
+            <article key={item.name} className="rounded-xl bg-green-600 p-5">
+              <h3 className="text-lg font-semibold text-white">{item.name}</h3>
+              <p className="mt-2 text-sm leading-6 text-white/95">{item.description}</p>
             </article>
           ))}
         </div>
