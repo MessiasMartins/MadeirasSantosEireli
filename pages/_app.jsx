@@ -16,12 +16,16 @@ export default function App({ Component, pageProps }) {
       <LayoutWrapper>
         <Component {...pageProps} />
         <CookieConsent
-          overlay="true"
-          buttonText="Estou de Acordo"
-          style={{ background: '#059669' }}
-          buttonClasses="border border-transparent"
+          location="bottom"
+          buttonText="Aceitar cookies"
+          cookieName="madeiras-santos-cookie-consent"
+          expires={180}
+          containerClasses="cookie-consent-banner"
+          contentClasses="cookie-consent-content"
+          buttonClasses="cookie-consent-button"
         >
-          Este site utiliza Cookies para melhorar a experiência do usuário.
+          Utilizamos cookies para melhorar sua navegação, analisar tráfego e personalizar sua
+          experiência.
         </CookieConsent>
       </LayoutWrapper>
     </ThemeProvider>

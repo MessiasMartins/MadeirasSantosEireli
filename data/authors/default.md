@@ -1,5 +1,5 @@
 ---
-name: Madeiras Santos LTDA
+name: Madeiras Santos
 avatar: /static/images/logo_google2.png
 occupation: Belo Horizonte / Minas Gerais
 email: comercial@madeirassantos.com.br
@@ -10,7 +10,7 @@ github: https://github.com
 
 # Sobre a Madeiras Santos
 
-A **Madeiras Santos**, localizada em **Belo Horizonte, Minas Gerais**, reúne mais de **35 anos de tradição** no setor madeireiro, **apoiada na experiência de seus gestores** e combinando know-how técnico, atendimento personalizado e preços competitivos.
+A **Madeiras Santos**, localizada em **Belo Horizonte, Minas Gerais**, reúne mais de **40 anos de tradição** no setor madeireiro, **apoiada na experiência de seus gestores** e combinando know-how técnico, atendimento personalizado e preços competitivos.
 
 ## Nosso Propósito
 
