@@ -237,12 +237,12 @@ export default function Home() {
           Atendimento objetivo para quem precisa comprar com mais rapidez
         </p>
         <ul className="mt-4 grid grid-cols-2 gap-3 text-sm text-gray-600 dark:text-gray-300 sm:grid-cols-4">
-          <li className="rounded-lg bg-gray-50 px-3 py-2 dark:bg-gray-800">Orçamento rápido</li>
-          <li className="rounded-lg bg-gray-50 px-3 py-2 dark:bg-gray-800">Atendimento local</li>
-          <li className="rounded-lg bg-gray-50 px-3 py-2 dark:bg-gray-800">
+          <li className="rounded-lg bg-green-600 px-3 py-2 text-white">Orçamento rápido</li>
+          <li className="rounded-lg bg-green-600 px-3 py-2 text-white">Atendimento local</li>
+          <li className="rounded-lg bg-green-600 px-3 py-2 text-white">
             Apoio na escolha dos materiais
           </li>
-          <li className="rounded-lg bg-gray-50 px-3 py-2 dark:bg-gray-800">
+          <li className="rounded-lg bg-green-600 px-3 py-2 text-white">
             WhatsApp como canal principal
           </li>
         </ul>
@@ -260,16 +260,9 @@ export default function Home() {
         </div>
         <div className="pt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((item) => (
-            <article
-              key={item.name}
-              className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900"
-            >
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                {item.name}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
-                {item.description}
-              </p>
+            <article key={item.name} className="rounded-xl bg-green-600 p-5">
+              <h3 className="text-lg font-semibold text-white">{item.name}</h3>
+              <p className="mt-2 text-sm leading-6 text-white/95">{item.description}</p>
             </article>
           ))}
         </div>
@@ -304,10 +297,23 @@ export default function Home() {
             Atendemos clientes em Belo Horizonte e também na região metropolitana, com foco em
             agilidade no orçamento, clareza comercial e apoio no processo de compra.
           </p>
-          <p className="text-sm leading-6 text-gray-600 dark:text-gray-300">
-            Belo Horizonte, Contagem, Betim, Nova Lima, Vespasiano, Lagoa Santa, Santa Luzia, Sabará
-            e outras cidades da região.
-          </p>
+          <ul className="flex flex-wrap gap-2 pt-1 text-sm">
+            {[
+              'Belo Horizonte',
+              'Contagem',
+              'Betim',
+              'Nova Lima',
+              'Vespasiano',
+              'Lagoa Santa',
+              'Santa Luzia',
+              'Sabará',
+              'Outras cidades da região',
+            ].map((city) => (
+              <li key={city} className="rounded-full bg-green-600 px-3 py-1.5 text-white">
+                {city}
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="pt-6 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
           <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
@@ -346,17 +352,10 @@ export default function Home() {
         </div>
         <ol className="pt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
           {quoteSteps.map((step, index) => (
-            <li
-              key={step.title}
-              className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900"
-            >
-              <p className="text-sm font-semibold text-primary-600">{index + 1}.</p>
-              <h3 className="mt-2 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
-                {step.description}
-              </p>
+            <li key={step.title} className="rounded-xl bg-green-600 p-5">
+              <p className="text-sm font-semibold text-yellow-100">{index + 1}.</p>
+              <h3 className="mt-2 text-lg font-semibold text-white">{step.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-white/95">{step.description}</p>
             </li>
           ))}
         </ol>
