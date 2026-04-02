@@ -2,10 +2,13 @@
   "name": "mdsantos",
   "version": "2.0.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "start": "next-remote-watch ./data",
-    "dev": "NODE_OPTIONS=--openssl-legacy-provider next dev",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
+    "dev": "next dev",
+    "build": "next build",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
@@ -22,7 +25,7 @@
     "gray-matter": "^4.0.2",
     "image-size": "1.0.0",
     "mdx-bundler": "^6.0.1",
-    "next": "11.1.2",
+    "next": "12.3.7",
     "next-themes": "^0.0.14",
     "postcss": "^8.3.5",
     "preact": "^10.5.13",
@@ -43,12 +46,11 @@
     "unist-util-visit": "^4.0.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "11.1.2",
     "@svgr/webpack": "^3.1.0",
     "cross-env": "^7.0.3",
     "dedent": "^0.7.0",
     "eslint": "^7.29.0",
-    "eslint-config-next": "11.1.2",
+    "eslint-config-next": "12.3.7",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.3.1",
