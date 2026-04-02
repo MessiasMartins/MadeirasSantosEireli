@@ -25,12 +25,6 @@ export default function Footer() {
           </div>
 
           <div>
-            <div className="mb-3 flex justify-center space-x-4 md:justify-start">
-              <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size="6" />
-              <SocialIcon kind="whatsapp" href={siteMetadata.whatsapp} size="5" />
-              <SocialIcon kind="instagram" href={siteMetadata.instgram} size="5" />
-              <SocialIcon kind="google" href={siteMetadata.google} size="5" />
-            </div>
             <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">
               Horário de funcionamento
             </h3>
@@ -66,6 +60,12 @@ export default function Footer() {
                 <Link href="/about">Sobre</Link>
               </li>
             </ul>
+            <div className="mt-4 flex space-x-4">
+              <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size="6" />
+              <SocialIcon kind="whatsapp" href={siteMetadata.whatsapp} size="5" />
+              <SocialIcon kind="instagram" href={siteMetadata.instgram} size="5" />
+              <SocialIcon kind="google" href={siteMetadata.google} size="5" />
+            </div>
           </div>
         </div>
 
