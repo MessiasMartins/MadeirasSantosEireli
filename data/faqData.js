@@ -26,7 +26,9 @@ const faqData = [
   },
   {
     question: 'Vocês atendem pessoa física e jurídica?',
-    answerLines: ['Sim. Atendemos diferentes perfis de cliente, de pessoa física a pessoa jurídica.'],
+    answerLines: [
+      'Sim. Atendemos diferentes perfis de cliente, de pessoa física a pessoa jurídica.',
+    ],
   },
   {
     question: 'Não sei exatamente qual material preciso. Posso pedir orientação?',

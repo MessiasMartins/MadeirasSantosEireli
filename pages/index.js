@@ -124,7 +124,10 @@ export default function Home() {
         />
       </Head>
 
-      <section className="relative overflow-hidden divide-y divide-gray-200 dark:divide-gray-300" aria-labelledby="hero-title">
+      <section
+        className="relative overflow-hidden divide-y divide-gray-200 dark:divide-gray-300"
+        aria-labelledby="hero-title"
+      >
         <div className="relative min-h-[72vh] lg:hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -207,8 +210,8 @@ export default function Home() {
                   </a>
                 </div>
                 <p className="mt-4 text-sm text-gray-600">
-                  Atendimento em Belo Horizonte e região metropolitana • Orçamento rápido • Entrega sob
-                  consulta
+                  Atendimento em Belo Horizonte e região metropolitana • Orçamento rápido • Entrega
+                  sob consulta
                 </p>
               </div>
             </main>
@@ -239,7 +242,9 @@ export default function Home() {
           <li className="rounded-lg bg-gray-50 px-3 py-2 dark:bg-gray-800">
             Apoio na escolha dos materiais
           </li>
-          <li className="rounded-lg bg-gray-50 px-3 py-2 dark:bg-gray-800">WhatsApp como canal principal</li>
+          <li className="rounded-lg bg-gray-50 px-3 py-2 dark:bg-gray-800">
+            WhatsApp como canal principal
+          </li>
         </ul>
       </section>
 
@@ -255,9 +260,16 @@ export default function Home() {
         </div>
         <div className="pt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((item) => (
-            <article key={item.name} className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{item.name}</h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">{item.description}</p>
+            <article
+              key={item.name}
+              className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                {item.name}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                {item.description}
+              </p>
             </article>
           ))}
         </div>
@@ -276,8 +288,12 @@ export default function Home() {
         <div className="pt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {whyChoose.map((item) => (
             <article key={item.name} className="rounded-xl bg-emerald-50 p-5 dark:bg-gray-800/70">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{item.name}</h3>
-              <p className="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-300">{item.description}</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                {item.name}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-300">
+                {item.description}
+              </p>
             </article>
           ))}
         </div>
@@ -293,8 +309,8 @@ export default function Home() {
             agilidade no orçamento, clareza comercial e apoio no processo de compra.
           </p>
           <p className="text-sm leading-6 text-gray-600 dark:text-gray-300">
-            Belo Horizonte, Contagem, Betim, Nova Lima, Vespasiano, Lagoa Santa, Santa Luzia,
-            Sabará e outras cidades da região.
+            Belo Horizonte, Contagem, Betim, Nova Lima, Vespasiano, Lagoa Santa, Santa Luzia, Sabará
+            e outras cidades da região.
           </p>
         </div>
         <div className="pt-6 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
@@ -334,10 +350,17 @@ export default function Home() {
         </div>
         <ol className="pt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
           {quoteSteps.map((step, index) => (
-            <li key={step.title} className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900">
+            <li
+              key={step.title}
+              className="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900"
+            >
               <p className="text-sm font-semibold text-primary-600">{index + 1}.</p>
-              <h3 className="mt-2 text-lg font-semibold text-gray-900 dark:text-gray-100">{step.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">{step.description}</p>
+              <h3 className="mt-2 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                {step.title}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                {step.description}
+              </p>
             </li>
           ))}
         </ol>
@@ -346,7 +369,9 @@ export default function Home() {
       <FAQSection faqs={faqData} />
 
       <section className="mt-10 rounded-2xl border border-gray-200 bg-emerald-50 p-6 dark:border-gray-700 dark:bg-gray-800/70">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 sm:text-3xl">Solicite seu orçamento</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 sm:text-3xl">
+          Solicite seu orçamento
+        </h2>
         <p className="mt-3 text-base leading-7 text-gray-700 dark:text-gray-300">
           Fale com a Madeiras Santos para consultar disponibilidade, orçamento e atendimento em Belo
           Horizonte e região metropolitana.
