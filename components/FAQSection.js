@@ -1,14 +1,18 @@
 import siteMetadata from '@/data/siteMetadata'
 
-const FAQSection = ({ faqs = [] }) => {
+const FAQSection = ({
+  faqs = [],
+  title = 'Dúvidas frequentes',
+  description = 'Respostas objetivas para agilizar seu orçamento e atendimento.',
+}) => {
   return (
     <section id="faq" className="divide-y divide-gray-200 dark:divide-gray-700">
       <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-        <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-          Perguntas Frequentes
+        <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10">
+          {title}
         </h2>
         <p className="text-base leading-7 text-gray-500 dark:text-gray-400 sm:text-lg">
-          Tire suas dúvidas sobre produtos, entrega e orçamento com respostas rápidas.
+          {description}
         </p>
       </div>
 
