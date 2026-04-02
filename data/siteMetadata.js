@@ -1,9 +1,9 @@
 const siteMetadata = {
-  title: 'Madeiras Santos – Madeireira em Belo Horizonte | Qualidade, Preço e Entrega Ágil',
+  title: 'Madeiras Santos | Madeireira em Belo Horizonte e região metropolitana',
   author: 'Audere',
   headerTitle: 'Madeiras Santos',
   description:
-    'Madeiras de Qualidade, Preço Baixo e Entrega Ágil. Conte com mais de 40 anos de experiência no mercado!',
+    'Compensado plastificado, compensado resinado, OSB, madeira para telhado e portas de madeira. Solicite seu orçamento com a Madeiras Santos em Belo Horizonte e região metropolitana.',
   language: 'pt-BR',
   siteUrl: 'https://madeirassantos.com.br',
   siteRepo: '#',

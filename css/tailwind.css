@@ -46,7 +46,7 @@ input:-webkit-autofill:focus {
   margin: 0 !important;
   border: 1px solid transparent !important;
   border-radius: 10px !important;
-  background: #0f766e !important;
+  background: #059669 !important;
   color: #ffffff !important;
   font-weight: 600 !important;
   padding: 10px 16px !important;
@@ -54,7 +54,7 @@ input:-webkit-autofill:focus {
 }
 
 .cookie-consent-button:hover {
-  background: #115e59 !important;
+  background: #047857 !important;
 }
 
 .dark .cookie-consent-banner {

@@ -1,49 +1,45 @@
 const faqData = [
   {
-    question: 'Quais tipos de madeira vocês vendem para construção em Belo Horizonte e região?',
+    question: 'Vocês atendem Belo Horizonte e região metropolitana?',
     answerLines: [
-      'Trabalhamos com madeiras para telhado, formas e acabamentos, incluindo ripas, tábuas, pontaletes e escoras além de marcos, portas, maçanetas e dobradiças.',
-      'Oferecemos o serviço de corte em caso de necessidades especiais.',
-      'Fale conosco no WhatsApp para confirmar medidas e disponibilidade em estoque.',
+      'Sim. Atendemos Belo Horizonte e também cidades da região metropolitana, conforme a demanda e a viabilidade de entrega.',
+    ],
+  },
+  {
+    question: 'Posso pedir orçamento pelo WhatsApp?',
+    answerLines: [
+      'Sim. O WhatsApp é um dos principais canais de atendimento para agilizar o orçamento e tirar dúvidas sobre os materiais.',
     ],
     showWhatsappButton: true,
   },
   {
-    question: 'Vocês fazem entrega em BH e região metropolitana?',
+    question: 'Vocês trabalham com compensado plastificado, compensado resinado e OSB?',
     answerLines: [
-      'Sim.',
-      'Atendemos Belo Horizonte e região metropolitana com logística própria e parceiros.',
-      'O prazo varia conforme local e volume do pedido.',
+      'Sim. Trabalhamos com compensado plastificado, compensado resinado e OSB. Fale com a equipe para consultar disponibilidade e a aplicação mais adequada.',
     ],
   },
   {
-    question: 'Como solicitar orçamento?',
+    question: 'Vocês fazem entrega?',
     answerLines: [
-      'Você pode pedir orçamento pelo telefone, email ou WhatsApp informando tipo de madeira, medidas e quantidade desejada.',
-      'Nossa equipe retorna com valor, prazos e opções de entrega.',
-    ],
-    showWhatsappButton: true,
-  },
-  {
-    question: 'Vocês trabalham com compensado plastificado e resinado?',
-    answerLines: [
-      'Sim.',
-      'Temos opções de compensados para diferentes aplicações na construção civil.',
-      'Consulte espessuras disponíveis e indicação técnica para sua obra.',
+      'Sim, a entrega está disponível sob consulta, de acordo com a região e a disponibilidade operacional.',
     ],
   },
   {
-    question: 'Como escolher a madeira ideal para telhado, forma ou acabamento?',
+    question: 'Vocês atendem pessoa física e jurídica?',
     answerLines: [
-      'Nossa equipe orienta de acordo com a finalidade da obra, carga, durabilidade esperada e custo-benefício.',
-      'Assim você compra com mais segurança e evita desperdício.',
+      'Sim. Atendemos pessoa física e jurídica, conforme a necessidade de cada cliente.',
     ],
   },
   {
-    question: 'Quais formas de pagamento são aceitas?',
+    question: 'Não sei exatamente qual material preciso. Posso pedir orientação?',
     answerLines: [
-      'Aceitamos as principais formas de pagamento incluído PIX.',
-      'Para condições atualizadas e opções para volume, entre em contato com nosso atendimento.',
+      'Sim. Nossa equipe pode orientar você no processo de compra para ajudar na escolha do material mais adequado.',
+    ],
+  },
+  {
+    question: 'Qual é o horário de funcionamento?',
+    answerLines: [
+      'Atendemos de segunda a sexta, das 8h às 17h30, e aos sábados, das 8h às 12h. Domingos e feriados, estamos fechados.',
     ],
   },
 ]
