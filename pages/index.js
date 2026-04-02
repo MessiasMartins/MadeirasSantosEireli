@@ -152,48 +152,107 @@ export default function Home() {
       </Head>
 
       <section className="relative overflow-hidden" aria-labelledby="hero-title">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/static/images/wood.jpg"
-          alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
-          width="1000"
-          height="1000"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="absolute inset-0 bg-white/75" />
-        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
-          <h1
-            id="hero-title"
-            className="max-w-[20ch] text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl"
-          >
-            <span className="block">Madeiras de qualidade para o seu</span>
-            <span className="block text-primary-600">Projeto!</span>
-          </h1>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-gray-800 sm:text-lg">
-            Atendimento rápido para obras, reformas e marcenaria em Belo Horizonte e região
-            metropolitana, com orçamento pelo WhatsApp e apoio na escolha dos materiais.
-          </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <a
-              href={siteMetadata.whatsapp}
-              className="min-h-[48px] rounded-md bg-green-600 px-6 py-3 text-center text-base font-medium text-white transition-colors duration-200 hover:bg-green-700"
+        <div className="relative min-h-[72vh] lg:hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/static/images/wood.jpg"
+            alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
+            width="1000"
+            height="1000"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-white/75" />
+          <main className="relative z-10 px-4 pt-5 pb-10">
+            <h1
+              id="hero-title"
+              className="max-w-[20ch] text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl"
             >
-              Solicitar orçamento no WhatsApp
-            </a>
-            <a
-              href="#localizacao"
-              className="min-h-[48px] rounded-md border border-yellow-200 bg-yellow-50 px-6 py-3 text-center text-base font-medium text-gray-800 transition-colors duration-200 hover:bg-yellow-100"
+              <span className="block">Madeiras de qualidade para o seu</span>
+              <span className="block text-primary-600">Projeto!</span>
+            </h1>
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-gray-800 sm:text-lg">
+              Atendimento rápido para obras, reformas e marcenaria em Belo Horizonte e região
+              metropolitana, com orçamento pelo WhatsApp e apoio na escolha dos materiais.
+            </p>
+            <div className="mt-6 flex flex-col gap-3">
+              <a
+                href={siteMetadata.whatsapp}
+                className="min-h-[48px] rounded-md bg-green-600 px-6 py-3 text-center text-base font-medium text-white transition-colors duration-200 hover:bg-green-700"
+              >
+                Solicitar orçamento no WhatsApp
+              </a>
+              <a
+                href="#localizacao"
+                className="min-h-[48px] rounded-md border border-yellow-200 bg-yellow-50 px-6 py-3 text-center text-base font-medium text-gray-800 transition-colors duration-200 hover:bg-yellow-100"
+              >
+                Ver localização
+              </a>
+            </div>
+            <p className="mt-4 max-w-3xl text-sm leading-6 text-gray-700">
+              Belo Horizonte e região metropolitana • Orçamento rápido • Retirada e entrega sob
+              consulta
+            </p>
+          </main>
+        </div>
+
+        <div className="hidden lg:block max-w-7xl mx-auto">
+          <div className="relative z-10 bg-gray-100 pb-8 dark:bg-gray-900 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
+            <svg
+              className="absolute inset-y-0 right-0 hidden h-full w-24 translate-x-1/2 transform text-white lg:block"
+              fill="#059669"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              aria-hidden="true"
             >
-              Ver localização
-            </a>
+              <polygon points="50,0 100,0 50,100 0,100" />
+            </svg>
+            <main className="mx-auto max-w-7xl px-4 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+              <div className="sm:text-center lg:text-left">
+                <p className="pt-10 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+                  <span className="block xl:inline">Madeiras de qualidade para o seu</span>{' '}
+                  <span className="block text-primary-500 xl:inline">Projeto!</span>
+                </p>
+                <p className="mt-5 max-w-2xl text-base text-gray-600 sm:mx-auto sm:max-w-xl sm:text-lg md:text-xl lg:mx-0">
+                  Atendimento rápido para obras, reformas e marcenaria em Belo Horizonte e região
+                  metropolitana, com orçamento pelo WhatsApp e apoio na escolha dos materiais.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3 sm:justify-center lg:justify-start">
+                  <a
+                    href={siteMetadata.whatsapp}
+                    className="min-h-[48px] rounded-md bg-green-600 px-8 py-3 text-base font-medium text-white transition-colors duration-200 hover:bg-green-700 md:py-4 md:text-lg"
+                  >
+                    Solicitar orçamento no WhatsApp
+                  </a>
+                  <a
+                    href="#localizacao"
+                    className="min-h-[48px] rounded-md border border-yellow-200 bg-yellow-50 px-8 py-3 text-base font-medium text-gray-800 transition-colors duration-200 hover:bg-yellow-100 md:py-4 md:text-lg"
+                  >
+                    Ver localização
+                  </a>
+                </div>
+                <p className="mt-4 max-w-2xl text-sm text-gray-600">
+                  Belo Horizonte e região metropolitana • Orçamento rápido • Retirada e entrega sob
+                  consulta
+                </p>
+              </div>
+            </main>
           </div>
-          <p className="mt-4 max-w-3xl text-sm leading-6 text-gray-700">
-            Belo Horizonte e região metropolitana • Orçamento rápido • Retirada e entrega sob
-            consulta
-          </p>
+        </div>
+
+        <div className="absolute inset-y-0 right-0 hidden w-1/2 lg:block">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="h-full w-full object-cover"
+            src="/static/images/wood.jpg"
+            alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
+            width="1000"
+            height="1000"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
 
