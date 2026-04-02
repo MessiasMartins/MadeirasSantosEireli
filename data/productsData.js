@@ -6,21 +6,21 @@ const productsData = [
     e espessuras.`,
     imgSrc: '/static/images/wood.jpg',
     //href: '/blog/madeiras',
-    href: '/construction',
+    href: '/products/madeira-para-telhado-belo-horizonte',
   },
   {
     title: 'Chapas / Compensados',
     description: `Compensados Plastificados e Resinados de qualidade entre 5mm e 25mm.`,
     imgSrc: '/static/images/wood.jpg',
     //href: '/chacom',
-    href: '/construction',
+    href: '/products/compensado-plastificado-belo-horizonte',
   },
   {
     title: 'Paraju',
     description: `Peças de Paraju de para telhados coloniais entre outros usos.`,
     imgSrc: '/static/images/wood.jpg',
     //href: '/blog/paraju',
-    href: '/construction',
+    href: '/products/madeira-para-telhado-belo-horizonte',
   },
   {
     title: 'Deck de Madeira',
@@ -28,7 +28,7 @@ const productsData = [
     seja para lazer ou decoração, confira.`,
     imgSrc: '/static/images/wood.jpg',
     //href: '/blog/deck',
-    href: '/construction',
+    href: '/products/portas-de-madeira-belo-horizonte',
   },
   {
     title: 'Telhas',
@@ -36,7 +36,7 @@ const productsData = [
     telhas de PVC, telhas de Vidro e telhas galvanizadas.`,
     imgSrc: '/static/images/wood.jpg',
     //href: '/blog/telhas',
-    href: '/construction',
+    href: '/products/madeira-para-telhado-belo-horizonte',
   },
   {
     title: 'Portas',
@@ -44,14 +44,14 @@ const productsData = [
     Lisas e Frisadas de Angelim e Tauari.`,
     imgSrc: '/static/images/wood.jpg',
     //href: '/blog/portas',
-    href: '/construction',
+    href: '/products/portas-de-madeira-belo-horizonte',
   },
   {
     title: 'Marcos e Rodapés',
     description: `Marcos de Angelim, Tauari e Rodapés de Cumaru.`,
     imgSrc: '/static/images/wood.jpg',
     //href: '/blog/marcos',
-    href: '/construction',
+    href: '/products/portas-de-madeira-belo-horizonte',
   },
   {
     title: 'Outros',
@@ -59,7 +59,7 @@ const productsData = [
     Verniz, Colfas, Pregos, Fechaduras para Portas, Dobradiças entre outros.`,
     imgSrc: '/static/images/wood.jpg',
     //href: '/blog/diversos',
-    href: '/construction',
+    href: '/products',
   },
 ]
 
