@@ -190,7 +190,10 @@ export default function ProductsHubPage() {
         </div>
       </section>
 
-      <section id="atendimento" className="mt-10 rounded-2xl border border-gray-200 bg-emerald-50 p-6 dark:border-gray-700 dark:bg-gray-800/70">
+      <section
+        id="atendimento"
+        className="mt-10 rounded-2xl border border-gray-200 bg-emerald-50 p-6 dark:border-gray-700 dark:bg-gray-800/70"
+      >
         <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 sm:text-3xl">
           Não encontrou exatamente o que procura?
         </h2>
