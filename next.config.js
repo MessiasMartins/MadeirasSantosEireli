@@ -1,6 +1,12 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
+let withBundleAnalyzer = (nextConfig) => nextConfig
+
+try {
+  withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+  })
+} catch (error) {
+  // Fallback keeps builds working when bundle analyzer dependency is not installed
+}
 
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
@@ -8,7 +14,6 @@ module.exports = withBundleAnalyzer({
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
-  experimental: { esmExternals: true },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|mp4)$/i,
@@ -28,8 +33,8 @@ module.exports = withBundleAnalyzer({
       use: ['@svgr/webpack'],
     })
 
-    if (!dev && !isServer) {
-      // Replace React with Preact only in client production build
+    if (!dev && !isServer && process.env.NEXT_USE_PREACT === 'true') {
+      // Replace React with Preact only when explicitly enabled
       Object.assign(config.resolve.alias, {
         react: 'preact/compat',
         'react-dom/test-utils': 'preact/test-utils',

@@ -4,7 +4,7 @@ class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
-          <link rel="favicon.ico" sizes="76x76" href="/static/favicons/favicon.ico" />
+          <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
           <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon.ico" />
           <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon.ico" />
           <link rel="manifest" href="/static/favicons/site.webmanifest" />
@@ -12,6 +12,7 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="theme-color" content="#000000" />
           <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
@@ -24,7 +25,7 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
         </Head>
-        <body className="antialiased text-black bg-white dark:bg-gray-900 dark:text-white">
+        <body className="antialiased text-black bg-gray-100 dark:bg-gray-900 dark:text-white">
           <Main />
           <NextScript />
         </body>
