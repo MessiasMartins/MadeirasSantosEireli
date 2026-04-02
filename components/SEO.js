@@ -2,7 +2,16 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 
-const CommonSEO = ({ title, description, author, ogType, ogImage, twImage }) => {
+const CommonSEO = ({
+  title,
+  description,
+  author,
+  ogType,
+  ogImage,
+  twImage,
+  ogTitle,
+  ogDescription,
+}) => {
   const router = useRouter()
   const canonicalUrl = `${siteMetadata.siteUrl}${router.asPath}`.split('?')[0]
   return (
@@ -16,8 +25,8 @@ const CommonSEO = ({ title, description, author, ogType, ogImage, twImage }) => 
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={siteMetadata.title} />
       <meta property="og:author" content={siteMetadata.author} />
-      <meta property="og:description" content={description} />
-      <meta property="og:title" content={title} />
+      <meta property="og:description" content={ogDescription || description} />
+      <meta property="og:title" content={ogTitle || title} />
       {ogImage.constructor.name === 'Array' ? (
         ogImage.map(({ url }) => <meta property="og:image" content={url} key={url} />)
       ) : (
@@ -32,7 +41,7 @@ const CommonSEO = ({ title, description, author, ogType, ogImage, twImage }) => 
   )
 }
 
-export const PageSEO = ({ title, description }) => {
+export const PageSEO = ({ title, description, ogTitle, ogDescription }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   return (
@@ -42,6 +51,8 @@ export const PageSEO = ({ title, description }) => {
       ogType="website"
       ogImage={ogImageUrl}
       twImage={twImageUrl}
+      ogTitle={ogTitle}
+      ogDescription={ogDescription}
     />
   )
 }
@@ -78,8 +89,8 @@ export const BlogSEO = ({ authorDetails, title, summary, date, lastmod, url, ima
     images.length === 0
       ? [siteMetadata.socialBanner]
       : typeof images === 'string'
-      ? [images]
-      : images
+        ? [images]
+        : images
 
   const featuredImages = imagesArr.map((img) => {
     return {

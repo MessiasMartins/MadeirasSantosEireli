@@ -46,7 +46,7 @@ export default function MadeiraTelhadoPage() {
       h1="Madeira para telhado em Belo Horizonte"
       subtitle="Atendimento para quem busca peças para estrutura de telhado, com apoio na escolha dos materiais e orçamento direto pelo WhatsApp."
       introTitle="Sobre madeira para telhado"
-      introText="Para estruturas de telhado, é importante ter mais clareza na escolha do material e no tipo de peça necessário. A Madeiras Santos atende clientes de Belo Horizonte e região metropolitana com foco em orientação comercial e agilidade no orçamento."
+      introText="Para estruturas de telhado, é importante ter mais clareza na escolha do material e no tipo de peça necessário. A Madeiras Santos atende com foco em orientação comercial e agilidade no orçamento."
       whenTitle="Quando esta linha costuma fazer sentido"
       whenText="Essa linha costuma ser procurada quando o cliente precisa de peças para cobertura, estrutura ou demandas relacionadas ao telhado, conforme o tipo de projeto."
       applicationsTitle="Aplicações e demandas comuns"
