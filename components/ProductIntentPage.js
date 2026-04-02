@@ -10,11 +10,17 @@ const ProductIntentPage = ({
   description,
   h1,
   subtitle,
+  introTitle,
+  introText,
   whenTitle,
   whenText,
-  usesTitle,
-  usesText,
+  applicationsTitle,
+  applicationsText,
+  applicationsList = [],
+  budgetTitle = 'O que informar para agilizar o orçamento',
   budgetText,
+  budgetItems = [],
+  relatedTitle = 'Itens, serviços e linhas relacionadas',
   ctaLabel,
   faq,
   path,
@@ -59,6 +65,19 @@ const ProductIntentPage = ({
 
       <section className="rounded-2xl bg-emerald-50 p-6 dark:bg-gray-800/70">
         <p className="text-sm font-semibold text-primary-600">Linha de produto</p>
+        <nav className="mt-2 text-sm text-gray-700 dark:text-gray-300" aria-label="Breadcrumb">
+          <ol className="flex flex-wrap items-center gap-1">
+            <li>
+              <Link href="/">Início</Link>
+            </li>
+            <li>/</li>
+            <li>
+              <Link href="/products">Produtos</Link>
+            </li>
+            <li>/</li>
+            <li className="font-medium text-gray-900 dark:text-gray-100">{h1}</li>
+          </ol>
+        </nav>
         <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
           {h1}
         </h1>
@@ -84,21 +103,41 @@ const ProductIntentPage = ({
       <section className="divide-y divide-gray-200 pt-10 dark:divide-gray-700">
         <div className="space-y-3">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 sm:text-3xl">
+            {introTitle}
+          </h2>
+          <p className="text-base leading-7 text-gray-600 dark:text-gray-300">{introText}</p>
+        </div>
+        <div className="pt-6 space-y-3">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 sm:text-3xl">
             {whenTitle}
           </h2>
           <p className="text-base leading-7 text-gray-600 dark:text-gray-300">{whenText}</p>
         </div>
         <div className="pt-6 space-y-3">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 sm:text-3xl">
-            {usesTitle}
+            {applicationsTitle}
           </h2>
-          <p className="text-base leading-7 text-gray-600 dark:text-gray-300">{usesText}</p>
+          <p className="text-base leading-7 text-gray-600 dark:text-gray-300">{applicationsText}</p>
+          {applicationsList.length > 0 && (
+            <ul className="list-disc space-y-1 pl-5 text-base text-gray-700 dark:text-gray-300">
+              {applicationsList.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          )}
         </div>
         <div className="pt-6 space-y-3">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 sm:text-3xl">
-            O que informar no orçamento
+            {budgetTitle}
           </h2>
           <p className="text-base leading-7 text-gray-600 dark:text-gray-300">{budgetText}</p>
+          {budgetItems.length > 0 && (
+            <ul className="list-disc space-y-1 pl-5 text-base text-gray-700 dark:text-gray-300">
+              {budgetItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
 
@@ -106,7 +145,7 @@ const ProductIntentPage = ({
         <section className="divide-y divide-gray-200 pt-10 dark:divide-gray-700">
           <div className="space-y-3">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 sm:text-3xl">
-              Produtos relacionados
+              {relatedTitle}
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-3 pt-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -168,10 +207,31 @@ const ProductIntentPage = ({
         </div>
       </section>
 
+      <section className="mt-10 rounded-2xl border border-gray-200 bg-emerald-50 p-6 dark:border-gray-700 dark:bg-gray-800/70">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+          Precisa de apoio para fechar seu pedido com mais rapidez?
+        </h2>
+        <p className="mt-3 text-base leading-7 text-gray-700 dark:text-gray-300">
+          Fale com a Madeiras Santos para consultar disponibilidade, orçamento e atendimento em Belo
+          Horizonte e região metropolitana.
+        </p>
+        <div className="mt-5">
+          <a
+            href={siteMetadata.whatsapp}
+            className="inline-flex min-h-[48px] items-center justify-center rounded-md bg-green-600 px-6 py-3 text-base font-medium text-white transition-colors duration-200 hover:bg-green-700"
+          >
+            {ctaLabel}
+          </a>
+        </div>
+        <p className="mt-3 text-sm text-gray-700 dark:text-gray-300">
+          <Link href="/products">Voltar para produtos</Link>
+        </p>
+      </section>
+
       <FAQSection
         faqs={faq}
-        title="Dúvidas frequentes sobre produtos e atendimento"
-        description="Respostas diretas para agilizar seu orçamento e melhorar sua decisão de compra."
+        title="Dúvidas frequentes sobre esta linha"
+        description="Respostas objetivas para facilitar seu orçamento e o atendimento pelo WhatsApp."
       />
     </>
   )
