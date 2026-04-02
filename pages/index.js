@@ -3,7 +3,6 @@ import siteMetadata from '@/data/siteMetadata'
 import Head from 'next/head'
 import FAQSection from '@/components/FAQSection'
 import faqData from '@/data/faqData'
-import NewsletterForm from '@/components/NewsletterForm'
 
 const products = [
   {
@@ -13,11 +12,13 @@ const products = [
   },
   {
     name: 'Compensado resinado',
-    description: 'Versátil para diferentes usos na obra, com ótimo custo-benefício.',
+    description:
+      'Versátil para diferentes usos na obra, com bom custo-benefício e ampla aplicação.',
   },
   {
     name: 'OSB',
-    description: 'Solução prática para fechamentos, divisórias, tapumes e outras aplicações.',
+    description:
+      'Solução prática para fechamentos, divisórias, tapumes e outras necessidades da obra.',
   },
   {
     name: 'Madeira para telhado',
@@ -25,11 +26,12 @@ const products = [
   },
   {
     name: 'Portas de madeira',
-    description: 'Opções para quem busca praticidade e qualidade em um só lugar.',
+    description: 'Opções para quem busca praticidade, qualidade e atendimento objetivo.',
   },
   {
     name: 'Outros itens sob consulta',
-    description: 'Fale com a equipe para verificar disponibilidade e necessidades específicas.',
+    description:
+      'Fale com a equipe para consultar disponibilidade e necessidade específica do seu projeto.',
   },
 ]
 
@@ -38,17 +40,14 @@ const whyChoose = [
     name: 'Atendimento rápido',
     description: 'Contato direto para agilizar orçamento e atendimento.',
   },
-  {
-    name: 'Foco local',
-    description: 'Atendimento para Belo Horizonte e região metropolitana.',
-  },
+  { name: 'Foco local', description: 'Atendimento para Belo Horizonte e região metropolitana.' },
   {
     name: 'Apoio na escolha',
     description: 'Mais clareza para quem precisa comprar com segurança.',
   },
   {
-    name: 'Relação custo-benefício',
-    description: 'Busca por qualidade com negociação objetiva.',
+    name: 'Negociação objetiva',
+    description: 'Busca por qualidade com orientação comercial clara.',
   },
 ]
 
@@ -59,13 +58,27 @@ const quoteSteps = [
   },
   {
     title: 'Receba orientação',
-    description: 'A equipe ajuda a validar os itens e esclarecer dúvidas.',
+    description: 'A equipe ajuda a esclarecer dúvidas e orientar a compra.',
   },
   {
     title: 'Avance com mais rapidez',
     description:
       'Você recebe retorno para seguir com retirada ou entrega, conforme disponibilidade.',
   },
+]
+
+const cities = [
+  'Belo Horizonte',
+  'Contagem',
+  'Betim',
+  'Nova Lima',
+  'Vespasiano',
+  'Lagoa Santa',
+  'Santa Luzia',
+  'Sabará',
+  'Ribeirão das Neves',
+  'Pedro Leopoldo',
+  'Outras cidades da região',
 ]
 
 export default function Home() {
@@ -81,6 +94,20 @@ export default function Home() {
     image: `${siteMetadata.siteUrl}/static/images/wood.jpg`,
     telephone: '+55 31 3653-2390',
     email: siteMetadata.email,
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '08:00',
+        closes: '17:30',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '08:00',
+        closes: '12:00',
+      },
+    ],
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Avenida Portugal 901A - Santa Amélia',
@@ -89,7 +116,7 @@ export default function Home() {
       postalCode: '31550-000',
       addressCountry: 'BR',
     },
-    areaServed: ['Belo Horizonte', 'Contagem', 'Betim', 'Nova Lima', 'Vespasiano'],
+    areaServed: cities,
     sameAs: [siteMetadata.instgram, siteMetadata.google],
   }
 
@@ -124,111 +151,49 @@ export default function Home() {
         />
       </Head>
 
-      <section
-        className="relative overflow-hidden divide-y divide-gray-200 dark:divide-gray-300"
-        aria-labelledby="hero-title"
-      >
-        <div className="relative min-h-[72vh] lg:hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className="absolute inset-0 h-full w-full object-cover"
-            src="/static/images/wood.jpg"
-            alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
-            width="1000"
-            height="1000"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
-          <div className="absolute inset-0 bg-white/75" />
-          <main className="relative z-10 px-4 pt-5 pb-10">
-            <h1
-              id="hero-title"
-              className="max-w-[20ch] text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl"
+      <section className="relative overflow-hidden" aria-labelledby="hero-title">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/static/images/wood.jpg"
+          alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
+          width="1000"
+          height="1000"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-white/75" />
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
+          <h1
+            id="hero-title"
+            className="max-w-[20ch] text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl"
+          >
+            <span className="block">Madeiras de qualidade para o seu</span>
+            <span className="block text-primary-600">Projeto!</span>
+          </h1>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-gray-800 sm:text-lg">
+            Atendimento rápido para obras, reformas e marcenaria em Belo Horizonte e região
+            metropolitana, com orçamento pelo WhatsApp e apoio na escolha dos materiais.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a
+              href={siteMetadata.whatsapp}
+              className="min-h-[48px] rounded-md bg-green-600 px-6 py-3 text-center text-base font-medium text-white transition-colors duration-200 hover:bg-green-700"
             >
-              <span className="block">Madeiras de qualidade para o seu</span>
-              <span className="block text-primary-600">Projeto!</span>
-            </h1>
-            <p className="mt-4 max-w-[36ch] text-base leading-relaxed text-gray-800 sm:text-lg">
-              Qualidade, preço justo e atendimento rápido para obras, reformas e marcenaria em Belo
-              Horizonte e região metropolitana.
-            </p>
-            <div className="mt-6 grid grid-cols-1 gap-3">
-              <a
-                href={siteMetadata.whatsapp}
-                className="w-full min-h-[48px] rounded-md bg-green-600 px-6 py-3 text-center text-base font-medium text-white hover:bg-green-700"
-              >
-                Solicitar orçamento no WhatsApp
-              </a>
-              <a
-                href="#localizacao"
-                className="w-full min-h-[48px] rounded-md border border-yellow-200 bg-yellow-50 px-6 py-3 text-center text-base font-medium text-gray-800 hover:bg-yellow-100"
-              >
-                Ver localização
-              </a>
-            </div>
-            <p className="mt-4 text-sm leading-6 text-gray-700">
-              Atendimento em Belo Horizonte e região metropolitana • Orçamento rápido • Entrega sob
-              consulta
-            </p>
-          </main>
-        </div>
-
-        <div className="hidden lg:block max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-gray-100 dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-            <svg
-              className="hidden lg:block absolute right-0 inset-y-0 h-full w-24 text-white transform translate-x-1/2"
-              fill="#059669"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              aria-hidden="true"
+              Solicitar orçamento no WhatsApp
+            </a>
+            <a
+              href="#localizacao"
+              className="min-h-[48px] rounded-md border border-yellow-200 bg-yellow-50 px-6 py-3 text-center text-base font-medium text-gray-800 transition-colors duration-200 hover:bg-yellow-100"
             >
-              <polygon points="50,0 100,0 50,100 0,100" />
-            </svg>
-            <main className="mx-auto max-w-7xl px-4 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-              <div className="sm:text-center lg:text-left">
-                <p className="pt-10 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-                  <span className="block xl:inline">Madeiras de qualidade para o seu</span>{' '}
-                  <span className="block text-primary-500 xl:inline">Projeto!</span>
-                </p>
-                <p className="mt-5 max-w-2xl text-base text-gray-600 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
-                  Qualidade, preço justo e atendimento rápido para obras, reformas e marcenaria em
-                  Belo Horizonte e região metropolitana.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3 sm:justify-center lg:justify-start">
-                  <a
-                    href={siteMetadata.whatsapp}
-                    className="min-h-[48px] rounded-md bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-700 md:py-4 md:text-lg"
-                  >
-                    Solicitar orçamento no WhatsApp
-                  </a>
-                  <a
-                    href="#localizacao"
-                    className="min-h-[48px] rounded-md border border-yellow-200 bg-yellow-50 px-8 py-3 text-base font-medium text-gray-800 hover:bg-yellow-100 md:py-4 md:text-lg"
-                  >
-                    Ver localização
-                  </a>
-                </div>
-                <p className="mt-4 max-w-2xl text-sm text-gray-600">
-                  Atendimento em Belo Horizonte e região metropolitana • Orçamento rápido • Entrega
-                  sob consulta
-                </p>
-              </div>
-            </main>
+              Ver localização
+            </a>
           </div>
-        </div>
-
-        <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-            src="/static/images/wood.jpg"
-            alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
-            width="1000"
-            height="1000"
-            loading="lazy"
-            decoding="async"
-          />
+          <p className="mt-4 max-w-3xl text-sm leading-6 text-gray-700">
+            Belo Horizonte e região metropolitana • Orçamento rápido • Retirada e entrega sob
+            consulta
+          </p>
         </div>
       </section>
 
@@ -236,15 +201,17 @@ export default function Home() {
         <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
           Atendimento objetivo para quem precisa comprar com mais rapidez
         </p>
-        <ul className="mt-4 grid grid-cols-2 gap-3 text-sm text-gray-600 dark:text-gray-300 sm:grid-cols-4">
-          <li className="rounded-lg bg-green-600 px-3 py-2 text-white">Orçamento rápido</li>
-          <li className="rounded-lg bg-green-600 px-3 py-2 text-white">Atendimento local</li>
-          <li className="rounded-lg bg-green-600 px-3 py-2 text-white">
-            Apoio na escolha dos materiais
-          </li>
-          <li className="rounded-lg bg-green-600 px-3 py-2 text-white">
-            WhatsApp como canal principal
-          </li>
+        <ul className="mt-4 grid grid-cols-1 gap-3 text-sm sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            'Orçamento rápido pelo WhatsApp',
+            'Atendimento local em BH e região',
+            'Apoio na escolha dos materiais',
+            'Mais clareza para obras, reformas e marcenaria',
+          ].map((item) => (
+            <li key={item} className="rounded-lg bg-green-600 px-3 py-2 text-white">
+              {item}
+            </li>
+          ))}
         </ul>
       </section>
 
@@ -254,8 +221,8 @@ export default function Home() {
             Principais produtos
           </h2>
           <p className="text-base leading-7 text-gray-600 dark:text-gray-300 sm:text-lg">
-            Materiais para obras, reformas e demandas recorrentes com mais agilidade e clareza no
-            atendimento.
+            Materiais para obras, reformas e demandas recorrentes, com atendimento mais ágil para
+            Belo Horizonte e região metropolitana.
           </p>
         </div>
         <div className="pt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -274,8 +241,8 @@ export default function Home() {
             Por que comprar com a Madeiras Santos?
           </h2>
           <p className="text-base leading-7 text-gray-600 dark:text-gray-300 sm:text-lg">
-            Nosso foco é oferecer atendimento direto, mais agilidade no orçamento e apoio na escolha
-            dos materiais para facilitar sua compra.
+            Atendimento direto para orçamento mais rápido, apoio na escolha dos materiais e foco em
+            clientes de Belo Horizonte e região metropolitana.
           </p>
         </div>
         <div className="pt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -294,21 +261,11 @@ export default function Home() {
             Atendimento em Belo Horizonte e região metropolitana
           </h2>
           <p className="text-base leading-7 text-gray-600 dark:text-gray-300 sm:text-lg">
-            Atendemos clientes em Belo Horizonte e também na região metropolitana, com foco em
-            agilidade no orçamento, clareza comercial e apoio no processo de compra.
+            Atendemos clientes em Belo Horizonte e também em cidades da região metropolitana, com
+            foco em agilidade no orçamento, clareza comercial e apoio no processo de compra.
           </p>
           <ul className="flex flex-wrap gap-2 pt-1 text-sm">
-            {[
-              'Belo Horizonte',
-              'Contagem',
-              'Betim',
-              'Nova Lima',
-              'Vespasiano',
-              'Lagoa Santa',
-              'Santa Luzia',
-              'Sabará',
-              'Outras cidades da região',
-            ].map((city) => (
+            {cities.map((city) => (
               <li key={city} className="rounded-full bg-green-600 px-3 py-1.5 text-white">
                 {city}
               </li>
@@ -330,13 +287,13 @@ export default function Home() {
           <div className="flex h-full flex-col justify-center gap-3">
             <a
               href={siteMetadata.whatsapp}
-              className="w-full min-h-[48px] rounded-md bg-green-600 px-8 py-3 text-center text-base font-medium text-white hover:bg-green-700 md:py-4"
+              className="w-full min-h-[48px] rounded-md bg-green-600 px-8 py-3 text-center text-base font-medium text-white transition-colors duration-200 hover:bg-green-700 md:py-4"
             >
               Chamar no WhatsApp
             </a>
             <a
               href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025"
-              className="w-full min-h-[48px] rounded-md border border-yellow-200 bg-yellow-50 px-8 py-3 text-center text-base font-medium text-gray-800 hover:bg-yellow-100 md:py-4"
+              className="w-full min-h-[48px] rounded-md border border-yellow-200 bg-yellow-50 px-8 py-3 text-center text-base font-medium text-gray-800 transition-colors duration-200 hover:bg-yellow-100 md:py-4"
             >
               Ver localização
             </a>
@@ -374,24 +331,24 @@ export default function Home() {
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           <a
             href={siteMetadata.whatsapp}
-            className="w-full min-h-[48px] rounded-md bg-green-600 px-6 py-3 text-center text-base font-medium text-white hover:bg-green-700"
+            className="w-full min-h-[48px] rounded-md bg-green-600 px-6 py-3 text-center text-base font-medium text-white transition-colors duration-200 hover:bg-green-700"
           >
             Falar no WhatsApp
           </a>
           <a
             href="#localizacao"
-            className="w-full min-h-[48px] rounded-md border border-yellow-200 bg-yellow-50 px-6 py-3 text-center text-base font-medium text-gray-800 hover:bg-yellow-100"
+            className="w-full min-h-[48px] rounded-md border border-yellow-200 bg-yellow-50 px-6 py-3 text-center text-base font-medium text-gray-800 transition-colors duration-200 hover:bg-yellow-100"
           >
             Ver localização
           </a>
         </div>
-      </section>
-
-      {siteMetadata.newsletter.provider !== '' && (
-        <div className="flex items-center justify-center pt-6">
-          <NewsletterForm />
+        <div className="mt-5 rounded-xl bg-white/70 p-4 text-sm text-gray-700 dark:bg-gray-900/40 dark:text-gray-200">
+          <h3 className="font-semibold">Horário de funcionamento</h3>
+          <p className="mt-1">Segunda a sexta: 8h às 17h30</p>
+          <p>Sábado: 8h às 12h</p>
+          <p>Domingos e feriados: fechado</p>
         </div>
-      )}
+      </section>
     </>
   )
 }
