@@ -148,13 +148,16 @@ export default function Home() {
             </a>
           </div>
           <ul className="mt-6 grid grid-cols-2 gap-2 text-xs font-medium sm:max-w-3xl sm:grid-cols-4 sm:text-sm">
-            {['Estoque no local', 'Entrega ágil', 'Atacado e varejo', 'Mais de 35 anos de experiência'].map(
-              (item) => (
-                <li key={item} className="rounded-full bg-white/15 px-3 py-2 text-center text-white">
-                  {item}
-                </li>
-              )
-            )}
+            {[
+              'Estoque no local',
+              'Entrega ágil',
+              'Atacado e varejo',
+              'Mais de 35 anos de experiência',
+            ].map((item) => (
+              <li key={item} className="rounded-full bg-white/15 px-3 py-2 text-center text-white">
+                {item}
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -174,7 +177,9 @@ export default function Home() {
               key={item.title}
               className="group flex h-full flex-col rounded-xl border border-emerald-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-emerald-400 hover:shadow-md motion-reduce:transform-none"
             >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{item.title}</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                {item.title}
+              </h3>
               <p className="mt-2 flex-1 text-sm leading-6 text-gray-600 dark:text-gray-300">
                 {item.description}
               </p>
@@ -194,7 +199,10 @@ export default function Home() {
           <h2 className="text-2xl font-extrabold text-gray-900 dark:text-gray-100">Diferenciais</h2>
           <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {trustPillars.map((pillar) => (
-              <div key={pillar} className="rounded-xl bg-emerald-50 p-4 text-sm font-semibold text-gray-800">
+              <div
+                key={pillar}
+                className="rounded-xl bg-emerald-50 p-4 text-sm font-semibold text-gray-800"
+              >
                 {pillar}
               </div>
             ))}
@@ -229,7 +237,9 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-gray-900/55" />
             <div className="relative z-10 p-6 sm:p-8">
-              <h2 className="text-3xl font-extrabold text-white">Entrega ágil para facilitar sua obra.</h2>
+              <h2 className="text-3xl font-extrabold text-white">
+                Entrega ágil para facilitar sua obra.
+              </h2>
               <p className="mt-3 max-w-2xl text-base text-white/95">
                 Consulte disponibilidade e condições para entrega em Belo Horizonte e região.
               </p>
@@ -257,7 +267,9 @@ export default function Home() {
             />
           </div>
           <div className="flex flex-col justify-center">
-            <h2 className="text-2xl font-extrabold text-gray-900 dark:text-gray-100">Visite a loja</h2>
+            <h2 className="text-2xl font-extrabold text-gray-900 dark:text-gray-100">
+              Visite a loja
+            </h2>
             <p className="mt-3 text-base text-gray-700 dark:text-gray-300">
               Prefere ver o material de perto? Visite a Madeiras Santos e conte com atendimento
               direto no local.
@@ -294,7 +306,10 @@ export default function Home() {
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
             {['Bom atendimento', 'Preço justo', 'Cordialidade', 'Satisfação com o produto'].map(
               (topic) => (
-                <article key={topic} className="rounded-xl border border-emerald-200 bg-white p-4 text-sm">
+                <article
+                  key={topic}
+                  className="rounded-xl border border-emerald-200 bg-white p-4 text-sm"
+                >
                   <p className="font-semibold text-gray-900">{topic}</p>
                   <p className="mt-2 text-gray-600">Bloco preparado para avaliações reais.</p>
                 </article>

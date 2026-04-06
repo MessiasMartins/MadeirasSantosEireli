@@ -7,7 +7,12 @@ class MyDocument extends Document {
           <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
           <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon.ico" />
           <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon.ico" />
-          <link rel="icon" type="image/png" sizes="192x192" href="/static/images/logo_google2.png" />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/static/images/logo_google2.png"
+          />
           <link rel="apple-touch-icon" href="/static/images/logo_google2.png" />
           <link rel="manifest" href="/static/favicons/site.webmanifest" />
           <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#5bbad5" />

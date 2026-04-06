@@ -36,9 +36,7 @@ export default function Footer() {
               Domingos e feriados: fechado
             </p>
             <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">
-              <Link href={siteMetadata.google}>
-                Ver localização
-              </Link>
+              <Link href={siteMetadata.google}>Ver localização</Link>
             </p>
           </div>
 
