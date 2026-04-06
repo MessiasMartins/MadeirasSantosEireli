@@ -159,7 +159,7 @@ export default function ProductsHubPage() {
             Solicitar orçamento no WhatsApp
           </a>
           <a
-            href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025"
+            href={siteMetadata.google}
             className="w-full min-h-[48px] rounded-md border border-yellow-200 bg-yellow-50 px-6 py-3 text-center text-base font-medium text-gray-800 transition-all duration-200 hover:-translate-y-0.5 hover:bg-yellow-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-400 motion-reduce:transform-none motion-reduce:transition-none"
           >
             Ver localização

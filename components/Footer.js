@@ -36,7 +36,7 @@ export default function Footer() {
               Domingos e feriados: fechado
             </p>
             <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">
-              <Link href="https://www.google.com/maps/place/Madeiras+Santos+EIRELI/@-19.8436181,-43.9877025,15z/data=!4m5!3m4!1s0x0:0xeae93a7279947fed!8m2!3d-19.8436181!4d-43.9877025">
+              <Link href={siteMetadata.google}>
                 Ver localização
               </Link>
             </p>

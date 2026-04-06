@@ -3,7 +3,7 @@ const siteMetadata = {
   author: 'Audere',
   headerTitle: 'Madeiras Santos',
   description:
-    'Compensado plastificado, compensado resinado, OSB, madeira para telhado e portas de madeira. Solicite seu orçamento com a Madeiras Santos em Belo Horizonte e região metropolitana.',
+    'Telhas, tábuas, madeira para telhado, chapas, portas e marcos com atendimento rápido, estoque no local e entrega sob consulta em Belo Horizonte e região.',
   language: 'pt-BR',
   siteUrl: 'https://madeirassantos.com.br',
   siteRepo: '#',
@@ -12,7 +12,7 @@ const siteMetadata = {
   image: '/static/images/logo_google2.png',
   socialBanner: '/static/images/L-1.png',
   //***Conteudo para as demais páginas adaptados para SEO***/
-  otherTitle: 'Madeiras Santos. Qualidade, Preço e Tradição',
+  otherTitle: 'Madeiras Santos. Estoque, variedade e atendimento rápido',
   //otherDescripition:'#',
   //authorImg:'/static/images/audere23.png',
   email: 'comercial@madeirassantos.com.br',
@@ -25,7 +25,7 @@ const siteMetadata = {
   whatsapp:
     'https://api.whatsapp.com/send?phone=5531992482390&text=Ol%C3%A1!%20Vim%20pelo%20link%20do%20WhatsApp%20no%20site.%20Quero%20saber%20mais%20sobre%20seus%20produtos%20e%20servi%C3%A7os.',
   google:
-    'https://www.google.com.br/search?ved=1t:65428&_ga=2.134642289.1214621055.1633344992-771114271.1633344992&q=Madeiras+Santos+EIRELI&ludocid=16927124937789177837&lsig=AB86z5WPzfkrgtjfntzD1VhQj8Fi#fpstate=lie',
+    'https://www.google.com/maps/place/Av.+Portugal,+901+-+Santa+Am%C3%A9lia,+Belo+Horizonte+-+MG,+31550-000',
   locale: 'pt-BR',
   analytics: {
     // supports plausible, simpleAnalytics or googleAnalytics
