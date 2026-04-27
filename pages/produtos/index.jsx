@@ -41,8 +41,12 @@ export default function Produtos() {
                   alt={category.imageAlt}
                   className="mb-3 h-40 w-full rounded-md object-cover"
                 />
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{category.title}</h2>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{category.description}</p>
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                  {category.title}
+                </h2>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                  {category.description}
+                </p>
               </Link>
             ))}
           </div>

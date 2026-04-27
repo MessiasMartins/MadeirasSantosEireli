@@ -44,13 +44,15 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col items-start">
-            <div className="flex mb-3 space-x-4">
+            <div className="mb-3 flex space-x-4">
               <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size="6" />
               <SocialIcon kind="whatsapp" href={siteMetadata.whatsapp} size="5" />
               <SocialIcon kind="instagram" href={siteMetadata.instagram} size="5" />
               <SocialIcon kind="google" href={siteMetadata.google} size="5" />
             </div>
-            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">{companyInfo.address.full}</p>
+            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+              {companyInfo.address.full}
+            </p>
             <p className="mb-3 text-sm text-gray-500 dark:text-gray-400">
               CEP {companyInfo.address.postalCode} • {companyInfo.contact.phoneDisplay}
             </p>

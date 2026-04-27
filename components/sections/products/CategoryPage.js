@@ -7,7 +7,9 @@ import companyInfo from '@/data/config/companyInfo'
 import siteStructure from '@/data/config/siteStructure'
 
 export default function CategoryPage({ seo, category }) {
-  const relatedCategories = siteStructure.productCategories.filter((item) => item.slug !== category.slug)
+  const relatedCategories = siteStructure.productCategories.filter(
+    (item) => item.slug !== category.slug
+  )
   const breadcrumbs = [
     { name: 'Início', href: '/' },
     { name: 'Produtos', href: '/produtos' },
@@ -25,13 +27,17 @@ export default function CategoryPage({ seo, category }) {
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
             {seo.h1}
           </h1>
-          <p className="text-lg leading-7 text-gray-600 dark:text-gray-300">{category.description}</p>
+          <p className="text-lg leading-7 text-gray-600 dark:text-gray-300">
+            {category.description}
+          </p>
         </div>
 
         <div className="grid gap-8 py-10 md:grid-cols-2">
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Aplicações comuns</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                Aplicações comuns
+              </h2>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-600 dark:text-gray-300">
                 {category.applications.map((application) => (
                   <li key={application}>{application}</li>
@@ -48,9 +54,12 @@ export default function CategoryPage({ seo, category }) {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Entrega sob consulta</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                Entrega sob consulta
+              </h2>
               <p className="mt-3 text-gray-600 dark:text-gray-300">
-                Entrega para Belo Horizonte e região metropolitana sob consulta de rota, volume e prazo.
+                Entrega para Belo Horizonte e região metropolitana sob consulta de rota, volume e
+                prazo.
               </p>
             </div>
           </div>
@@ -80,7 +89,9 @@ export default function CategoryPage({ seo, category }) {
         </div>
 
         <div className="py-10">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Produtos relacionados</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+            Produtos relacionados
+          </h2>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {relatedCategories.map((item) => (
               <li key={item.slug}>

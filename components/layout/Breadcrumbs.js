@@ -8,14 +8,21 @@ export default function Breadcrumbs({ items = [] }) {
       <ol className="flex flex-wrap items-center gap-2">
         {items.map((item, index) => {
           const isLast = index === items.length - 1
+
           return (
             <li key={item.href} className="flex items-center gap-2">
               {isLast ? (
-                <span aria-current="page" className="font-semibold text-gray-900 dark:text-gray-100">
+                <span
+                  aria-current="page"
+                  className="font-semibold text-gray-900 dark:text-gray-100"
+                >
                   {item.name}
                 </span>
               ) : (
-                <Link href={item.href} className="hover:text-primary-600 dark:hover:text-primary-400">
+                <Link
+                  href={item.href}
+                  className="hover:text-primary-600 dark:hover:text-primary-400"
+                >
                   {item.name}
                 </Link>
               )}
