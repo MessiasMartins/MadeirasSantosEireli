@@ -2,7 +2,7 @@
 
 # Madeiras Santos Home Page + Blog
 
-Projeto desenvolvido para a Madeiras Santos EIRELI, unindo Home Page + Possiblilidade de Postagens ao estilo Blog.
+Projeto desenvolvido para a Madeiras Santos, unindo Home Page + Possiblilidade de Postagens ao estilo Blog.
 
 ## Tailwind + Nextjs Blog
 

@@ -1,7 +1,7 @@
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
-import Image from 'next/dist/client/image'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="flex mb-3 space-x-4">
             <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size="6" />
             <SocialIcon kind="whatsapp" href={siteMetadata.whatsapp} size="5" />
-            <SocialIcon kind="instagram" href={siteMetadata.instgram} size="5" />
+            <SocialIcon kind="instagram" href={siteMetadata.instagram} size="5" />
             <SocialIcon kind="google" href={siteMetadata.google} size="5" />
           </div>
           <div className="mb-2 flex flex-col items-center gap-1 text-center text-sm text-gray-500 dark:text-gray-400 md:flex-row md:gap-2">
