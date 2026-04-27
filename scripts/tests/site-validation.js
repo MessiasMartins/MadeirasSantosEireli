@@ -29,16 +29,10 @@ function run() {
 
   assert(primaryCtas.includes("label: 'WhatsApp'"), 'CTA de WhatsApp ausente.')
   assert(primaryCtas.includes("label: 'Ligar'"), 'CTA de ligação ausente.')
-  assert(
-    primaryCtas.includes("label: 'Visitar loja'"),
-    'CTA de visita à loja ausente.'
-  )
+  assert(primaryCtas.includes("label: 'Visitar loja'"), 'CTA de visita à loja ausente.')
 
   assert(companyInfo.includes('tel:+553136532390'), 'Link de telefone não usa protocolo tel:.')
-  assert(
-    companyInfo.includes('https://api.whatsapp.com/send?phone='),
-    'Link de WhatsApp inválido.'
-  )
+  assert(companyInfo.includes('https://api.whatsapp.com/send?phone='), 'Link de WhatsApp inválido.')
 
   assert(seo.includes('title:'), 'Title SEO ausente em siteMetadata.')
   assert(seo.includes('description:'), 'Description SEO ausente em siteMetadata.')
