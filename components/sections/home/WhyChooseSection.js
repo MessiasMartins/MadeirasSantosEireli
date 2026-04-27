@@ -8,7 +8,9 @@ export default function WhyChooseSection() {
         <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
           Por que a Madeiras Santos?
         </h2>
-        <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">{siteMetadata.description}</p>
+        <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+          {siteMetadata.description}
+        </p>
         <div className="mt-8 rounded-2xl bg-emerald-50 p-4 dark:bg-gray-800/60 sm:p-6">
           <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {features.map((feature) => (
