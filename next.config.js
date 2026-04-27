@@ -14,6 +14,17 @@ module.exports = withBundleAnalyzer({
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
+
+  async redirects() {
+    return [
+      { source: '/products', destination: '/produtos', permanent: true },
+      { source: '/produto', destination: '/produtos', permanent: true },
+      { source: '/contact', destination: '/contato', permanent: true },
+      { source: '/about', destination: '/contato', permanent: true },
+      { source: '/home', destination: '/', permanent: true },
+    ]
+  },
+
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|mp4)$/i,

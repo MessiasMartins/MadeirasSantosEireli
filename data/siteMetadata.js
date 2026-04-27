@@ -1,13 +1,13 @@
 const companyInfo = require('./config/companyInfo')
+const pageMetadata = require('./config/pageMetadata')
 
 const siteMetadata = {
-  title: 'Madeiras Santos – Madeireira em Belo Horizonte | Qualidade, Preço e Entrega Ágil',
+  title: pageMetadata.home.title,
   author: 'Audere',
   headerTitle: companyInfo.brandName,
-  description:
-    'Madeiras de Qualidade, Preço Baixo e Entrega Ágil. Conte com mais de 40 anos de experiência no mercado!',
+  description: pageMetadata.home.description,
   language: 'pt-BR',
-  siteUrl: 'https://madeirassantos.com.br',
+  siteUrl: 'https://www.madeirassantos.com.br',
   siteRepo: '#',
   siteLogo: '/static/images/logo_google2.png',
   siteName: companyInfo.brandName,

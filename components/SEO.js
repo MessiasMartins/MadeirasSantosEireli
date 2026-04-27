@@ -2,9 +2,10 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 
-const CommonSEO = ({ title, description, author, ogType, ogImage, twImage }) => {
+const CommonSEO = ({ title, description, ogType, ogImage, twImage }) => {
   const router = useRouter()
   const canonicalUrl = `${siteMetadata.siteUrl}${router.asPath}`.split('?')[0]
+
   return (
     <Head>
       <title>{title}</title>
@@ -14,7 +15,7 @@ const CommonSEO = ({ title, description, author, ogType, ogImage, twImage }) => 
       <link rel="canonical" href={canonicalUrl} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content={siteMetadata.title} />
+      <meta property="og:site_name" content={siteMetadata.siteName} />
       <meta property="og:author" content={siteMetadata.author} />
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
@@ -35,6 +36,7 @@ const CommonSEO = ({ title, description, author, ogType, ogImage, twImage }) => 
 export const PageSEO = ({ title, description }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
+
   return (
     <CommonSEO
       title={title}
@@ -46,10 +48,37 @@ export const PageSEO = ({ title, description }) => {
   )
 }
 
+export const BreadcrumbSEO = ({ items = [] }) => {
+  if (items.length === 0) return null
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: `${siteMetadata.siteUrl}${item.href === '/' ? '/' : item.href}`,
+    })),
+  }
+
+  return (
+    <Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+    </Head>
+  )
+}
+
 export const TagSEO = ({ title, description }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const router = useRouter()
+
   return (
     <>
       <CommonSEO
@@ -74,7 +103,7 @@ export const TagSEO = ({ title, description }) => {
 export const BlogSEO = ({ authorDetails, title, summary, date, lastmod, url, images = [] }) => {
   const publishedAt = new Date(date).toISOString()
   const modifiedAt = new Date(lastmod || date).toISOString()
-  let imagesArr =
+  const imagesArr =
     images.length === 0
       ? [siteMetadata.socialBanner]
       : typeof images === 'string'
