@@ -2,7 +2,15 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 
-const CommonSEO = ({ title, description, ogType, ogImage, twImage }) => {
+const CommonSEO = ({
+  title,
+  description,
+  ogType,
+  ogImage,
+  twImage,
+  ogTitle = title,
+  ogDescription = description,
+}) => {
   const router = useRouter()
   const canonicalUrl = `${siteMetadata.siteUrl}${router.asPath}`.split('?')[0]
   const images = Array.isArray(ogImage) ? ogImage : [ogImage]
@@ -18,22 +26,22 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }) => {
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={siteMetadata.siteName} />
       <meta property="og:author" content={siteMetadata.author} />
-      <meta property="og:description" content={description} />
-      <meta property="og:title" content={title} />
+      <meta property="og:description" content={ogDescription} />
+      <meta property="og:title" content={ogTitle} />
       {images.map((image) => {
         const imageUrl = typeof image === 'string' ? image : image.url
         return <meta property="og:image" content={imageUrl} key={imageUrl} />
       })}
       <meta name="twitter:card" content="summary_large_image" />
       {siteMetadata.twitter && <meta name="twitter:site" content={siteMetadata.twitter} />}
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:title" content={ogTitle} />
+      <meta name="twitter:description" content={ogDescription} />
       <meta name="twitter:image" content={twImage} />
     </Head>
   )
 }
 
-export const PageSEO = ({ title, description, ogImage }) => {
+export const PageSEO = ({ title, description, ogTitle, ogDescription, ogImage }) => {
   const selectedImage = ogImage || siteMetadata.socialBanner
   const ogImageUrl = selectedImage.startsWith('http')
     ? selectedImage
@@ -45,6 +53,8 @@ export const PageSEO = ({ title, description, ogImage }) => {
       title={title}
       description={description}
       ogType="website"
+      ogTitle={ogTitle}
+      ogDescription={ogDescription}
       ogImage={ogImageUrl}
       twImage={twImageUrl}
     />
@@ -83,14 +93,12 @@ export const ItemListSEO = ({ items = [], itemListId = '/produtos' }) => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    '@id': `${siteMetadata.siteUrl}${itemListId}`,
+    '@id': `${siteMetadata.siteUrl}${itemListId}#itemlist`,
     name: 'Catálogo de produtos Madeiras Santos',
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      url: `${siteMetadata.siteUrl}${item.categoryHref || '/produtos'}${
-        item.categoryHref === '/produtos' ? `#produto-${item.slug}` : ''
-      }`,
+      url: `${siteMetadata.siteUrl}${itemListId}#produto-${item.slug}`,
       name: item.name,
       description: item.seoDescription,
     })),

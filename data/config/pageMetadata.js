@@ -8,7 +8,7 @@ const pageMetadata = {
   produtos: {
     title: 'Produtos | Madeiras Santos',
     description:
-      'Conheça produtos da Madeiras Santos: telhas, tábuas, madeira para telhado, chapas, compensados, OSB, portas, marcos, ferragens, corte sob medida, lenha e bancos de madeira sob encomenda.',
+      'Conheça telhas, tábuas, madeira para telhado, chapas, compensados, OSB, portas, marcos, ferragens, lenha e serviços sob consulta na Madeiras Santos.',
     h1: 'Produtos Madeiras Santos',
     ogTitle: 'Produtos | Madeiras Santos',
     ogDescription:
@@ -18,31 +18,31 @@ const pageMetadata = {
   telhas: {
     title: 'Telhas | Madeiras Santos',
     description:
-      'Telhas para obras, reformas e coberturas, com atendimento rápido e orientação para escolha conforme a necessidade do projeto. Consulte disponibilidade e condições de entrega.',
+      'Telhas para obras, reformas e coberturas, com atendimento rápido e entrega sob consulta em Belo Horizonte e região.',
     h1: 'Telhas',
   },
   madeiraTelhado: {
     title: 'Madeira para Telhado | Madeiras Santos',
     description:
-      'Tábuas, ripas, caibros e peças de madeira para estrutura, apoio e cobertura. Atendimento direto para quem precisa comprar madeira para telhado com orientação e entrega sob consulta.',
+      'Tábuas, ripas, caibros e peças de madeira para telhados, coberturas e obras. Consulte medidas e disponibilidade.',
     h1: 'Madeira para Telhado',
   },
   chapasCompensados: {
     title: 'Chapas e Compensados | Madeiras Santos',
     description:
-      'Chapas, compensados e OSB para obras, formas, fechamentos, reformas e aplicações diversas. Consulte disponibilidade, medidas e opções indicadas para o seu tipo de uso.',
+      'Chapas, compensados e OSB para obras, formas, fechamentos e reformas. Consulte medidas, disponibilidade e orientação de uso.',
     h1: 'Chapas e Compensados',
   },
   portasMarcos: {
     title: 'Portas, Marcos e Ferragens | Madeiras Santos',
     description:
-      'Portas de madeira, marcos, dobradiças, fechaduras e itens de apoio para instalação e acabamento. Atendimento direto em um só lugar.',
+      'Portas de madeira, marcos, dobradiças e fechaduras para instalação e acabamento. Consulte modelos e medidas.',
     h1: 'Portas, Marcos e Ferragens',
   },
   bancosSobEncomenda: {
     title: 'Bancos de Madeira Sob Encomenda | Madeiras Santos',
     description:
-      'Bancos de madeira sob encomenda para jardins, áreas externas, sítios, condomínios e projetos especiais. Consulte medidas, acabamento, prazo e disponibilidade.',
+      'Bancos de madeira sob encomenda para jardins, áreas externas, sítios e condomínios. Consulte medidas, acabamento e prazo.',
     h1: 'Bancos de Madeira Sob Encomenda',
   },
   entrega: {

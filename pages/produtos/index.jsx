@@ -56,7 +56,13 @@ export default function Produtos() {
 
   return (
     <>
-      <PageSEO title={seo.title} description={seo.description} ogImage={seo.ogImage} />
+      <PageSEO
+        title={seo.title}
+        description={seo.description}
+        ogTitle={seo.ogTitle}
+        ogDescription={seo.ogDescription}
+        ogImage={seo.ogImage}
+      />
       <BreadcrumbSEO items={breadcrumbs} />
       <ItemListSEO items={products} />
 
