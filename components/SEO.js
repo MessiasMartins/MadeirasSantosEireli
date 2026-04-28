@@ -5,6 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 const CommonSEO = ({ title, description, ogType, ogImage, twImage }) => {
   const router = useRouter()
   const canonicalUrl = `${siteMetadata.siteUrl}${router.asPath}`.split('?')[0]
+  const images = Array.isArray(ogImage) ? ogImage : [ogImage]
 
   return (
     <Head>
@@ -19,11 +20,10 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }) => {
       <meta property="og:author" content={siteMetadata.author} />
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
-      {ogImage.constructor.name === 'Array' ? (
-        ogImage.map(({ url }) => <meta property="og:image" content={url} key={url} />)
-      ) : (
-        <meta property="og:image" content={ogImage} key={ogImage} />
-      )}
+      {images.map((image) => {
+        const imageUrl = typeof image === 'string' ? image : image.url
+        return <meta property="og:image" content={imageUrl} key={imageUrl} />
+      })}
       <meta name="twitter:card" content="summary_large_image" />
       {siteMetadata.twitter && <meta name="twitter:site" content={siteMetadata.twitter} />}
       <meta name="twitter:title" content={title} />
@@ -33,9 +33,12 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage }) => {
   )
 }
 
-export const PageSEO = ({ title, description }) => {
-  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
+export const PageSEO = ({ title, description, ogImage }) => {
+  const selectedImage = ogImage || siteMetadata.socialBanner
+  const ogImageUrl = selectedImage.startsWith('http')
+    ? selectedImage
+    : siteMetadata.siteUrl + selectedImage
+  const twImageUrl = ogImageUrl
 
   return (
     <CommonSEO
@@ -59,6 +62,37 @@ export const BreadcrumbSEO = ({ items = [] }) => {
       position: index + 1,
       name: item.name,
       item: `${siteMetadata.siteUrl}${item.href === '/' ? '/' : item.href}`,
+    })),
+  }
+
+  return (
+    <Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+    </Head>
+  )
+}
+
+export const ItemListSEO = ({ items = [], itemListId = '/produtos' }) => {
+  if (items.length === 0) return null
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${siteMetadata.siteUrl}${itemListId}`,
+    name: 'Catálogo de produtos Madeiras Santos',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${siteMetadata.siteUrl}${item.categoryHref || '/produtos'}${
+        item.categoryHref === '/produtos' ? `#produto-${item.slug}` : ''
+      }`,
+      name: item.name,
+      description: item.seoDescription,
     })),
   }
 

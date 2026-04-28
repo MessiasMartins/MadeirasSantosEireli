@@ -1,4 +1,15 @@
 let withBundleAnalyzer = (nextConfig) => nextConfig
+const crypto = require('crypto')
+
+const originalCreateHash = crypto.createHash
+crypto.createHash = (algorithm, options) => {
+  const normalizedAlgorithm =
+    typeof algorithm === 'string' && ['md4', 'native-md4', 'xxhash64'].includes(algorithm)
+      ? 'sha256'
+      : algorithm
+
+  return originalCreateHash(normalizedAlgorithm, options)
+}
 
 try {
   withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -26,6 +37,8 @@ module.exports = withBundleAnalyzer({
   },
 
   webpack: (config, { dev, isServer }) => {
+    config.output.hashFunction = 'sha256'
+
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|mp4)$/i,
       use: [

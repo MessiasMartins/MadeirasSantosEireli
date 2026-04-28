@@ -2,13 +2,17 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-
-  textColor:{
-    'primary': '#059669',
+  textColor: {
+    primary: '#059669',
   },
 
   mode: 'jit',
-  purge: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js', './lib/**/*.js'],
+  purge: [
+    './pages/**/*.{js,jsx}',
+    './components/**/*.{js,jsx}',
+    './layouts/**/*.{js,jsx}',
+    './lib/**/*.{js,jsx}',
+  ],
   darkMode: 'class',
   theme: {
     extend: {

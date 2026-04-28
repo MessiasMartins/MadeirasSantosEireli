@@ -31,7 +31,7 @@ export default function PrimaryCtas({ stacked = false }) {
             href={cta.href}
             className={cta.className}
             target={cta.external ? '_blank' : undefined}
-            rel={cta.external ? 'noopener noreferrer' : undefined}
+            rel="noreferrer"
             aria-label={cta.label}
           >
             {cta.label}

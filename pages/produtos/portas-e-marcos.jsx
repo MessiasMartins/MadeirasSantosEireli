@@ -3,7 +3,7 @@ import pageMetadata from '@/data/config/pageMetadata'
 import siteStructure from '@/data/config/siteStructure'
 
 export default function PortasMarcosPage() {
-  return (
-    <CategoryPage seo={pageMetadata.portasMarcos} category={siteStructure.productCategories[3]} />
-  )
+  const category = siteStructure.productCategories.find((item) => item.slug === 'portas-e-marcos')
+
+  return <CategoryPage seo={pageMetadata.portasMarcos} category={category} />
 }

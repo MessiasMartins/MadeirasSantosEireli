@@ -3,10 +3,9 @@ import pageMetadata from '@/data/config/pageMetadata'
 import siteStructure from '@/data/config/siteStructure'
 
 export default function BancosSobEncomendaPage() {
-  return (
-    <CategoryPage
-      seo={pageMetadata.bancosSobEncomenda}
-      category={siteStructure.productCategories[4]}
-    />
+  const category = siteStructure.productCategories.find(
+    (item) => item.slug === 'servicos-e-sob-encomenda'
   )
+
+  return <CategoryPage seo={pageMetadata.bancosSobEncomenda} category={category} />
 }
