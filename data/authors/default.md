@@ -64,7 +64,7 @@ Ao optar por nossa empresa, você garante:
 
 Entre em contato conosco e solicite um orçamento sem compromisso. Estamos aqui para tornar seu projeto realidade:
 
-**Madeiras Santos EIRELI**  
+**Madeiras Santos**  
 📍 Avenida Portugal, 901A – Santa Amélia, Belo Horizonte/MG  
 📞 (31) 3653‑2390 • WhatsApp  
 📧 comercial@madeirassantos.com.br

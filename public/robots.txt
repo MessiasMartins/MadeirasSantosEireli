@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://madeirassantos.com.br/sitemap.xml
+Sitemap: https://www.madeirassantos.com.br/sitemap.xml

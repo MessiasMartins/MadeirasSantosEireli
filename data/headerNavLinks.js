@@ -1,9 +1,5 @@
-const headerNavLinks = [
-  { href: '/', title: 'Inicio' },
-  { href: '/blog', title: 'Postagem' },
-  { href: '/#faq', title: 'FAQ' },
-  { href: '/about', title: 'Sobre' },
-  { href: '/tags', title: 'Tags' },
-]
+import siteStructure from '@/data/config/siteStructure'
+
+const headerNavLinks = siteStructure.primaryNavLinks
 
 export default headerNavLinks
