@@ -1,6 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@source "../pages/**/*.{js,jsx}";
+@source "../components/**/*.{js,jsx}";
+@source "../data/**/*.{js,jsx}";
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
+  --color-primary-300: #6ee7b7;
+  --color-primary-400: #34d399;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+  --color-primary-800: #065f46;
+  --color-primary-900: #064e3b;
+  --color-brand-green: #059669;
+  --color-brand-graphite: #1d1d1b;
+  --leading-11: 2.75rem;
+  --leading-12: 3rem;
+  --leading-13: 3.25rem;
+  --leading-14: 3.5rem;
+}
 
 .task-list-item:before {
   @apply hidden;
@@ -13,7 +40,9 @@ html {
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-  transition: background-color 600000s 0s, color 600000s 0s;
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
 }
 
 .cookie-consent-banner {
@@ -97,7 +126,8 @@ input:-webkit-autofill:focus {
   opacity: 0;
   transform: translateY(-2px);
   overflow: hidden;
-  transition: max-height 320ms cubic-bezier(0.22, 1, 0.36, 1),
+  transition:
+    max-height 320ms cubic-bezier(0.22, 1, 0.36, 1),
     opacity 220ms ease,
     transform 220ms ease;
 }

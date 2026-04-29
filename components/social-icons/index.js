@@ -1,36 +1,27 @@
-import Mail from './mail.svg'
-//import Github from './github.svg'
-//import Facebook from './facebook.svg'
-//import Youtube from './youtube.svg'
-//import Linkedin from './linkedin.svg'
-//import Twitter from './twitter.svg'
-import Instagram from './instagram.svg'
-import Whatsapp from './whatsapp.svg'
-import Google from './google.svg'
-import MasterCard from '../other-icons/mastercardlogo.svg'
-import Visa from '../other-icons/visa.svg'
-
 // Icons taken from: https://simpleicons.org/ and https://heroicons.com/
+import Image from 'next/image'
 
 const components = {
-  mail: Mail,
-  //github: Github,
-  //facebook: Facebook,
-  //youtube: Youtube,
-  //linkedin: Linkedin,
-  //twitter: Twitter,
-  instagram: Instagram,
-  whatsapp: Whatsapp,
-  google: Google,
-  mastercard: MasterCard,
-  visa: Visa,
+  mail: '/social-icons/mail.svg',
+  instagram: '/social-icons/instagram.svg',
+  whatsapp: '/social-icons/whatsapp.svg',
+  google: '/social-icons/google.svg',
+  mastercard: '/other-icons/mastercardlogo.svg',
+  visa: '/other-icons/visa.svg',
+}
+
+const sizeClasses = {
+  5: 'h-5 w-5',
+  6: 'h-6 w-6',
+  8: 'h-8 w-8',
 }
 
 const SocialIcon = ({ kind, href, size = 8 }) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 
-  const SocialSvg = components[kind]
+  const iconSrc = components[kind]
+  if (!iconSrc) return null
 
   return (
     <a
@@ -40,8 +31,13 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
       href={href}
     >
       <span className="sr-only">{kind}</span>
-      <SocialSvg
-        className={`fill-current text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 h-${size} w-${size}`}
+      <Image
+        src={iconSrc}
+        alt=""
+        aria-hidden="true"
+        width={24}
+        height={24}
+        className={`${sizeClasses[size] || sizeClasses[8]} opacity-80 transition hover:opacity-100 dark:invert`}
       />
     </a>
   )

@@ -1,9 +1,7 @@
 import Head from 'next/head'
 import { PageSEO } from '@/components/SEO'
 import pageMetadata from '@/data/config/pageMetadata'
-import siteMetadata from '@/data/siteMetadata'
 import faqData from '@/data/faqData'
-import NewsletterForm from '@/components/NewsletterForm'
 import FAQSection from '@/components/FAQSection'
 import HeroSection from '@/components/sections/home/HeroSection'
 import WhyChooseSection from '@/components/sections/home/WhyChooseSection'
@@ -37,12 +35,6 @@ export default function Home() {
       <CategoryHighlights />
       <ContactSection mapsEmbedSrc={mapsEmbedSrc} />
       <FAQSection faqs={faqData} />
-
-      {siteMetadata.newsletter.provider !== '' && (
-        <div className="flex items-center justify-center pt-4">
-          <NewsletterForm />
-        </div>
-      )}
     </>
   )
 }

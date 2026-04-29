@@ -26,34 +26,6 @@ const siteMetadata = {
     simpleAnalytics: false,
     googleAnalyticsId: 'G-68R4LB4DQ6',
   },
-  newsletter: {
-    provider: 'buttondown',
-  },
-  comment: {
-    provider: 'giscus',
-    giscusConfig: {
-      repo: process.env.NEXT_PUBLIC_GISCUS_REPO,
-      repositoryId: process.env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID,
-      category: process.env.NEXT_PUBLIC_GISCUS_CATEGORY,
-      categoryId: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID,
-      mapping: 'pathname',
-      reactions: '1',
-      metadata: '0',
-      theme: 'light',
-      darkTheme: 'transparent_dark',
-      themeURL: '',
-    },
-    utterancesConfig: {
-      repo: process.env.NEXT_PUBLIC_UTTERANCES_REPO,
-      issueTerm: '',
-      label: '',
-      theme: '',
-      darkTheme: '',
-    },
-    disqusConfig: {
-      shortname: process.env.NEXT_PUBLIC_DISQUS_SHORTNAME,
-    },
-  },
 }
 
 module.exports = siteMetadata

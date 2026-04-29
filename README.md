@@ -1,216 +1,73 @@
-![Audere](/public/static/images/audere23.png)
+# Madeiras Santos
 
-# Madeiras Santos Home Page + Blog
+Site institucional e catálogo comercial da Madeiras Santos.
 
-Projeto desenvolvido para a Madeiras Santos, unindo Home Page + Possiblilidade de Postagens ao estilo Blog.
+## Stack
 
-## Tailwind + Nextjs Blog
+- Node.js 24 LTS
+- npm 11
+- Next.js 16 com Pages Router
+- React 19
+- Tailwind CSS 4
+- ESLint 9
+- Prettier 3
 
-Facing issues? Check the [FAQ page](https://github.com/timlrx/tailwind-nextjs-starter-blog/wiki) and do a search on past issues. Feel free to open a new issue if none has been posted previously.
+## Desenvolvimento local
 
-## Exemplos
-
-- [Demo Blog](https://tailwind-nextjs-starter-blog.vercel.app/) - this repo
-- [My personal blog](https://www.timlrx.com) - modified to auto-generate blog posts with dates
-- [Aloisdg's cookbook](https://tambouille.vercel.app/) - with pictures and recipes!
-- [GautierArcin's demo with next translate](https://tailwind-nextjs-starter-blog-seven.vercel.app/) - includes translation of mdx posts, [source code](https://github.com/GautierArcin/tailwind-nextjs-starter-blog/tree/demo/next-translate)
-- [David Levai's digital garden](https://davidlevai.com/) - customized design and added email subscriptions
-- [Thinh's Corner](https://thinhcorner.com/) - [customized layout](https://github.com/Th1nhNg0/th1nhng0.vercel.app/blob/5e73a420828d82f01e7147512a2c3273c4ec19f8/layouts/PostLayout.js) with sticky side table of contents
-- [Leo's Blog](https://leohuynh.dev) - Tuan Anh Huynh's personal site. Add Snippets Page, Author Profile Card, Image Lightbox, ...
-- [thvu.dev](https://thvu.dev) - Added `mdx-embed`, view count, reading minutes and more. Keep reading at: [Over-engineering thvu.dev](https://www.thvu.dev/blog/over-engineering-thvu-dev)
-
-Using the template? Feel free to create a PR and add your blog to this list.
-
-## Features
-
-- Easy styling customization with [Tailwind 2.0](https://blog.tailwindcss.com/tailwindcss-v2) and primary color attribute
-- Near perfect lighthouse score - [Lighthouse report](https://www.webpagetest.org/result/210111_DiC1_08f3670c3430bf4a9b76fc3b927716c5/)
-- Lightweight, 39kB first load JS, uses Preact in production build
-- Mobile-friendly view
-- Light and dark theme
-- Supports [plausible](https://plausible.io/), [simple analytics](https://simpleanalytics.com/) and google analytics
-- [MDX - write JSX in markdown documents!](https://mdxjs.com/)
-- Server-side syntax highlighting with line numbers and line highlighting via [rehype-prism-plus](https://github.com/timlrx/rehype-prism-plus)
-- Math display supported via [KaTeX](https://katex.org/)
-- Automatic image optimization via [next/image](https://nextjs.org/docs/basic-features/image-optimization)
-- Flexible data retrieval with [mdx-bundler](https://github.com/kentcdodds/mdx-bundler)
-- Support for tags - each unique tag will be its own page
-- Support for multiple authors
-- Blog templates
-- TOC component
-- Support for nested routing of blog posts
-- Newsletter component with support for mailchimp, buttondown and convertkit
-- Supports [giscus](https://github.com/laymonage/giscus), [utterances](https://github.com/utterance/utterances) or disqus
-- Products page
-- SEO friendly with RSS feed, sitemaps and more!
-
-## Sample posts
-
-- [A markdown guide](https://tailwind-nextjs-starter-blog.vercel.app/blog/github-markdown-guide)
-- [Learn more about images in Next.js](https://tailwind-nextjs-starter-blog.vercel.app/blog/guide-to-using-images-in-nextjs)
-- [A tour of math typesetting](https://tailwind-nextjs-starter-blog.vercel.app/blog/deriving-ols-estimator)
-- [Simple MDX image grid](https://tailwind-nextjs-starter-blog.vercel.app/blog/pictures-of-canada)
-- [Example of long prose](https://tailwind-nextjs-starter-blog.vercel.app/blog/the-time-machine)
-- [Example of Nested Route Post](https://tailwind-nextjs-starter-blog.vercel.app/blog/nested-route/introducing-multi-part-posts-with-nested-routing)
-
-## Quick Start Guide
-
-1. JS (official support) - `npx degit https://github.com/timlrx/tailwind-nextjs-starter-blog.git` or TS (community support) - `npx degit timlrx/tailwind-nextjs-starter-blog#typescript`
-2. Personalize `siteMetadata.js` (site related information)
-3. Personalize `authors/default.md` (main author)
-4. Modify `productsData.js`
-5. Modify `headerNavLinks.js` to customize navigation links
-6. Add blog posts
-7. Deploy on Vercel
-
-## Development
-
-First, run the development server:
+Use a versão de Node definida em `.nvmrc`:
 
 ```bash
-npm start
-# or
+nvm use
+```
+
+Instale as dependências com npm:
+
+```bash
+npm install
+```
+
+Rode o servidor local:
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra `http://localhost:3000`.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-### Optional Preact compatibility mode
-
-By default, production builds use React compatibility mode for maximum framework stability.
-
-If you want to force Preact aliases in client production builds, set:
+## Comandos
 
 ```bash
-NEXT_USE_PREACT=true
+npm run dev
+npm run lint
+npm run lint:fix
+npm run test
+npm run build
+npm run start
+npm run analyze
 ```
 
-This switch is useful for controlled performance experiments without impacting default deploy stability.
+`npm run test` executa a validação estrutural de rotas, catálogo, sitemap, SEO e regras comerciais aprovadas.
 
-## Versionamento (default x atual)
+## Rotas públicas prioritárias
 
-Resumo objetivo das versões/configurações que foram atualizadas neste ciclo.
+- `/`
+- `/produtos`
+- `/produtos/telhas`
+- `/produtos/madeira-para-telhado`
+- `/produtos/chapas-e-compensados`
+- `/produtos/portas-e-marcos`
+- `/produtos/bancos-de-madeira-sob-encomenda`
+- `/entrega`
+- `/contato`
 
-| Item | Default (antes) | Atual |
-|---|---:|---:|
-| Node (`.nvmrc`) | não definido | `24` |
-| Node (`package.json > engines.node`) | não definido | `24.x` |
-| Next.js | `11.1.2` | `12.3.7` |
-| eslint-config-next | `11.1.2` | `12.3.7` |
-| React | `17.0.2` | `17.0.2` (sem mudança) |
-| React DOM | `17.0.2` | `17.0.2` (sem mudança) |
-| Bundle analyzer | `@next/bundle-analyzer` fixo | opcional via `try/catch` no `next.config.js` |
-| Alias React→Preact (produção) | ligado por padrão | opt-in com `NEXT_USE_PREACT=true` |
-| Script `dev` | `NODE_OPTIONS=--openssl-legacy-provider next dev` | `next dev` |
-| Script `build` | `NODE_OPTIONS=--openssl-legacy-provider next build` | `next build` |
+Rotas legadas como `/products`, `/produto`, `/contact`, `/about`, `/home`, `/blog` e `/tags` são redirecionadas.
 
-## FAQ sugerido (SEO + conversão)
+## SEO e catálogo
 
-Perguntas recomendadas para criar uma seção de Perguntas e Respostas com foco em tráfego qualificado e conversão:
+O sitemap público deve conter apenas as rotas prioritárias. O projeto mantém canonical, BreadcrumbList, ItemList e dados estruturados locais sem adicionar preço, Product, Offer, AggregateRating ou Review markup.
 
-1. **Quais tipos de madeira vocês vendem para construção em Belo Horizonte?**
-2. **Vocês fazem entrega em BH e região metropolitana? Qual o prazo médio?**
-3. **Como solicitar orçamento rápido por WhatsApp?**
-4. **Quais medidas de tábuas, ripas, pontaletes e escoras estão disponíveis?**
-5. **Vocês trabalham com compensado plastificado e resinado? Quais espessuras?**
-6. **Como saber qual madeira é ideal para telhado, forma ou acabamento?**
-7. **Vocês atendem pessoa física e construtoras?**
-8. **Quais formas de pagamento são aceitas?**
-9. **Onde fica a Madeiras Santos e como chegar?**
-10. **Como comparar preço sem perder qualidade e durabilidade da madeira?**
+As imagens comerciais ficam em `public/assets/products`. O catálogo fica em `data/productCatalog.js` e as categorias em `data/productCategories.js`.
 
-### Dica SEO para FAQ
+## Vercel
 
-- Usar linguagem de busca local (ex.: “em Belo Horizonte”, “entrega em BH”).
-- Respostas diretas (40–70 palavras) + CTA no final (“fale no WhatsApp”).
-- Implementar `FAQPage` JSON-LD para elegibilidade de rich results.
-
-## Extend / Customize
-
-`data/siteMetadata.js` - contains most of the site related information which should be modified for a user's need.
-
-`data/authors/default.md` - default author information (required). Additional authors can be added as files in `data/authors`.
-
-`data/productsData.js` - data used to generate styled card in products page.
-
-`data/headerNavLinks.js` - navigation links.
-
-`data/logo.svg` - replace with your own logo.
-
-`data/blog` - replace with your own blog posts.
-
-`public/static` - store assets such as images and favicons.
-
-`tailwind.config.js` and `css/tailwind.css` - contain the tailwind stylesheet which can be modified to change the overall look and feel of the site.
-
-`css/prism.css` - controls the styles associated with the code blocks. Feel free to customize it and use your preferred prismjs theme e.g. [prism themes](https://github.com/PrismJS/prism-themes).
-
-`components/social-icons` - to add other icons, simply copy an svg file from [Simple Icons](https://simpleicons.org/) and map them in `index.js`. Other icons uses [heroicons](https://heroicons.com/).
-
-`components/MDXComponents.js` - pass your own JSX code or React component by specifying it over here. You can then call them directly in the `.mdx` or `.md` file. By default, a custom link and image component is passed.
-
-`layouts` - main templates used in pages.
-
-`pages` - pages to route to. Read the [Next.js documentation](https://nextjs.org/docs) for more information
-
-## Post
-
-### Frontmatter
-
-Frontmatter follows [Hugo's standards](https://gohugo.io/content-management/front-matter/).
-
-Currently 7 fields are supported.
-
-```
-title (required)
-date (required)
-tags (required, can be empty array)
-lastmod (optional)
-draft (optional)
-summary (optional)
-images (optional, if none provided defaults to socialBanner in siteMetadata config)
-authors (optional list which should correspond to the file names in `data/authors`. Uses `default` if none is specified)
-layout (optional list which should correspond to the file names in `data/layouts`)
-```
-
-Here's an example of a post's frontmatter:
-
-```
----
-title: 'Introducing Tailwind Nexjs Starter Blog'
-date: '2021-01-12'
-lastmod: '2021-01-18'
-tags: ['next-js', 'tailwind', 'guide']
-draft: false
-summary: 'Looking for a performant, out of the box template, with all the best in web technology to support your blogging needs? Checkout the Tailwind Nextjs Starter Blog template.'
-images: ['/static/images/canada/mountains.jpg', '/static/images/canada/toronto.jpg']
-authors: ['default', 'sparrowhawk']
-layout: PostLayout
----
-```
-
-### Compose
-
-Run `node ./scripts/compose.js` to bootstrap a new post.
-
-Follow the interactive prompt to generate a post with pre-filled front matter.
-
-## Deploy
-
-**Vercel**  
-The easiest way to deploy the template is to use the [Vercel Platform](https://vercel.com) from the creators of Next.js. Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-**Netlify / Github Pages / Firebase etc.**  
-As the template uses `next/image` for image optimization, additional configurations has to be made to deploy on other popular static hosting websites like [Netlify](https://www.netlify.com/) or [Github Pages](https://pages.github.com/). An alternative image optimization provider such as Imgix, Cloudinary or Akamai has to be used. Alternatively, replace the `next/image` component with a standard `<img>` tag. See [`next/image` documentation](https://nextjs.org/docs/basic-features/image-optimization) for more details.
-
-The API routes used in the newsletter component cannot be used in a static site export. You will need to use a form API endpoint provider and substitute the route in the newsletter component accordingly. Other hosting platforms such as Netlify also offer alternative solutions - please refer to their docs for more information.
-
-## Support
-
-Using the template? Support this effort by giving a star on Github, sharing your own blog and giving a shoutout on Twitter or be a project [sponsor](https://github.com/sponsors/timlrx).
-
-## Licence
-
-[MIT](https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/LICENSE) © [Timothy Lin](https://www.timrlx.com)
+O projeto pode ser publicado na Vercel com o preset padrão de Next.js. Configure `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` se quiser usar o embed autenticado do Google Maps; sem essa variável, a página de contato usa o embed público de fallback.
