@@ -3,10 +3,9 @@ import pageMetadata from '@/data/config/pageMetadata'
 import siteStructure from '@/data/config/siteStructure'
 
 export default function ChapasCompensadosPage() {
-  return (
-    <CategoryPage
-      seo={pageMetadata.chapasCompensados}
-      category={siteStructure.productCategories[2]}
-    />
+  const category = siteStructure.productCategories.find(
+    (item) => item.slug === 'chapas-e-compensados'
   )
+
+  return <CategoryPage seo={pageMetadata.chapasCompensados} category={category} />
 }

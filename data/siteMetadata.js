@@ -13,7 +13,7 @@ const siteMetadata = {
   siteName: companyInfo.brandName,
   image: '/static/images/logo_google2.png',
   socialBanner: '/static/images/L-1.png',
-  otherTitle: 'Madeiras Santos. Qualidade, Preço e Tradição',
+  otherTitle: 'Madeiras Santos. Qualidade e Tradição',
   email: companyInfo.contact.email,
   instagram: companyInfo.links.instagram,
   // Backward compatibility for existing component imports

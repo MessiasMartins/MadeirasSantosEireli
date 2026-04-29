@@ -10,13 +10,13 @@ const features = [
   {
     name: 'Estoque no Local',
     description:
-      'Com estoque diponível no local você pode atestar a quilidade do produto antes do carregamento e da enterga.',
+      'Com estoque disponível no local, você pode avaliar a qualidade do material antes do carregamento ou da retirada.',
     icon: ClipboardCheckIcon,
   },
   {
-    name: 'Entrega Rápida',
+    name: 'Entrega sob consulta',
     description:
-      'No caso da entrega ser feita por nosso pessoal, você pode contar com a opção de agendamento',
+      'Consulte condições de entrega conforme rota, volume, produto e disponibilidade logística.',
     icon: TruckIcon,
   },
   {
@@ -28,7 +28,7 @@ const features = [
   {
     name: 'Atendimento Personalizado',
     description:
-      'Atacado ou Varejo, atendemos todos os perfis de clientes com foco em suas necessidades.',
+      'Atendimento no varejo e sob consulta para volumes maiores, com orientação conforme sua necessidade.',
     icon: UserGroupIcon,
   },
 ]

@@ -3,7 +3,9 @@ import pageMetadata from '@/data/config/pageMetadata'
 import siteStructure from '@/data/config/siteStructure'
 
 export default function MadeiraParaTelhadoPage() {
-  return (
-    <CategoryPage seo={pageMetadata.madeiraTelhado} category={siteStructure.productCategories[1]} />
+  const category = siteStructure.productCategories.find(
+    (item) => item.slug === 'madeira-para-telhado'
   )
+
+  return <CategoryPage seo={pageMetadata.madeiraTelhado} category={category} />
 }

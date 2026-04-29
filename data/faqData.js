@@ -12,15 +12,15 @@ const faqData = [
     question: 'Vocês fazem entrega em BH e região metropolitana?',
     answerLines: [
       'Sim.',
-      'Atendemos Belo Horizonte e região metropolitana com logística própria e parceiros.',
-      'O prazo varia conforme local e volume do pedido.',
+      'A entrega é feita sob consulta para Belo Horizonte e região, conforme produto, volume, endereço e disponibilidade logística.',
+      'Também é possível retirar o material diretamente na loja.',
     ],
   },
   {
     question: 'Como solicitar orçamento?',
     answerLines: [
       'Você pode pedir orçamento pelo telefone, email ou WhatsApp informando tipo de madeira, medidas e quantidade desejada.',
-      'Nossa equipe retorna com valor, prazos e opções de entrega.',
+      'Nossa equipe orienta sobre disponibilidade, medidas, formas de pagamento e entrega sob consulta.',
     ],
     showWhatsappButton: true,
   },
@@ -42,7 +42,7 @@ const faqData = [
   {
     question: 'Quais formas de pagamento são aceitas?',
     answerLines: [
-      'Aceitamos as principais formas de pagamento incluído PIX.',
+      'Aceitamos as principais formas de pagamento, incluindo PIX.',
       'Para condições atualizadas e opções para volume, entre em contato com nosso atendimento.',
     ],
   },
