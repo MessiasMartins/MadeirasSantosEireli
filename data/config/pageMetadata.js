@@ -5,6 +5,12 @@ const pageMetadata = {
       'Madeiras, telhas, chapas, portas e marcos com atendimento rápido, estoque no local e entrega sob consulta em Belo Horizonte e região.',
     h1: 'Madeiras Santos',
   },
+  about: {
+    title: 'Sobre a Madeiras Santos | História e tradição em BH',
+    description:
+      'Conheça a história da Madeiras Santos, madeireira em Belo Horizonte com tradição familiar, estoque físico, atendimento direto e relação de confiança.',
+    h1: 'Sobre a Madeiras Santos',
+  },
   produtos: {
     title: 'Produtos | Madeiras Santos',
     description:

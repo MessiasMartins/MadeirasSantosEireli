@@ -1,33 +1,29 @@
-import Link from '@/components/Link'
+import { ChatBubbleLeftRightIcon, HomeIcon } from '@heroicons/react/24/outline'
+import Button from '@/components/ui/Button'
+import Container from '@/components/ui/Container'
+import companyInfo from '@/data/config/companyInfo'
 
 export default function FourZeroFour() {
   return (
-    <div className="flex flex-col items-start justify-start md:justify-center md:items-center md:flex-row md:space-x-6 md:mt-24">
-      <div className="pt-6 pb-8 space-x-2 md:space-y-5">
-        <h1
-          className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 
-        md:text-8xl md:leading-14 md:border-r-2 md:px-6"
-        >
-          404
+    <Container className="py-20 sm:py-28">
+      <div className="mx-auto max-w-2xl text-center">
+        <p className="text-sm font-black uppercase tracking-[0.2em] text-primary-700">Erro 404</p>
+        <h1 className="mt-4 text-4xl font-black tracking-tight text-brand-graphite sm:text-5xl">
+          Página não encontrada.
         </h1>
-      </div>
-      <div className="max-w-md">
-        <p className="pb-4 mb-4 text-xl font-bold leading-normal md:text-2xl">
-          Desculpe, página não encontrada.
+        <p className="mt-5 text-lg leading-8 text-stone-700">
+          O endereço pode ter mudado. Continue pelo catálogo ou fale com a loja para encontrar o
+          produto certo.
         </p>
-        <p className="pb-4 mb-8">
-          Não se preocupe, você vai encontrar outros conteúdos na página inicial.
-        </p>
-        <Link href="/">
-          <button
-            className="inline px-4 py-2 text-sm font-medium leading-5 text-white transition-colors 
-          duration-150 bg-green-600 border border-transparent rounded-lg shadow focus:outline-none 
-          focus:shadow-outline-blue hover:bg-green-700 dark:hover:bg-green-500"
-          >
-            Voltar para página inicial
-          </button>
-        </Link>
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <Button href="/" icon={HomeIcon} variant="secondary">
+            Voltar para o início
+          </Button>
+          <Button href={companyInfo.links.whatsapp} icon={ChatBubbleLeftRightIcon}>
+            Falar no WhatsApp
+          </Button>
+        </div>
       </div>
-    </div>
+    </Container>
   )
 }

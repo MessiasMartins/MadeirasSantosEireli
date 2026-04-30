@@ -45,18 +45,29 @@ function run() {
   const pageMetadata = requireFromRoot('data/config/pageMetadata.js')
   const productCategories = requireFromRoot('data/productCategories.js')
   const { products } = requireFromRoot('data/productCatalog.js')
+  const siteMetadataData = requireFromRoot('data/siteMetadata.js')
+  const visualAssets = requireFromRoot('data/config/visualAssets.js')
   const companyInfo = read('data/config/companyInfo.js')
   const siteMetadata = read('data/siteMetadata.js')
   const siteStructure = read('data/config/siteStructure.js')
+  const nextConfig = read('next.config.js')
   const seoComponent = read('components/SEO.js')
   const robots = read('public/robots.txt')
   const sitemap = read('public/sitemap.xml')
-  const footer = read('components/Footer.js')
+  const manifest = read('public/static/favicons/site.webmanifest')
+  const header = read('components/layout/Header.js')
+  const footer = read('components/layout/Footer.js')
+  const mobileMenu = read('components/layout/MobileMenu.js')
+  const layoutWrapper = read('components/LayoutWrapper.js')
+  const documentPage = read('pages/_document.jsx')
+  const appPage = read('pages/_app.jsx')
+  const homeStructuredData = read('lib/homeStructuredData.js')
   const produtosPage = read('pages/produtos/index.jsx')
   const categoryPage = read('components/sections/products/CategoryPage.js')
   const productCard = read('components/sections/products/ProductCard.js')
   const heroSection = read('components/sections/home/HeroSection.js')
-  const features = read('components/Features.js')
+  const storySection = read('components/sections/home/StorySection.js')
+  const aboutPage = read('pages/about.jsx')
   const faqData = read('data/faqData.js')
   const primaryCtas = read('components/common/PrimaryCtas.js')
   const tailwindCss = read('css/tailwind.css')
@@ -106,6 +117,7 @@ function run() {
     'remark-gfm',
     'remark-math',
     'smoothscroll-polyfill',
+    'next-themes',
     'unist-util-visit',
   ]
   removedDependencies.forEach((dependency) => {
@@ -150,10 +162,15 @@ function run() {
     'pages/blog.jsx',
     'pages/blog/[...slug].js',
     'pages/tags.jsx',
-    'pages/about.jsx',
     'pages/products.jsx',
     'components/NewsletterForm.js',
     'components/comments/index.js',
+    'components/Footer.js',
+    'components/MobileNav.js',
+    'components/ThemeSwitch.js',
+    'components/SectionContainer.js',
+    'components/Features.js',
+    'components/sections/home/WhyChooseSection.js',
     'lib/mdx.js',
     'public/feed.xml',
   ].forEach((file) => {
@@ -162,6 +179,7 @@ function run() {
 
   const priorityPages = [
     'pages/index.js',
+    'pages/about.jsx',
     'pages/produtos/index.jsx',
     'pages/produtos/telhas.jsx',
     'pages/produtos/madeira-para-telhado.jsx',
@@ -177,6 +195,7 @@ function run() {
 
   const expectedSitemapRoutes = [
     '/',
+    '/about',
     '/produtos',
     '/produtos/telhas',
     '/produtos/madeira-para-telhado',
@@ -286,6 +305,7 @@ function run() {
   )
   ;[
     pageMetadata.home,
+    pageMetadata.about,
     pageMetadata.produtos,
     pageMetadata.telhas,
     pageMetadata.madeiraTelhado,
@@ -304,6 +324,7 @@ function run() {
   })
 
   assert(countMatches(heroSection, /<h1/g) === 1, 'Home deve ter exatamente um H1.')
+  assert(countMatches(aboutPage, /<h1/g) === 1, '/about deve ter exatamente um H1.')
   assert(countMatches(produtosPage, /<h1/g) === 1, '/produtos deve ter exatamente um H1.')
   assert(countMatches(categoryPage, /<h1/g) === 1, 'Páginas de categoria devem ter um H1.')
   assert(countMatches(read('pages/entrega.jsx'), /<h1/g) === 1, '/entrega deve ter um H1.')
@@ -323,6 +344,64 @@ function run() {
   assert(productCard.includes('width={1254}'), 'Cards sem largura de imagem definida.')
   assert(productCard.includes('height={1254}'), 'Cards sem altura de imagem definida.')
   assert(productCard.includes('sizes='), 'Cards sem atributo sizes.')
+
+  assert(
+    siteMetadataData.siteLogo === visualAssets.brand.logoHorizontal,
+    'siteMetadata.siteLogo deve usar a nova logo horizontal.'
+  )
+  assert(
+    siteMetadataData.siteSymbol === visualAssets.brand.symbol,
+    'siteMetadata.siteSymbol deve usar o novo símbolo.'
+  )
+  assert(
+    siteMetadataData.image === '/assets/seo/madeiras-santos-search-square.jpg',
+    'siteMetadata.image deve usar a imagem SEO quadrada aprovada.'
+  )
+  assert(
+    siteMetadataData.socialBanner === '/assets/seo/madeiras-santos-og-1200x630.jpg',
+    'siteMetadata.socialBanner deve usar a imagem OG aprovada.'
+  )
+  assert(
+    visualAssets.images.hero === '/assets/images/hero-forest-generic.jpg',
+    'Hero temporário deve usar a floresta genérica aprovada.'
+  )
+  assert(
+    visualAssets.images.forklift === '/assets/images/empilhadeira.jpg' &&
+      visualAssets.images.forkliftWide === '/assets/images/empilhadeira-wide.jpg',
+    'Empilhadeira oficial deve estar centralizada em visualAssets.'
+  )
+  ;['stock', 'yard', 'delivery'].forEach((key) => {
+    assert(
+      visualAssets.images[key] === visualAssets.images.forkliftWide,
+      `Imagem ${key} deve usar a variação oficial wide da empilhadeira.`
+    )
+  })
+  assert(
+    header.includes('visualAssets.brand.logoHorizontal') &&
+      footer.includes('visualAssets.brand.logoHorizontal'),
+    'Header e footer devem renderizar a nova logo.'
+  )
+  assert(
+    documentPage.includes('/assets/brand/madeiras-santos-favicon.ico') &&
+      documentPage.includes('/assets/brand/favicon-16x16.png') &&
+      documentPage.includes('/assets/brand/favicon-32x32.png') &&
+      documentPage.includes('/assets/brand/favicon-48x48.png') &&
+      documentPage.includes('/assets/brand/apple-touch-icon.png'),
+    'Favicon novo deve estar configurado no document.'
+  )
+  assert(
+    manifest.includes('/assets/brand/android-chrome-192x192.png') &&
+      manifest.includes('/assets/brand/android-chrome-512x512.png'),
+    'Manifest deve apontar para os favicons regenerados.'
+  )
+  assert(
+    homeStructuredData.includes('visualAssets.seo.searchSquare') &&
+      homeStructuredData.includes('siteMetadata.siteLogo'),
+    'Store structured data deve usar imagem SEO e logo novas.'
+  )
+  assert(!appPage.includes('ThemeProvider'), 'Dark mode provider deve ser removido.')
+  assert(!layoutWrapper.includes('ThemeSwitch'), 'Layout não deve renderizar toggle de tema.')
+  assert(mobileMenu.includes('aria-expanded'), 'Menu mobile deve expor estado acessível.')
 
   assert(
     seoComponent.includes("'@type': 'BreadcrumbList'"),
@@ -366,9 +445,20 @@ function run() {
   })
 
   assert(siteStructure.includes("href: '/produtos'"), 'Header sem link para /produtos.')
+  assert(siteStructure.includes("href: '/about'"), 'Navegação sem link para /about.')
   assert(
     footer.includes('siteStructure.productCategories.map'),
     'Footer sem bloco dinâmico de links para categorias.'
+  )
+  assert(footer.includes('href="/about"'), 'Footer sem link institucional para /about.')
+  assert(aboutPage.includes('BreadcrumbSEO'), '/about deve preservar BreadcrumbList.')
+  assert(
+    nextConfig.includes("source: '/sobre'") && nextConfig.includes("destination: '/about'"),
+    'Redirect /sobre -> /about ausente.'
+  )
+  assert(
+    !nextConfig.includes("source: '/about', destination: '/contato'"),
+    'Redirect /about -> /contato deve ser removido.'
   )
   assert(companyInfo.includes('https://api.whatsapp.com/send?phone='), 'Link de WhatsApp inválido.')
   assert(companyInfo.includes('tel:+553136532390'), 'Link de telefone sem protocolo tel:.')
@@ -389,7 +479,7 @@ function run() {
       `Sitemap sem rota ${route}`
     )
   })
-  ;['/blog', '/construction', '/tags', '[', ']'].forEach((forbiddenRoute) => {
+  ;['/blog', '/construction', '/sobre', '/tags', '[', ']'].forEach((forbiddenRoute) => {
     assert(!sitemap.includes(forbiddenRoute), `Sitemap contém rota indevida: ${forbiddenRoute}`)
   })
 
@@ -406,13 +496,20 @@ function run() {
     categoryPage,
     productCard,
     heroSection,
-    features,
+    storySection,
+    aboutPage,
+    read('components/sections/home/CategoryHighlights.js'),
+    read('components/sections/home/ContactSection.js'),
+    read('components/sections/home/DeliverySection.js'),
+    read('components/sections/home/FeaturedProducts.js'),
     faqData,
     primaryCtas,
     siteMetadata,
     read('data/config/pageMetadata.js'),
     read('data/productCatalog.js'),
     read('data/productCategories.js'),
+    read('pages/entrega.jsx'),
+    read('pages/contato.jsx'),
   ].join('\n')
 
   assert(
@@ -458,7 +555,31 @@ function run() {
     })
   })
   ;[
-    'public/static/images/logo.svg',
+    'public/assets/brand/madeiras-santos-logo-horizontal.png',
+    'public/assets/brand/madeiras-santos-logo-horizontal.webp',
+    'public/assets/brand/madeiras-santos-symbol.png',
+    'public/assets/brand/madeiras-santos-favicon.ico',
+    'public/assets/brand/madeiras-santos-favicon-512.png',
+    'public/assets/brand/favicon-16x16.png',
+    'public/assets/brand/favicon-32x32.png',
+    'public/assets/brand/favicon-48x48.png',
+    'public/assets/brand/android-chrome-192x192.png',
+    'public/assets/brand/android-chrome-512x512.png',
+    'public/assets/brand/apple-touch-icon.png',
+    'public/assets/seo/madeiras-santos-search-square.jpg',
+    'public/assets/seo/madeiras-santos-og-1200x630.jpg',
+    'public/assets/images/hero-forest-generic.jpg',
+    'public/assets/images/empilhadeira.jpg',
+    'public/assets/images/empilhadeira-wide.jpg',
+    'public/assets/images/madeiras-santos-fachada.jpg',
+    'public/static/favicons/favicon.ico',
+    'public/static/favicons/favicon-16x16.png',
+    'public/static/favicons/favicon-32x32.png',
+    'public/static/favicons/favicon-48x48.png',
+    'public/static/favicons/android-chrome-192x192.png',
+    'public/static/favicons/android-chrome-512x512.png',
+    'public/static/favicons/apple-touch-icon.png',
+    'public/static/favicons/site.webmanifest',
     'public/social-icons/mail.svg',
     'public/social-icons/whatsapp.svg',
     'public/social-icons/instagram.svg',
@@ -473,6 +594,21 @@ function run() {
   walkFiles('pages').forEach((file) => {
     assert(!file.includes('/blog/'), `Rota de blog remanescente: ${file}`)
     assert(!file.includes('/tags/'), `Rota de tag remanescente: ${file}`)
+  })
+
+  const sourceFiles = walkFiles('components')
+    .concat(walkFiles('pages'))
+    .concat(walkFiles('data'))
+    .filter((file) => /\.(js|jsx|mjs|json|css)$/.test(file))
+
+  sourceFiles.forEach((file) => {
+    const content = read(file)
+    assert(!content.includes('dark:'), `Classe dark mode remanescente: ${file}`)
+    assert(!content.includes('next-themes'), `next-themes remanescente: ${file}`)
+    assert(!content.toLowerCase().includes('newsletter'), `Newsletter remanescente: ${file}`)
+    assert(!content.includes('giscus'), `Comentários legados remanescentes: ${file}`)
+    assert(!content.includes('disqus'), `Comentários legados remanescentes: ${file}`)
+    assert(!content.includes('utterances'), `Comentários legados remanescentes: ${file}`)
   })
 
   console.log('Validação estrutural/SEO/catálogo/tooling concluída com sucesso.')

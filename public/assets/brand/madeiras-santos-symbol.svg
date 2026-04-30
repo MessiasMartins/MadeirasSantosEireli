@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Ícone Madeiras Santos">
+  <title>Ícone Madeiras Santos</title>
+  <desc>Chapas compensadas empilhadas, alinhadas e simplificadas para favicon e redes sociais.</desc>
+  <defs><style>.green{fill:#059669;} .green-dark{fill:#047857;}</style></defs>
+  <g id="chapas" shape-rendering="geometricPrecision">
+    <rect class="green" x="184.320" y="214.319" width="576.901" height="78.459"/>
+    <polygon class="green-dark" points="761.221,214.319 839.680,237.395 839.680,292.777 761.221,292.777"/>
+    <rect class="green" x="184.320" y="343.545" width="576.901" height="78.459"/>
+    <polygon class="green-dark" points="761.221,343.545 839.680,366.621 839.680,422.003 761.221,422.003"/>
+    <rect class="green" x="184.320" y="472.771" width="576.901" height="78.459"/>
+    <polygon class="green-dark" points="761.221,472.771 839.680,495.847 839.680,551.229 761.221,551.229"/>
+    <rect class="green" x="184.320" y="601.997" width="576.901" height="78.459"/>
+    <polygon class="green-dark" points="761.221,601.997 839.680,625.073 839.680,680.455 761.221,680.455"/>
+    <rect class="green" x="184.320" y="731.223" width="576.901" height="78.459"/>
+    <polygon class="green-dark" points="761.221,731.223 839.680,754.299 839.680,809.681 761.221,809.681"/>
+  </g>
+</svg>

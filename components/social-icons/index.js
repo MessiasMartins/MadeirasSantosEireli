@@ -25,7 +25,7 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
 
   return (
     <a
-      className="text-sm text-gray-500 transition hover:text-gray-600"
+      className="rounded-md text-sm text-stone-500 transition hover:text-primary-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
       target="_blank"
       rel="noopener noreferrer"
       href={href}
@@ -37,7 +37,7 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
         aria-hidden="true"
         width={24}
         height={24}
-        className={`${sizeClasses[size] || sizeClasses[8]} opacity-80 transition hover:opacity-100 dark:invert`}
+        className={`${sizeClasses[size] || sizeClasses[8]} opacity-80 transition hover:opacity-100`}
       />
     </a>
   )
