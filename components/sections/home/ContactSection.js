@@ -1,42 +1,80 @@
+import Image from 'next/image'
+import { ChatBubbleLeftRightIcon, MapPinIcon } from '@heroicons/react/24/outline'
 import companyInfo from '@/data/config/companyInfo'
-import PrimaryCtas from '@/components/common/PrimaryCtas'
+import Button from '@/components/ui/Button'
+import Container from '@/components/ui/Container'
+import Reveal from '@/components/ui/Reveal'
+import visualAssets from '@/data/config/visualAssets'
 
 export default function ContactSection({ mapsEmbedSrc }) {
   return (
-    <section className="divide-y divide-gray-200 dark:divide-gray-700">
-      <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-        <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-          Localização e Contatos
-        </h2>
-      </div>
-      <div>
-        <p className="w-full pt-4 pb-2 text-lg text-gray-500 dark:text-gray-400 md:pt-6 md:pb-8">
-          {companyInfo.address.full}
-          <br />
-          CEP: {companyInfo.address.postalCode}
-          <br />
-          Telefone: {companyInfo.contact.phoneDisplay}
-          <br />
-          E-mail: {companyInfo.contact.email}
-          <br />
-        </p>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
-          <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
+    <section className="bg-stone-50 py-14 sm:py-20">
+      <Container>
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <Reveal>
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-primary-700">
+                Visite a loja
+              </p>
+              <h2 className="mt-3 text-balance text-3xl font-black tracking-tight text-brand-graphite sm:text-4xl">
+                Estoque físico e atendimento direto em Belo Horizonte.
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-stone-700">
+                {companyInfo.address.full}. Fale no WhatsApp, ligue ou veja a rota para chegar à
+                loja.
+              </p>
+              <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                <Button href={companyInfo.links.routeMap} icon={MapPinIcon} external full>
+                  Ver rota
+                </Button>
+                <Button
+                  href={companyInfo.links.whatsapp}
+                  icon={ChatBubbleLeftRightIcon}
+                  variant="secondary"
+                  full
+                >
+                  Falar no WhatsApp
+                </Button>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Image
+                src={visualAssets.images.facade}
+                alt="Fachada da loja Madeiras Santos em Belo Horizonte"
+                width={1280}
+                height={900}
+                sizes="(min-width: 1024px) 26vw, (min-width: 640px) 50vw, 100vw"
+                className="aspect-[4/3] rounded-lg object-cover shadow-md shadow-stone-900/10"
+              />
+              <Image
+                src={visualAssets.images.stock}
+                alt="Estoque físico de madeiras no pátio da Madeiras Santos"
+                width={1200}
+                height={900}
+                sizes="(min-width: 1024px) 26vw, (min-width: 640px) 50vw, 100vw"
+                className="aspect-[4/3] rounded-lg object-cover shadow-md shadow-stone-900/10"
+              />
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal className="mt-8">
+          <div className="overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm shadow-stone-900/5">
             <iframe
               title="Mapa da Madeiras Santos em Belo Horizonte"
               src={mapsEmbedSrc}
-              className="h-64 w-full md:h-full md:min-h-[320px]"
+              className="h-72 w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               aria-label="Mapa com localização da Madeiras Santos"
               allowFullScreen
             />
           </div>
-          <div className="flex h-full flex-col justify-center gap-3">
-            <PrimaryCtas stacked />
-          </div>
-        </div>
-      </div>
+        </Reveal>
+      </Container>
     </section>
   )
 }

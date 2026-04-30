@@ -45,18 +45,25 @@ function run() {
   const pageMetadata = requireFromRoot('data/config/pageMetadata.js')
   const productCategories = requireFromRoot('data/productCategories.js')
   const { products } = requireFromRoot('data/productCatalog.js')
+  const siteMetadataData = requireFromRoot('data/siteMetadata.js')
+  const visualAssets = requireFromRoot('data/config/visualAssets.js')
   const companyInfo = read('data/config/companyInfo.js')
   const siteMetadata = read('data/siteMetadata.js')
   const siteStructure = read('data/config/siteStructure.js')
   const seoComponent = read('components/SEO.js')
   const robots = read('public/robots.txt')
   const sitemap = read('public/sitemap.xml')
-  const footer = read('components/Footer.js')
+  const header = read('components/layout/Header.js')
+  const footer = read('components/layout/Footer.js')
+  const mobileMenu = read('components/layout/MobileMenu.js')
+  const layoutWrapper = read('components/LayoutWrapper.js')
+  const documentPage = read('pages/_document.jsx')
+  const appPage = read('pages/_app.jsx')
+  const homeStructuredData = read('lib/homeStructuredData.js')
   const produtosPage = read('pages/produtos/index.jsx')
   const categoryPage = read('components/sections/products/CategoryPage.js')
   const productCard = read('components/sections/products/ProductCard.js')
   const heroSection = read('components/sections/home/HeroSection.js')
-  const features = read('components/Features.js')
   const faqData = read('data/faqData.js')
   const primaryCtas = read('components/common/PrimaryCtas.js')
   const tailwindCss = read('css/tailwind.css')
@@ -106,6 +113,7 @@ function run() {
     'remark-gfm',
     'remark-math',
     'smoothscroll-polyfill',
+    'next-themes',
     'unist-util-visit',
   ]
   removedDependencies.forEach((dependency) => {
@@ -154,6 +162,12 @@ function run() {
     'pages/products.jsx',
     'components/NewsletterForm.js',
     'components/comments/index.js',
+    'components/Footer.js',
+    'components/MobileNav.js',
+    'components/ThemeSwitch.js',
+    'components/SectionContainer.js',
+    'components/Features.js',
+    'components/sections/home/WhyChooseSection.js',
     'lib/mdx.js',
     'public/feed.xml',
   ].forEach((file) => {
@@ -325,6 +339,42 @@ function run() {
   assert(productCard.includes('sizes='), 'Cards sem atributo sizes.')
 
   assert(
+    siteMetadataData.siteLogo === visualAssets.brand.logoHorizontal,
+    'siteMetadata.siteLogo deve usar a nova logo horizontal.'
+  )
+  assert(
+    siteMetadataData.siteSymbol === visualAssets.brand.symbol,
+    'siteMetadata.siteSymbol deve usar o novo símbolo.'
+  )
+  assert(
+    siteMetadataData.image === '/assets/seo/madeiras-santos-search-square.jpg',
+    'siteMetadata.image deve usar a imagem SEO quadrada aprovada.'
+  )
+  assert(
+    siteMetadataData.socialBanner === '/assets/seo/madeiras-santos-og-1200x630.jpg',
+    'siteMetadata.socialBanner deve usar a imagem OG aprovada.'
+  )
+  assert(
+    header.includes('visualAssets.brand.logoHorizontal') &&
+      footer.includes('visualAssets.brand.logoHorizontal'),
+    'Header e footer devem renderizar a nova logo.'
+  )
+  assert(
+    documentPage.includes('/assets/brand/madeiras-santos-favicon.ico') &&
+      documentPage.includes('/assets/brand/madeiras-santos-favicon.svg') &&
+      documentPage.includes('/assets/brand/madeiras-santos-favicon-512.png'),
+    'Favicon novo deve estar configurado no document.'
+  )
+  assert(
+    homeStructuredData.includes('visualAssets.seo.searchSquare') &&
+      homeStructuredData.includes('siteMetadata.siteLogo'),
+    'Store structured data deve usar imagem SEO e logo novas.'
+  )
+  assert(!appPage.includes('ThemeProvider'), 'Dark mode provider deve ser removido.')
+  assert(!layoutWrapper.includes('ThemeSwitch'), 'Layout não deve renderizar toggle de tema.')
+  assert(mobileMenu.includes('aria-expanded'), 'Menu mobile deve expor estado acessível.')
+
+  assert(
     seoComponent.includes("'@type': 'BreadcrumbList'"),
     'Structured data de breadcrumb não encontrado.'
   )
@@ -406,13 +456,18 @@ function run() {
     categoryPage,
     productCard,
     heroSection,
-    features,
+    read('components/sections/home/CategoryHighlights.js'),
+    read('components/sections/home/ContactSection.js'),
+    read('components/sections/home/DeliverySection.js'),
+    read('components/sections/home/FeaturedProducts.js'),
     faqData,
     primaryCtas,
     siteMetadata,
     read('data/config/pageMetadata.js'),
     read('data/productCatalog.js'),
     read('data/productCategories.js'),
+    read('pages/entrega.jsx'),
+    read('pages/contato.jsx'),
   ].join('\n')
 
   assert(
@@ -458,7 +513,16 @@ function run() {
     })
   })
   ;[
-    'public/static/images/logo.svg',
+    'public/assets/brand/madeiras-santos-logo-horizontal.png',
+    'public/assets/brand/madeiras-santos-logo-horizontal.webp',
+    'public/assets/brand/madeiras-santos-symbol.png',
+    'public/assets/brand/madeiras-santos-favicon.ico',
+    'public/assets/brand/madeiras-santos-favicon.svg',
+    'public/assets/brand/madeiras-santos-favicon-512.png',
+    'public/assets/seo/madeiras-santos-search-square.jpg',
+    'public/assets/seo/madeiras-santos-og-1200x630.jpg',
+    'public/assets/images/madeiras-santos-hero-patio.jpg',
+    'public/assets/images/madeiras-santos-fachada.jpg',
     'public/social-icons/mail.svg',
     'public/social-icons/whatsapp.svg',
     'public/social-icons/instagram.svg',
@@ -473,6 +537,21 @@ function run() {
   walkFiles('pages').forEach((file) => {
     assert(!file.includes('/blog/'), `Rota de blog remanescente: ${file}`)
     assert(!file.includes('/tags/'), `Rota de tag remanescente: ${file}`)
+  })
+
+  const sourceFiles = walkFiles('components')
+    .concat(walkFiles('pages'))
+    .concat(walkFiles('data'))
+    .filter((file) => /\.(js|jsx|mjs|json|css)$/.test(file))
+
+  sourceFiles.forEach((file) => {
+    const content = read(file)
+    assert(!content.includes('dark:'), `Classe dark mode remanescente: ${file}`)
+    assert(!content.includes('next-themes'), `next-themes remanescente: ${file}`)
+    assert(!content.toLowerCase().includes('newsletter'), `Newsletter remanescente: ${file}`)
+    assert(!content.includes('giscus'), `Comentários legados remanescentes: ${file}`)
+    assert(!content.includes('disqus'), `Comentários legados remanescentes: ${file}`)
+    assert(!content.includes('utterances'), `Comentários legados remanescentes: ${file}`)
   })
 
   console.log('Validação estrutural/SEO/catálogo/tooling concluída com sucesso.')

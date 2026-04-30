@@ -1,5 +1,4 @@
 import '@/css/tailwind.css'
-import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import Analytics from '@/components/analytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
@@ -7,7 +6,7 @@ import CookieConsent from 'react-cookie-consent'
 
 export default function App({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+    <>
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
@@ -27,6 +26,6 @@ export default function App({ Component, pageProps }) {
           experiência.
         </CookieConsent>
       </LayoutWrapper>
-    </ThemeProvider>
+    </>
   )
 }

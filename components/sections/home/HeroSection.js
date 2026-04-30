@@ -1,90 +1,72 @@
+import Image from 'next/image'
 import PrimaryCtas from '@/components/common/PrimaryCtas'
+import Badge from '@/components/ui/Badge'
+import Container from '@/components/ui/Container'
+import Reveal from '@/components/ui/Reveal'
+import visualAssets from '@/data/config/visualAssets'
+
+const proofPoints = [
+  'Estoque no local',
+  'Atendimento rápido',
+  'Entrega sob consulta',
+  'Atacado e varejo',
+  'Mais de 35 anos de experiência',
+  'Fácil acesso em BH',
+]
 
 export default function HeroSection() {
   return (
-    <div className="relative overflow-hidden divide-y divide-gray-200 dark:divide-gray-300">
-      <h1 className="sr-only">Madeiras Santos | Madeiras de qualidade para o seu projeto</h1>
-      <section className="relative min-h-[72vh] lg:hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/static/images/wood.jpg"
-          alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
-          width="1000"
-          height="1000"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="absolute inset-0 bg-white/70" />
-        <main className="relative z-10 px-4 pt-4 pb-8">
-          <p
-            aria-hidden="true"
-            className="max-w-[20ch] text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl"
-          >
-            <span className="block">Madeiras Santos</span>
-            <span className="block text-primary-600">Madeiras de qualidade para o seu projeto</span>
-          </p>
-          <p className="mt-4 max-w-[28ch] text-lg leading-relaxed text-gray-800 sm:text-2xl">
-            O conhecimento de mais de 40 anos de experiência no setor madeireiro aliado a uma
-            administração dinâmica e atendimento intimista.
-          </p>
-          <p className="mt-3 text-xl font-bold text-gray-900 sm:text-2xl">Conte conosco!</p>
-          <div className="mt-6">
-            <PrimaryCtas stacked />
-          </div>
-        </main>
-      </section>
+    <section className="relative isolate overflow-hidden bg-brand-graphite text-white">
+      <Image
+        src={visualAssets.images.hero}
+        alt="Pátio e estoque físico da Madeiras Santos em Belo Horizonte"
+        width={1600}
+        height={1050}
+        sizes="100vw"
+        priority
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/55 to-black/75" />
 
-      <div className="hidden lg:block max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 bg-gray-100 dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-          <svg
-            className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-            fill="#059669"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <polygon points="50,0 100,0 50,100 0,100" />
-          </svg>
-          <main className="mx-auto max-w-7xl px-4 sm:mt-0 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <div className="sm:text-center lg:text-left">
-              <p
-                aria-hidden="true"
-                className="text-3xl pt-10 font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
-              >
-                <span className="block xl:inline">Madeiras Santos</span>{' '}
-                <span className="block text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 xl:inline">
-                  Madeiras de qualidade para o seu projeto
-                </span>
+      <Container className="py-14 sm:py-20 lg:py-24">
+        <div className="grid min-h-[620px] items-center gap-10 sm:min-h-[640px] lg:min-h-[680px] lg:grid-cols-[1.05fr_0.95fr]">
+          <Reveal>
+            <div className="max-w-3xl">
+              <Badge className="border-white/20 bg-white/10 text-white backdrop-blur">
+                Madeireira em Belo Horizonte
+              </Badge>
+              <h1 className="mt-5 text-balance text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                Madeiras, telhas, chapas, portas e marcos em Belo Horizonte e região.
+              </h1>
+              <p className="mt-5 max-w-2xl text-pretty text-lg leading-8 text-white/88 sm:text-xl">
+                Estoque no local, atendimento rápido e entrega sob consulta para obra, reforma e
+                varejo.
               </p>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                O conhecimento de mais de 40 anos de experiência no setor madeireiro aliado a uma
-                administração dinâmica e atendimento intimista.
-                <br />
-                <br />
-                <b>Conte conosco!</b>
-              </p>
-              <div className="mt-5 sm:mt-8 sm:justify-center lg:justify-start">
+              <div className="mt-8">
                 <PrimaryCtas />
               </div>
             </div>
-          </main>
-        </div>
-      </div>
+          </Reveal>
 
-      <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-100">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="/static/images/wood.jpg"
-          alt="Pátio com estoque de madeiras da Madeiras Santos em Belo Horizonte"
-          width="1000"
-          height="1000"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-    </div>
+          <Reveal className="lg:justify-self-end">
+            <div className="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur-md sm:p-5">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-100">
+                Compra simples
+              </p>
+              <div className="mt-4 grid grid-cols-2 gap-3">
+                {proofPoints.map((proof) => (
+                  <div
+                    key={proof}
+                    className="rounded-md border border-white/15 bg-white/10 px-3 py-3 text-sm font-bold text-white"
+                  >
+                    {proof}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </Container>
+    </section>
   )
 }

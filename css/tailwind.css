@@ -7,8 +7,6 @@
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
   --color-primary-50: #ecfdf5;
@@ -23,6 +21,10 @@
   --color-primary-900: #064e3b;
   --color-brand-green: #059669;
   --color-brand-graphite: #1d1d1b;
+  --color-brand-offwhite: #f8f5ef;
+  --color-wood-50: #fbf7ef;
+  --color-wood-100: #f1e4d1;
+  --color-wood-700: #7a4c27;
   --leading-11: 2.75rem;
   --leading-12: 3rem;
   --leading-13: 3.25rem;
@@ -35,6 +37,26 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(5, 150, 105, 0.08), transparent 28rem), #f8f5ef;
+}
+
+::selection {
+  background: rgba(5, 150, 105, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
@@ -86,21 +108,11 @@ input:-webkit-autofill:focus {
   background: #115e59 !important;
 }
 
-.dark .cookie-consent-banner {
-  border-color: rgba(148, 163, 184, 0.2);
-  background: rgba(17, 24, 39, 0.92) !important;
-  color: #e5e7eb !important;
-}
-
-.dark .cookie-consent-content {
-  color: #cbd5e1 !important;
-}
-
 @media (max-width: 640px) {
   .cookie-consent-banner {
     left: 12px !important;
     right: 12px !important;
-    bottom: 12px !important;
+    bottom: 84px !important;
     border-radius: 14px;
     padding: 12px !important;
   }
@@ -144,4 +156,26 @@ input:-webkit-autofill:focus {
 
 .faq-item[open] .faq-chevron {
   transform: rotate(45deg);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 420ms ease,
+    transform 420ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

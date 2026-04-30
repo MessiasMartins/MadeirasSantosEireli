@@ -4,9 +4,11 @@ import pageMetadata from '@/data/config/pageMetadata'
 import faqData from '@/data/faqData'
 import FAQSection from '@/components/FAQSection'
 import HeroSection from '@/components/sections/home/HeroSection'
-import WhyChooseSection from '@/components/sections/home/WhyChooseSection'
 import ContactSection from '@/components/sections/home/ContactSection'
 import CategoryHighlights from '@/components/sections/home/CategoryHighlights'
+import DeliverySection from '@/components/sections/home/DeliverySection'
+import FeaturedProducts from '@/components/sections/home/FeaturedProducts'
+import visualAssets from '@/data/config/visualAssets'
 import { getHomeStructuredData } from '@/lib/homeStructuredData'
 
 export default function Home() {
@@ -20,7 +22,7 @@ export default function Home() {
     <>
       <PageSEO title={pageMetadata.home.title} description={pageMetadata.home.description} />
       <Head>
-        <link rel="preload" as="image" href="/static/images/wood.jpg" />
+        <link rel="preload" as="image" href={visualAssets.images.hero} />
         {structuredDataList.map((item) => (
           <script
             key={item['@type']}
@@ -31,8 +33,9 @@ export default function Home() {
       </Head>
 
       <HeroSection />
-      <WhyChooseSection />
       <CategoryHighlights />
+      <FeaturedProducts />
+      <DeliverySection />
       <ContactSection mapsEmbedSrc={mapsEmbedSrc} />
       <FAQSection faqs={faqData} />
     </>

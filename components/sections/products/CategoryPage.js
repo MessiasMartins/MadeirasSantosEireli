@@ -3,9 +3,17 @@ import Link from '@/components/Link'
 import ProductCard from '@/components/sections/products/ProductCard'
 import { BreadcrumbSEO, ItemListSEO, PageSEO } from '@/components/SEO'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
+import Badge from '@/components/ui/Badge'
+import Button from '@/components/ui/Button'
+import Card from '@/components/ui/Card'
+import Container from '@/components/ui/Container'
+import Reveal from '@/components/ui/Reveal'
+import SectionHeader from '@/components/ui/SectionHeader'
 import siteStructure from '@/data/config/siteStructure'
+import visualAssets from '@/data/config/visualAssets'
 import { getProductBySlug, getProductsByCategory } from '@/data/productCatalog'
 import { getWhatsAppLink } from '@/lib/utils/whatsapp'
+import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
 
 export default function CategoryPage({ seo, category }) {
   const categoryProducts = getProductsByCategory(category.slug)
@@ -26,108 +34,135 @@ export default function CategoryPage({ seo, category }) {
       <BreadcrumbSEO items={breadcrumbs} />
       <ItemListSEO items={categoryProducts} itemListId={category.href} />
 
-      <section className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="pt-6 pb-10">
+      <section className="bg-white">
+        <Container className="py-8 sm:py-12">
           <Breadcrumbs items={breadcrumbs} />
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-green-700 dark:text-green-400">
-                {category.name}
-              </p>
-              <h1 className="mt-3 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-                {seo.h1}
-              </h1>
-              <p className="mt-4 text-lg leading-7 text-gray-600 dark:text-gray-300">
-                {category.seoDescription}
-              </p>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={getWhatsAppLink(`Olá, gostaria de consultar ${category.name}.`)}
-                  className="inline-flex min-h-[48px] items-center justify-center rounded-md bg-green-600 px-6 py-3 text-base font-semibold text-white hover:bg-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
-                >
-                  {category.ctaLabel}
-                </a>
-                <Link
-                  href="/produtos"
-                  className="inline-flex min-h-[48px] items-center justify-center rounded-md border border-gray-300 px-6 py-3 text-base font-semibold text-gray-800 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:focus-visible:ring-offset-gray-900"
-                >
-                  Ver todos os produtos
-                </Link>
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <Reveal>
+              <div>
+                <Badge>{category.name}</Badge>
+                <h1 className="mt-5 text-balance text-4xl font-black tracking-tight text-brand-graphite sm:text-5xl">
+                  {seo.h1}
+                </h1>
+                <p className="mt-5 text-lg leading-8 text-stone-700">{category.seoDescription}</p>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <Button
+                    href={getWhatsAppLink(`Olá, gostaria de consultar ${category.name}.`)}
+                    icon={ChatBubbleLeftRightIcon}
+                  >
+                    {category.ctaLabel}
+                  </Button>
+                  <Button href="/produtos" variant="secondary">
+                    Ver todos os produtos
+                  </Button>
+                </div>
               </div>
-            </div>
+            </Reveal>
 
             {featuredProduct && (
-              <Image
-                src={featuredProduct.image}
-                width={1254}
-                height={1254}
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                alt={featuredProduct.imageAlt}
-                priority
-                className="h-auto w-full rounded-lg border border-gray-200 object-cover dark:border-gray-700"
-              />
+              <Reveal>
+                <Image
+                  src={featuredProduct.image}
+                  width={1254}
+                  height={1254}
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  alt={featuredProduct.imageAlt}
+                  priority
+                  className="aspect-[4/3] w-full rounded-lg object-cover shadow-md shadow-stone-900/10"
+                />
+              </Reveal>
             )}
           </div>
-        </div>
+        </Container>
+      </section>
 
-        <div className="grid gap-8 py-10 md:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-              Aplicações comuns
-            </h2>
-            <ul className="mt-4 space-y-2 text-gray-600 dark:text-gray-300">
-              {category.applications.map((application) => (
-                <li key={application} className="flex gap-2">
-                  <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 rounded-full bg-green-600" />
-                  <span>{application}</span>
-                </li>
-              ))}
-            </ul>
+      <section className="bg-stone-50 py-14 sm:py-20">
+        <Container>
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <Reveal>
+              <div className="space-y-6">
+                <Card className="p-6">
+                  <h2 className="text-2xl font-black text-brand-graphite">Aplicações comuns</h2>
+                  <ul className="mt-5 space-y-3 text-stone-700">
+                    {category.applications.map((application) => (
+                      <li key={application} className="flex gap-3">
+                        <span
+                          aria-hidden="true"
+                          className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary-600"
+                        />
+                        <span>{application}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
 
-            <div className="mt-8 rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Como comprar</h2>
-              <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
-                Fale com a equipe para consultar medidas, disponibilidade, retirada na loja e
-                entrega sob consulta.
-              </p>
-              <a
-                href={getWhatsAppLink(
-                  `Olá, gostaria de falar com a equipe sobre ${category.name}.`
-                )}
-                className="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:focus-visible:ring-offset-gray-900"
-              >
-                Falar com a equipe
-              </a>
+                <Card className="overflow-hidden">
+                  <Image
+                    src={visualAssets.images.yard}
+                    width={1200}
+                    height={900}
+                    sizes="(min-width: 1024px) 34vw, 100vw"
+                    alt="Pátio da Madeiras Santos com estoque físico"
+                    className="aspect-[4/3] w-full object-cover"
+                  />
+                  <div className="p-6">
+                    <h2 className="text-xl font-black text-brand-graphite">Como comprar</h2>
+                    <p className="mt-3 text-sm leading-6 text-stone-700">
+                      Fale com a equipe para consultar medidas, disponibilidade, retirada na loja e
+                      entrega sob consulta.
+                    </p>
+                    <Button
+                      href={getWhatsAppLink(
+                        `Olá, gostaria de falar com a equipe sobre ${category.name}.`
+                      )}
+                      icon={ChatBubbleLeftRightIcon}
+                      className="mt-5"
+                    >
+                      Falar com a equipe
+                    </Button>
+                  </div>
+                </Card>
+              </div>
+            </Reveal>
+
+            <div>
+              <SectionHeader
+                eyebrow="Produtos da categoria"
+                title={`Opções de ${category.name}`}
+                description="Consulte disponibilidade pelo WhatsApp e receba orientação da equipe."
+              />
+              <div className="mt-6 grid gap-5 sm:grid-cols-2">
+                {categoryProducts.map((product, index) => (
+                  <Reveal key={product.slug}>
+                    <ProductCard product={product} priority={index === 0} />
+                  </Reveal>
+                ))}
+              </div>
             </div>
           </div>
+        </Container>
+      </section>
 
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-              Produtos desta categoria
-            </h2>
-            <div className="mt-5 grid gap-5 sm:grid-cols-2">
-              {categoryProducts.map((product, index) => (
-                <ProductCard key={product.slug} product={product} priority={index === 0} />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="py-10">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Outras categorias</h2>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+      <section className="bg-white py-14 sm:py-20">
+        <Container>
+          <SectionHeader
+            eyebrow="Outras linhas"
+            title="Continue navegando pelo catálogo."
+            description="Veja outras categorias ou volte para o hub de produtos."
+          />
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {relatedCategories.map((item) => (
               <li key={item.slug}>
                 <Link
                   href={item.href === '/produtos' ? '/produtos#catalogo-produtos' : item.href}
-                  className="block rounded-lg border border-gray-200 px-4 py-3 text-gray-700 hover:border-primary-500 hover:text-primary-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 dark:border-gray-700 dark:text-gray-300 dark:hover:text-primary-300 dark:focus-visible:ring-offset-gray-900"
+                  className="block rounded-lg border border-stone-200 bg-stone-50 px-4 py-4 text-sm font-black text-brand-graphite transition hover:border-primary-300 hover:bg-emerald-50 hover:text-primary-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                 >
                   {item.name}
                 </Link>
               </li>
             ))}
           </ul>
-        </div>
+        </Container>
       </section>
     </>
   )

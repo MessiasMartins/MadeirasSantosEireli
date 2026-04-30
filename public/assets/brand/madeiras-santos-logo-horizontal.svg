@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 720" role="img" aria-label="Madeiras Santos">
+  <title>Madeiras Santos</title>
+  <desc>Logo final com ícone de chapas compensadas empilhadas e tipografia alinhada.</desc>
+  <defs>
+    <style>
+      .green { fill: #059669; }
+      .green-dark { fill: #047857; }
+      .black { fill: #1d1d1b; }
+      .word-main { font-family: 'Inter Display', 'Inter', 'Arial', sans-serif; font-weight: 900; }
+      .word-support { font-family: 'Inter Display', 'Inter', 'Arial', sans-serif; font-weight: 800; }
+    </style>
+  </defs>
+  <g id="chapas" shape-rendering="geometricPrecision">
+    <rect class="green" x="90.000" y="225.000" width="270.000" height="38.000"/>
+    <polygon class="green-dark" points="360.000,225.000 398.000,236.000 398.000,263.000 360.000,263.000"/>
+    <rect class="green" x="90.000" y="285.000" width="270.000" height="38.000"/>
+    <polygon class="green-dark" points="360.000,285.000 398.000,296.000 398.000,323.000 360.000,323.000"/>
+    <rect class="green" x="90.000" y="345.000" width="270.000" height="38.000"/>
+    <polygon class="green-dark" points="360.000,345.000 398.000,356.000 398.000,383.000 360.000,383.000"/>
+    <rect class="green" x="90.000" y="405.000" width="270.000" height="38.000"/>
+    <polygon class="green-dark" points="360.000,405.000 398.000,416.000 398.000,443.000 360.000,443.000"/>
+    <rect class="green" x="90.000" y="465.000" width="270.000" height="38.000"/>
+    <polygon class="green-dark" points="360.000,465.000 398.000,476.000 398.000,503.000 360.000,503.000"/>
+  </g>
+  <g id="wordmark">
+    <text class="green word-support" x="446.000" y="225.500" font-size="118" textLength="948.000" lengthAdjust="spacing" dominant-baseline="hanging">MADEIRAS</text>
+    <text class="black word-main" x="446.000" y="325.500" font-size="225" dominant-baseline="hanging">SANTOS</text>
+  </g>
+</svg>

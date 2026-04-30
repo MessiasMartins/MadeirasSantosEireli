@@ -4,13 +4,13 @@ class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
-          <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon.ico" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon.ico" />
+          <link rel="shortcut icon" href="/assets/brand/madeiras-santos-favicon.ico" />
+          <link rel="icon" href="/assets/brand/madeiras-santos-favicon.ico" sizes="any" />
+          <link rel="icon" href="/assets/brand/madeiras-santos-favicon.svg" type="image/svg+xml" />
+          <link rel="apple-touch-icon" href="/assets/brand/madeiras-santos-favicon-512.png" />
           <link rel="manifest" href="/static/favicons/site.webmanifest" />
-          <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#5bbad5" />
-          <meta name="msapplication-TileColor" content="#000000" />
-          <meta name="theme-color" content="#000000" />
+          <meta name="msapplication-TileColor" content="#059669" />
+          <meta name="theme-color" content="#059669" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
@@ -18,7 +18,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className="antialiased text-black bg-gray-100 dark:bg-gray-900 dark:text-white">
+        <body className="bg-stone-50 font-sans text-brand-graphite antialiased">
           <Main />
           <NextScript />
         </body>
