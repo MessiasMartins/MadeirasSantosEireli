@@ -51,11 +51,11 @@ export default function ContactSection({ mapsEmbedSrc }) {
               />
               <Image
                 src={visualAssets.images.stock}
-                alt="Estoque físico de madeiras no pátio da Madeiras Santos"
-                width={1200}
-                height={900}
+                alt="Empilhadeira e madeiras no pátio da Madeiras Santos"
+                width={1600}
+                height={1000}
                 sizes="(min-width: 1024px) 26vw, (min-width: 640px) 50vw, 100vw"
-                className="aspect-[4/3] rounded-lg object-cover shadow-md shadow-stone-900/10"
+                className="aspect-[4/3] rounded-lg object-cover object-center shadow-md shadow-stone-900/10"
               />
             </div>
           </Reveal>

@@ -58,6 +58,11 @@ export default function Footer() {
             </h2>
             <ul className="mt-4 space-y-2 text-sm font-semibold text-stone-700">
               <li>
+                <Link className="hover:text-primary-700" href="/about">
+                  Sobre
+                </Link>
+              </li>
+              <li>
                 <Link className="hover:text-primary-700" href="/entrega">
                   Entrega
                 </Link>

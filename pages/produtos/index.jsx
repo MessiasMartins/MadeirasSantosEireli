@@ -114,12 +114,12 @@ export default function Produtos() {
               <div className="relative overflow-hidden rounded-lg">
                 <Image
                   src={visualAssets.images.stock}
-                  width={1200}
-                  height={900}
+                  width={1600}
+                  height={1000}
                   sizes="(min-width: 1024px) 45vw, 100vw"
-                  alt="Estoque físico de produtos na Madeiras Santos"
+                  alt="Empilhadeira e estoque físico de produtos na Madeiras Santos"
                   priority
-                  className="aspect-[4/3] w-full object-cover"
+                  className="aspect-[4/3] w-full object-cover object-center"
                 />
                 <div className="absolute inset-x-4 bottom-4 grid grid-cols-2 gap-2">
                   {proofPoints.map((proofPoint) => (
@@ -231,11 +231,11 @@ export default function Produtos() {
               <Card className="h-full overflow-hidden">
                 <Image
                   src={visualAssets.images.delivery}
-                  alt="Material carregado para entrega sob consulta"
-                  width={1200}
-                  height={900}
+                  alt="Empilhadeira com madeiras para entrega sob consulta"
+                  width={1600}
+                  height={1000}
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="aspect-[5/3] w-full object-cover"
+                  className="aspect-[5/3] w-full object-cover object-center"
                 />
                 <div className="p-6 sm:p-8">
                   <div className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-emerald-50 text-primary-700">

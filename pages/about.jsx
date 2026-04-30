@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import {
   ChatBubbleLeftRightIcon,
+  ClockIcon,
   MapPinIcon,
   ShoppingBagIcon,
-  TruckIcon,
+  UsersIcon,
 } from '@heroicons/react/24/outline'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import { BreadcrumbSEO, PageSEO } from '@/components/SEO'
@@ -18,31 +19,32 @@ import pageMetadata from '@/data/config/pageMetadata'
 import visualAssets from '@/data/config/visualAssets'
 import { getWhatsAppLink } from '@/lib/utils/whatsapp'
 
-const deliverySteps = [
+const pillars = [
   {
-    title: 'Consulte o material',
-    description: 'Informe produto, medidas aproximadas, volume e endereço para a equipe orientar.',
-    icon: ChatBubbleLeftRightIcon,
+    title: 'Tradição familiar',
+    description:
+      'A experiência da família no setor madeireiro orienta a forma de atender, selecionar produtos e construir relações de confiança.',
+    icon: UsersIcon,
   },
   {
-    title: 'Combine as condições',
+    title: 'Presença física em BH',
     description:
-      'A entrega é avaliada conforme produto, volume, endereço e disponibilidade logística.',
-    icon: TruckIcon,
+      'A loja em Belo Horizonte permite atendimento direto, retirada conforme disponibilidade e orientação próxima para cada necessidade.',
+    icon: MapPinIcon,
   },
   {
-    title: 'Retire ou receba',
+    title: 'Atendimento ágil',
     description:
-      'Você também pode visitar a loja e combinar retirada conforme disponibilidade do estoque.',
-    icon: ShoppingBagIcon,
+      'O WhatsApp ajuda a consultar produtos, medidas, volumes, retirada e entrega sob consulta com mais rapidez.',
+    icon: ClockIcon,
   },
 ]
 
-export default function EntregaPage() {
-  const seo = pageMetadata.entrega
+export default function AboutPage() {
+  const seo = pageMetadata.about
   const breadcrumbs = [
     { name: 'Início', href: '/' },
-    { name: 'Entrega', href: '/entrega' },
+    { name: 'Sobre', href: '/about' },
   ]
 
   return (
@@ -53,25 +55,27 @@ export default function EntregaPage() {
       <section className="bg-white">
         <Container className="py-8 sm:py-12">
           <Breadcrumbs items={breadcrumbs} />
-          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <Reveal>
               <div>
-                <Badge>Entrega sob consulta</Badge>
+                <Badge>História e presença local</Badge>
                 <h1 className="mt-5 text-balance text-4xl font-black tracking-tight text-brand-graphite sm:text-5xl">
                   {seo.h1}
                 </h1>
-                <p className="mt-5 max-w-2xl text-lg leading-8 text-stone-700">
-                  Consulte condições conforme produto, volume, endereço e disponibilidade logística
-                  para facilitar sua obra em Belo Horizonte e região.
+                <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-700">
+                  A Madeiras Santos nasceu da tradição familiar no setor madeireiro e segue
+                  atendendo Belo Horizonte e região com presença física, estoque no local e
+                  orientação direta para quem está construindo, reformando ou comprando para
+                  demandas maiores.
                 </p>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Button
                     href={getWhatsAppLink(
-                      'Olá, gostaria de consultar condições de entrega para minha obra.'
+                      'Olá, gostaria de falar com a Madeiras Santos sobre produtos e atendimento.'
                     )}
                     icon={ChatBubbleLeftRightIcon}
                   >
-                    Consultar entrega pelo WhatsApp
+                    Falar no WhatsApp
                   </Button>
                   <Button
                     href={companyInfo.links.routeMap}
@@ -88,17 +92,17 @@ export default function EntregaPage() {
             <Reveal>
               <div className="relative overflow-hidden rounded-lg shadow-md shadow-stone-900/10">
                 <Image
-                  src={visualAssets.images.delivery}
+                  src={visualAssets.images.forkliftWide}
                   width={1600}
                   height={1000}
                   sizes="(min-width: 1024px) 45vw, 100vw"
-                  alt="Empilhadeira com madeiras preparadas para entrega sob consulta"
+                  alt="Empilhadeira e madeiras no pátio da Madeiras Santos"
                   priority
                   className="aspect-[4/3] w-full object-cover object-center"
                 />
                 <div className="absolute inset-x-4 bottom-4 rounded-md bg-white/92 p-4 shadow-sm backdrop-blur">
                   <p className="text-sm font-black text-brand-graphite">
-                    Atendimento para obra, reforma, varejo e volumes maiores.
+                    Atendimento para varejo, obra, reforma e demandas maiores.
                   </p>
                 </div>
               </div>
@@ -110,22 +114,22 @@ export default function EntregaPage() {
       <section className="bg-stone-50 py-14 sm:py-20">
         <Container>
           <SectionHeader
-            eyebrow="Como funciona"
-            title="A equipe orienta o melhor caminho para cada pedido."
-            description="A logística depende do produto, volume, endereço e disponibilidade. O atendimento pelo WhatsApp agiliza essa avaliação."
+            eyebrow="Como trabalhamos"
+            title="Relação direta, orientação prática e compromisso de longo prazo."
+            description="A equipe entende que quem procura uma madeireira precisa de clareza, disponibilidade e confiança para seguir com a compra certa."
           />
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {deliverySteps.map((step) => {
-              const Icon = step.icon
+            {pillars.map((pillar) => {
+              const Icon = pillar.icon
               return (
-                <Reveal key={step.title}>
+                <Reveal key={pillar.title}>
                   <Card className="h-full p-6">
                     <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-emerald-50 text-primary-700">
                       <Icon aria-hidden="true" className="h-6 w-6" />
                     </div>
-                    <h2 className="mt-5 text-xl font-black text-brand-graphite">{step.title}</h2>
-                    <p className="mt-3 text-sm leading-6 text-stone-700">{step.description}</p>
+                    <h2 className="mt-5 text-xl font-black text-brand-graphite">{pillar.title}</h2>
+                    <p className="mt-3 text-sm leading-6 text-stone-700">{pillar.description}</p>
                   </Card>
                 </Reveal>
               )
@@ -136,30 +140,37 @@ export default function EntregaPage() {
 
       <section className="bg-white py-14 sm:py-20">
         <Container>
-          <div className="grid gap-6 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <Reveal>
-              <Card className="h-full overflow-hidden">
-                <Image
-                  src={visualAssets.images.yard}
-                  width={1600}
-                  height={1000}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  alt="Empilhadeira e estoque físico da Madeiras Santos para retirada"
-                  className="aspect-[4/3] w-full object-cover object-center"
-                />
+              <Card className="h-full p-6 sm:p-8">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-emerald-50 text-primary-700">
+                  <ShoppingBagIcon aria-hidden="true" className="h-6 w-6" />
+                </div>
+                <h2 className="mt-5 text-2xl font-black text-brand-graphite">
+                  Uma loja feita para resolver com proximidade.
+                </h2>
+                <p className="mt-3 leading-7 text-stone-700">
+                  O atendimento combina experiência acumulada, conversa direta e cuidado para
+                  indicar caminhos viáveis conforme produto, uso, volume e disponibilidade.
+                </p>
               </Card>
             </Reveal>
 
             <Reveal>
               <div>
                 <SectionHeader
-                  eyebrow="Retirada na loja"
-                  title="Também é possível visitar a Madeiras Santos."
-                  description="Veja o material no local, fale com a equipe e combine a retirada quando fizer sentido para sua compra."
+                  eyebrow="Visite ou chame no WhatsApp"
+                  title="A Madeiras Santos atende quem compra para casa, obra, reforma e volumes maiores."
+                  description={`Estamos em ${companyInfo.address.neighborhood}, Belo Horizonte. O caminho mais rápido para consultar disponibilidade é falar com a equipe pelo WhatsApp.`}
                 />
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <Button href="/contato" icon={MapPinIcon}>
-                    Ver contato e localização
+                  <Button
+                    href={getWhatsAppLink(
+                      'Olá, gostaria de consultar atendimento na Madeiras Santos.'
+                    )}
+                    icon={ChatBubbleLeftRightIcon}
+                  >
+                    Chamar no WhatsApp
                   </Button>
                   <Button href="/produtos" variant="secondary">
                     Ver produtos

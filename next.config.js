@@ -17,7 +17,7 @@ module.exports = withBundleAnalyzer({
       { source: '/products', destination: '/produtos', permanent: true },
       { source: '/produto', destination: '/produtos', permanent: true },
       { source: '/contact', destination: '/contato', permanent: true },
-      { source: '/about', destination: '/contato', permanent: true },
+      { source: '/sobre', destination: '/about', permanent: true },
       { source: '/home', destination: '/', permanent: true },
       { source: '/blog', destination: '/produtos', permanent: true },
       { source: '/blog/:path*', destination: '/produtos', permanent: true },

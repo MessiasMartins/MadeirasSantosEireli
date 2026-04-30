@@ -6,8 +6,10 @@ class MyDocument extends Document {
         <Head>
           <link rel="shortcut icon" href="/assets/brand/madeiras-santos-favicon.ico" />
           <link rel="icon" href="/assets/brand/madeiras-santos-favicon.ico" sizes="any" />
-          <link rel="icon" href="/assets/brand/madeiras-santos-favicon.svg" type="image/svg+xml" />
-          <link rel="apple-touch-icon" href="/assets/brand/madeiras-santos-favicon-512.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16x16.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon-48x48.png" />
+          <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
           <link rel="manifest" href="/static/favicons/site.webmanifest" />
           <meta name="msapplication-TileColor" content="#059669" />
           <meta name="theme-color" content="#059669" />

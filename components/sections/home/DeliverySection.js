@@ -16,11 +16,11 @@ export default function DeliverySection() {
             <div className="overflow-hidden rounded-lg border border-white/10">
               <Image
                 src={visualAssets.images.delivery}
-                alt="Madeiras carregadas para entrega sob consulta"
-                width={1200}
-                height={900}
+                alt="Empilhadeira movimentando madeiras para entrega sob consulta"
+                width={1600}
+                height={1000}
                 sizes="(min-width: 1024px) 45vw, 100vw"
-                className="aspect-[4/3] w-full object-cover"
+                className="aspect-[4/3] w-full object-cover object-center"
               />
             </div>
           </Reveal>

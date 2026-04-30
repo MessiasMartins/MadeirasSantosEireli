@@ -19,12 +19,12 @@ export default function HeroSection() {
     <section className="relative isolate overflow-hidden bg-brand-graphite text-white">
       <Image
         src={visualAssets.images.hero}
-        alt="Pátio e estoque físico da Madeiras Santos em Belo Horizonte"
+        alt="Floresta e matéria-prima de madeira em área natural"
         width={1600}
         height={1050}
         sizes="100vw"
         priority
-        className="absolute inset-0 -z-20 h-full w-full object-cover"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/55 to-black/75" />
 

@@ -99,11 +99,11 @@ export default function CategoryPage({ seo, category }) {
                 <Card className="overflow-hidden">
                   <Image
                     src={visualAssets.images.yard}
-                    width={1200}
-                    height={900}
+                    width={1600}
+                    height={1000}
                     sizes="(min-width: 1024px) 34vw, 100vw"
-                    alt="Pátio da Madeiras Santos com estoque físico"
-                    className="aspect-[4/3] w-full object-cover"
+                    alt="Empilhadeira e estoque físico no pátio da Madeiras Santos"
+                    className="aspect-[4/3] w-full object-cover object-center"
                   />
                   <div className="p-6">
                     <h2 className="text-xl font-black text-brand-graphite">Como comprar</h2>
