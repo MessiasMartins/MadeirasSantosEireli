@@ -1,17 +1,16 @@
 import {
-  AnnotationIcon,
   MapIcon,
   TruckIcon,
-  ClipboardCheckIcon,
+  ClipboardDocumentCheckIcon,
   UserGroupIcon,
-} from '@heroicons/react/outline'
+} from '@heroicons/react/24/outline'
 
 const features = [
   {
     name: 'Estoque no Local',
     description:
       'Com estoque disponível no local, você pode avaliar a qualidade do material antes do carregamento ou da retirada.',
-    icon: ClipboardCheckIcon,
+    icon: ClipboardDocumentCheckIcon,
   },
   {
     name: 'Entrega sob consulta',

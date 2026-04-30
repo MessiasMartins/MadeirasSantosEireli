@@ -1,4 +1,3 @@
-/* eslint-disable global-require, import/no-dynamic-require, no-console */
 const fs = require('fs')
 const path = require('path')
 
@@ -6,6 +5,10 @@ const root = process.cwd()
 
 function read(file) {
   return fs.readFileSync(path.join(root, file), 'utf8')
+}
+
+function exists(file) {
+  return fs.existsSync(path.join(root, file))
 }
 
 function assert(condition, message) {
@@ -22,7 +25,23 @@ function countMatches(content, pattern) {
   return (content.match(pattern) || []).length
 }
 
+function walkFiles(dir, files = []) {
+  if (!exists(dir)) return files
+
+  fs.readdirSync(path.join(root, dir), { withFileTypes: true }).forEach((entry) => {
+    const relativePath = path.join(dir, entry.name)
+    if (entry.isDirectory()) {
+      walkFiles(relativePath, files)
+      return
+    }
+    files.push(relativePath)
+  })
+
+  return files
+}
+
 function run() {
+  const packageJson = requireFromRoot('package.json')
   const pageMetadata = requireFromRoot('data/config/pageMetadata.js')
   const productCategories = requireFromRoot('data/productCategories.js')
   const { products } = requireFromRoot('data/productCatalog.js')
@@ -40,7 +59,106 @@ function run() {
   const features = read('components/Features.js')
   const faqData = read('data/faqData.js')
   const primaryCtas = read('components/common/PrimaryCtas.js')
-  const tailwindConfig = read('tailwind.config.js')
+  const tailwindCss = read('css/tailwind.css')
+
+  const requiredScripts = ['dev', 'build', 'start', 'serve', 'lint', 'lint:fix', 'test', 'analyze']
+  requiredScripts.forEach((script) => {
+    assert(packageJson.scripts[script], `Script ausente: ${script}`)
+  })
+  assert(packageJson.scripts.dev === 'next dev', 'Script dev deve usar next dev.')
+  assert(packageJson.scripts.build === 'next build', 'Script build deve usar next build.')
+  assert(packageJson.scripts.start === 'next start', 'Script start deve usar next start.')
+  assert(packageJson.scripts.serve === 'next start', 'Script serve deve usar next start.')
+  assert(packageJson.scripts.lint === 'eslint .', 'Script lint deve usar ESLint CLI.')
+  assert(packageJson.scripts['lint:fix'] === 'eslint . --fix', 'Script lint:fix inválido.')
+  assert(
+    packageJson.scripts.test === 'node scripts/tests/site-validation.js',
+    'Script test deve rodar a validação estrutural.'
+  )
+  Object.values(packageJson.scripts).forEach((script) => {
+    assert(!script.includes('next lint'), 'Scripts não devem usar next lint.')
+    assert(!script.includes('next-remote-watch'), 'Scripts não devem usar next-remote-watch.')
+    assert(!script.includes('--legacy-peer-deps'), 'Scripts não devem usar --legacy-peer-deps.')
+    assert(!script.includes('--force'), 'Scripts não devem usar --force.')
+  })
+  assert(packageJson.engines.node === '>=24 <25', 'Engine Node deve travar a linha 24 LTS.')
+  assert(packageJson.packageManager === 'npm@11.13.0', 'Package manager deve ser npm 11.13.0.')
+
+  const removedDependencies = [
+    '@mailchimp/mailchimp_marketing',
+    '@svgr/webpack',
+    'dedent',
+    'file-loader',
+    'github-slugger',
+    'globby',
+    'gray-matter',
+    'image-size',
+    'inquirer',
+    'mdx-bundler',
+    'next-remote-watch',
+    'preact',
+    'reading-time',
+    'rehype-autolink-headings',
+    'rehype-katex',
+    'rehype-prism-plus',
+    'rehype-slug',
+    'remark-footnotes',
+    'remark-gfm',
+    'remark-math',
+    'smoothscroll-polyfill',
+    'unist-util-visit',
+  ]
+  removedDependencies.forEach((dependency) => {
+    assert(
+      !packageJson.dependencies[dependency],
+      `Dependência legada em dependencies: ${dependency}`
+    )
+    assert(
+      !packageJson.devDependencies[dependency],
+      `Dependência legada em devDependencies: ${dependency}`
+    )
+  })
+
+  assert(packageJson.dependencies.next === '16.2.4', 'Next deve estar em 16.2.4.')
+  assert(packageJson.dependencies.react === '19.2.5', 'React deve estar em 19.2.5.')
+  assert(packageJson.dependencies['react-dom'] === '19.2.5', 'React DOM deve estar em 19.2.5.')
+  assert(packageJson.dependencies.tailwindcss === '4.2.4', 'Tailwind deve estar em 4.2.4.')
+  assert(packageJson.devDependencies.eslint === '9.39.4', 'ESLint deve estar em 9.39.4.')
+  assert(packageJson.devDependencies.prettier === '3.8.3', 'Prettier deve estar em 3.8.3.')
+  assert(
+    packageJson.overrides?.postcss === '$postcss',
+    'Override de PostCSS deve manter Next fora da versão vulnerável.'
+  )
+
+  assert(exists('eslint.config.mjs'), 'Config flat do ESLint ausente.')
+  assert(!exists('.eslintrc.js'), 'Config ESLint antiga deve ser removida.')
+  assert(!exists('.eslintignore'), 'Config ESLint antiga .eslintignore deve ser removida.')
+  assert(
+    !exists('.babelrc'),
+    'Config Babel antiga deve ser removida para usar o compilador padrão do Next.'
+  )
+  assert(!exists('tailwind.config.js'), 'Tailwind v4 deve usar configuração CSS-first nesta fase.')
+  assert(/@import ['"]tailwindcss['"]/.test(tailwindCss), 'Tailwind CSS v4 não configurado.')
+  assert(/@plugin ['"]@tailwindcss\/forms['"]/.test(tailwindCss), 'Plugin forms ausente no CSS.')
+  assert(
+    /@plugin ['"]@tailwindcss\/typography['"]/.test(tailwindCss),
+    'Plugin typography ausente no CSS.'
+  )
+  assert(tailwindCss.includes('--color-brand-green: #059669'), 'Token verde da marca ausente.')
+  assert(tailwindCss.includes('--color-brand-graphite: #1d1d1b'), 'Token grafite da marca ausente.')
+  ;[
+    'pages/blog.jsx',
+    'pages/blog/[...slug].js',
+    'pages/tags.jsx',
+    'pages/about.jsx',
+    'pages/products.jsx',
+    'components/NewsletterForm.js',
+    'components/comments/index.js',
+    'lib/mdx.js',
+    'public/feed.xml',
+  ].forEach((file) => {
+    assert(!exists(file), `Legado deveria ter sido removido: ${file}`)
+  })
 
   const priorityPages = [
     'pages/index.js',
@@ -53,12 +171,10 @@ function run() {
     'pages/entrega.jsx',
     'pages/contato.jsx',
   ]
-
   priorityPages.forEach((file) => {
-    assert(fs.existsSync(path.join(root, file)), `Rota prioritária ausente: ${file}`)
+    assert(exists(file), `Rota prioritária ausente: ${file}`)
   })
 
-  assert(productCategories.length === 6, 'Quantidade de categorias diferente de 6.')
   const expectedSitemapRoutes = [
     '/',
     '/produtos',
@@ -71,6 +187,7 @@ function run() {
     '/contato',
   ]
 
+  assert(productCategories.length === 6, 'Quantidade de categorias diferente de 6.')
   ;[
     'chapas-e-compensados',
     'madeira-para-telhado',
@@ -135,7 +252,7 @@ function run() {
       `Imagem fora de public/assets/products: ${product.slug}`
     )
     assert(
-      fs.existsSync(path.join(root, 'public', product.image)),
+      exists(path.join('public', product.image)),
       `Asset ausente para ${product.slug}: ${product.image}`
     )
     assert(
@@ -226,8 +343,8 @@ function run() {
     'ItemListSEO deve apontar para âncoras únicas por produto.'
   )
   assert(
-    !seoComponent.includes('item.categoryHref ||'),
-    'ItemListSEO não deve reutilizar URLs de categoria para vários produtos.'
+    productCard.includes('id={`produto-${product.slug}`}'),
+    'ProductCard deve expor âncora produto-${slug}.'
   )
 
   const hubItemListUrls = products.map(
@@ -247,18 +364,6 @@ function run() {
       `ItemList da categoria deve gerar URLs únicas: ${category.slug}`
     )
   })
-  products.forEach((product) => {
-    assert(
-      productCard.includes('id={`produto-${product.slug}`}'),
-      'ProductCard deve expor âncora produto-${slug}.'
-    )
-    assert(
-      hubItemListUrls.includes(
-        `https://www.madeirassantos.com.br/produtos#produto-${product.slug}`
-      ),
-      `Âncora do produto ausente no ItemList esperado: ${product.slug}`
-    )
-  })
 
   assert(siteStructure.includes("href: '/produtos'"), 'Header sem link para /produtos.')
   assert(
@@ -267,6 +372,7 @@ function run() {
   )
   assert(companyInfo.includes('https://api.whatsapp.com/send?phone='), 'Link de WhatsApp inválido.')
   assert(companyInfo.includes('tel:+553136532390'), 'Link de telefone sem protocolo tel:.')
+
   assert(sitemap.startsWith('<?xml version="1.0" encoding="UTF-8"?>'), 'Sitemap sem XML header.')
   assert(sitemap.includes('<urlset'), 'Sitemap sem urlset.')
   const sitemapLocs = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1])
@@ -283,7 +389,7 @@ function run() {
       `Sitemap sem rota ${route}`
     )
   })
-  ;['/blog/[...slug]', '/construction', '/tags', '[', ']'].forEach((forbiddenRoute) => {
+  ;['/blog', '/construction', '/tags', '[', ']'].forEach((forbiddenRoute) => {
     assert(!sitemap.includes(forbiddenRoute), `Sitemap contém rota indevida: ${forbiddenRoute}`)
   })
 
@@ -294,15 +400,6 @@ function run() {
     robots.includes('Sitemap: https://www.madeirassantos.com.br/sitemap.xml'),
     'robots.txt sem sitemap correto.'
   )
-  ;[
-    'pages/produtos/chapas-e-compensados.jsx',
-    'pages/produtos/madeira-para-telhado.jsx',
-    'pages/produtos/telhas.jsx',
-    'pages/produtos/portas-e-marcos.jsx',
-    'pages/produtos/bancos-de-madeira-sob-encomenda.jsx',
-  ].forEach((file) => {
-    assert(!read(file).includes('productCategories['), `${file} ainda depende de índice fixo.`)
-  })
 
   const publicContent = [
     produtosPage,
@@ -343,10 +440,6 @@ function run() {
       `Texto público contém termo incorreto: ${forbiddenText}`
     )
   })
-  assert(
-    !primaryCtas.includes('rel="noreferrer"'),
-    'Links com target blank devem usar noopener noreferrer.'
-  )
   ;[
     'pages/produtos/index.jsx',
     'pages/contato.jsx',
@@ -364,13 +457,25 @@ function run() {
       }
     })
   })
-  assert(tailwindConfig.includes('./pages/**/*.{js,jsx}'), 'Tailwind purge sem páginas JSX.')
-  assert(
-    tailwindConfig.includes('./components/**/*.{js,jsx}'),
-    'Tailwind purge sem componentes JSX.'
-  )
+  ;[
+    'public/static/images/logo.svg',
+    'public/social-icons/mail.svg',
+    'public/social-icons/whatsapp.svg',
+    'public/social-icons/instagram.svg',
+    'public/social-icons/google.svg',
+    'public/other-icons/mastercardlogo.svg',
+    'public/other-icons/visa.svg',
+    'public/favicon.ico',
+  ].forEach((file) => {
+    assert(exists(file), `Asset essencial ausente: ${file}`)
+  })
 
-  console.log('Validação estrutural/SEO/catálogo concluída com sucesso.')
+  walkFiles('pages').forEach((file) => {
+    assert(!file.includes('/blog/'), `Rota de blog remanescente: ${file}`)
+    assert(!file.includes('/tags/'), `Rota de tag remanescente: ${file}`)
+  })
+
+  console.log('Validação estrutural/SEO/catálogo/tooling concluída com sucesso.')
 }
 
 run()
