@@ -70,6 +70,7 @@ function run() {
   const aboutPage = read('pages/about.jsx')
   const faqData = read('data/faqData.js')
   const primaryCtas = read('components/common/PrimaryCtas.js')
+  const whatsappUtils = read('lib/utils/whatsapp.js')
   const tailwindCss = read('css/tailwind.css')
 
   const requiredScripts = ['dev', 'build', 'start', 'serve', 'lint', 'lint:fix', 'test', 'analyze']
@@ -462,6 +463,18 @@ function run() {
   )
   assert(companyInfo.includes('https://api.whatsapp.com/send?phone='), 'Link de WhatsApp inválido.')
   assert(companyInfo.includes('tel:+553136532390'), 'Link de telefone sem protocolo tel:.')
+  assert(
+    companyInfo.includes('send?phone=553136532390'),
+    'WhatsApp deve apontar para +55 31 3653-2390.'
+  )
+  assert(whatsappUtils.includes("WHATSAPP_PHONE = '553136532390'"), 'Helper de WhatsApp inválido.')
+  const deprecatedWhatsAppPhone = ['5531', '99', '248', '2390'].join('')
+  assert(
+    !companyInfo.includes(deprecatedWhatsAppPhone) &&
+      !primaryCtas.includes(deprecatedWhatsAppPhone) &&
+      !whatsappUtils.includes(deprecatedWhatsAppPhone),
+    'Número antigo de WhatsApp não deve permanecer em CTAs.'
+  )
 
   assert(sitemap.startsWith('<?xml version="1.0" encoding="UTF-8"?>'), 'Sitemap sem XML header.')
   assert(sitemap.includes('<urlset'), 'Sitemap sem urlset.')
