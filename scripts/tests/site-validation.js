@@ -69,7 +69,6 @@ function run() {
   const heroSection = read('components/sections/home/HeroSection.js')
   const storySection = read('components/sections/home/StorySection.js')
   const aboutPage = read('pages/about.jsx')
-  const cookieConsentBanner = read('components/ui/CookieConsentBanner.js')
   const faqData = read('data/faqData.js')
   const primaryCtas = read('components/common/PrimaryCtas.js')
   const productImages = read('lib/utils/productImages.js')
@@ -126,7 +125,6 @@ function run() {
     'remark-math',
     'smoothscroll-polyfill',
     'next-themes',
-    'react-cookie-consent',
     'unist-util-visit',
   ]
   removedDependencies.forEach((dependency) => {
@@ -437,11 +435,11 @@ function run() {
       vercelConfig.includes('"value": "public, max-age=31536000, immutable"'),
     'Assets públicos devem ter cache longo configurado na Vercel.'
   )
-  assert(!appPage.includes('react-cookie-consent'), 'Cookie banner externo deve ser removido.')
   assert(
-    cookieConsentBanner.includes('madeiras-santos-cookie-consent') &&
-      cookieConsentBanner.includes('max-age'),
-    'Cookie banner local deve preservar consentimento básico.'
+    appPage.includes("import CookieConsent from 'react-cookie-consent'") &&
+      appPage.includes('cookieName="madeiras-santos-cookie-consent"') &&
+      appPage.includes('buttonText="Aceitar cookies"'),
+    'Cookie banner aprovado deve usar react-cookie-consent com a configuração original.'
   )
   assert(
     heroSection.includes('preload') &&
