@@ -92,12 +92,14 @@ export default function ContatoPage() {
             <Reveal>
               <div className="relative overflow-hidden rounded-lg shadow-md shadow-stone-900/10">
                 <Image
-                  src={visualAssets.images.facade}
+                  src={visualAssets.images.facadeOptimized}
                   width={1280}
                   height={900}
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   alt="Fachada e acesso da Madeiras Santos em Belo Horizonte"
-                  priority
+                  preload
+                  fetchPriority="high"
+                  quality={78}
                   className="aspect-[4/3] w-full object-cover"
                 />
                 <div className="absolute inset-x-4 bottom-4 rounded-md bg-white/92 p-4 shadow-sm backdrop-blur">
@@ -164,11 +166,12 @@ export default function ContatoPage() {
             <Reveal>
               <Card className="h-full overflow-hidden">
                 <Image
-                  src={visualAssets.images.store}
+                  src={visualAssets.images.storeOptimized}
                   width={1280}
                   height={900}
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   alt="Loja da Madeiras Santos com produtos para obra e reforma"
+                  quality={76}
                   className="aspect-[4/3] w-full object-cover"
                 />
               </Card>

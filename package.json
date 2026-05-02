@@ -12,6 +12,7 @@
     "start": "next start",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
+    "optimize:images": "node scripts/optimize-images.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky",
@@ -26,7 +27,6 @@
     "next": "16.2.4",
     "postcss": "8.5.12",
     "react": "19.2.5",
-    "react-cookie-consent": "^10.0.1",
     "react-dom": "19.2.5",
     "sharp": "^0.34.5",
     "tailwindcss": "4.2.4"

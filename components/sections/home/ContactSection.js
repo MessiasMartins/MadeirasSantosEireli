@@ -42,11 +42,12 @@ export default function ContactSection({ mapsEmbedSrc }) {
           <Reveal>
             <div className="grid gap-4 sm:grid-cols-2">
               <Image
-                src={visualAssets.images.facade}
+                src={visualAssets.images.facadeOptimized}
                 alt="Fachada da loja Madeiras Santos em Belo Horizonte"
                 width={1280}
                 height={900}
                 sizes="(min-width: 1024px) 26vw, (min-width: 640px) 50vw, 100vw"
+                quality={76}
                 className="aspect-[4/3] rounded-lg object-cover shadow-md shadow-stone-900/10"
               />
               <Image
@@ -55,6 +56,7 @@ export default function ContactSection({ mapsEmbedSrc }) {
                 width={1600}
                 height={1000}
                 sizes="(min-width: 1024px) 26vw, (min-width: 640px) 50vw, 100vw"
+                quality={76}
                 className="aspect-[4/3] rounded-lg object-cover object-center shadow-md shadow-stone-900/10"
               />
             </div>

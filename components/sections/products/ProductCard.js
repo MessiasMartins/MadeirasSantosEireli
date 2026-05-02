@@ -3,9 +3,10 @@ import Link from '@/components/Link'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
+import { getOptimizedProductImage } from '@/lib/utils/productImages'
 import { getWhatsAppLink } from '@/lib/utils/whatsapp'
 
-export default function ProductCard({ product, priority = false }) {
+export default function ProductCard({ product }) {
   const detailHref =
     product.categoryHref === '/produtos'
       ? `/produtos#produto-${product.slug}`
@@ -19,12 +20,12 @@ export default function ProductCard({ product, priority = false }) {
     >
       <div className="relative bg-stone-100">
         <Image
-          src={product.image}
-          width={1254}
-          height={1254}
+          src={getOptimizedProductImage(product)}
+          width={900}
+          height={900}
           sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           alt={product.imageAlt}
-          priority={priority}
+          quality={76}
           className="aspect-square w-full object-cover"
         />
       </div>

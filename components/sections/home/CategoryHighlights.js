@@ -8,6 +8,7 @@ import Reveal from '@/components/ui/Reveal'
 import SectionHeader from '@/components/ui/SectionHeader'
 import siteStructure from '@/data/config/siteStructure'
 import { getProductBySlug } from '@/data/productCatalog'
+import { getOptimizedProductImage } from '@/lib/utils/productImages'
 
 function getCategoryHref(category) {
   return category.href === '/produtos' ? '/produtos#catalogo-produtos' : category.href
@@ -31,11 +32,12 @@ export default function CategoryHighlights() {
                 <Card as="article" className="h-full overflow-hidden">
                   {featuredProduct && (
                     <Image
-                      src={featuredProduct.image}
+                      src={getOptimizedProductImage(featuredProduct)}
                       alt={category.imageAlt}
-                      width={1254}
-                      height={1254}
+                      width={900}
+                      height={900}
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      quality={76}
                       className="aspect-[4/3] w-full object-cover"
                     />
                   )}

@@ -27,9 +27,9 @@ export default function FeaturedProducts() {
           description="Produtos do catálogo comercial com consulta rápida pelo WhatsApp e atendimento direto da equipe."
         />
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredProducts.map((product, index) => (
+          {featuredProducts.map((product) => (
             <Reveal key={product.slug}>
-              <ProductCard product={product} priority={index < 2} />
+              <ProductCard product={product} />
             </Reveal>
           ))}
         </div>

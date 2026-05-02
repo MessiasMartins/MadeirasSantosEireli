@@ -48,10 +48,10 @@ export default function MobileMenu() {
         <div className="flex items-center justify-between border-b border-stone-200 px-5 py-4">
           <Link href="/" aria-label="Madeiras Santos" onClick={() => setIsOpen(false)}>
             <Image
-              src={visualAssets.brand.logoHorizontal}
+              src={visualAssets.brand.logoHorizontalWebp}
               alt="Madeiras Santos"
-              width={300}
-              height={99}
+              width={900}
+              height={297}
               className="h-12 w-auto"
             />
           </Link>
