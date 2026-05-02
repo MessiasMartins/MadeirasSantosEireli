@@ -1,12 +1,19 @@
 import '@/css/tailwind.css'
 import Head from 'next/head'
+import { Inter } from 'next/font/google'
 import Analytics from '@/components/analytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
 import CookieConsent from 'react-cookie-consent'
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <div className={`${inter.className} ${inter.variable}`}>
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
@@ -26,6 +33,6 @@ export default function App({ Component, pageProps }) {
           experiência.
         </CookieConsent>
       </LayoutWrapper>
-    </>
+    </div>
   )
 }

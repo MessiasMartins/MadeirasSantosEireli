@@ -9,7 +9,6 @@ import CategoryHighlights from '@/components/sections/home/CategoryHighlights'
 import DeliverySection from '@/components/sections/home/DeliverySection'
 import FeaturedProducts from '@/components/sections/home/FeaturedProducts'
 import StorySection from '@/components/sections/home/StorySection'
-import visualAssets from '@/data/config/visualAssets'
 import { getHomeStructuredData } from '@/lib/homeStructuredData'
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
     <>
       <PageSEO title={pageMetadata.home.title} description={pageMetadata.home.description} />
       <Head>
-        <link rel="preload" as="image" href={visualAssets.images.hero} />
         {structuredDataList.map((item) => (
           <script
             key={item['@type']}

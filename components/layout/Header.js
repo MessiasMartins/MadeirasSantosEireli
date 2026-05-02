@@ -15,11 +15,10 @@ export default function Header() {
         <div className="flex min-h-[76px] items-center justify-between gap-4">
           <Link href="/" aria-label="Madeiras Santos" className="shrink-0">
             <Image
-              src={visualAssets.brand.logoHorizontal}
+              src={visualAssets.brand.logoHorizontalWebp}
               alt="Madeiras Santos"
-              width={300}
-              height={99}
-              priority
+              width={900}
+              height={297}
               className="h-12 w-auto sm:h-14"
             />
           </Link>

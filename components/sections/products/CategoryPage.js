@@ -12,6 +12,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import siteStructure from '@/data/config/siteStructure'
 import visualAssets from '@/data/config/visualAssets'
 import { getProductBySlug, getProductsByCategory } from '@/data/productCatalog'
+import { getOptimizedProductImage } from '@/lib/utils/productImages'
 import { getWhatsAppLink } from '@/lib/utils/whatsapp'
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
 
@@ -62,12 +63,14 @@ export default function CategoryPage({ seo, category }) {
             {featuredProduct && (
               <Reveal>
                 <Image
-                  src={featuredProduct.image}
-                  width={1254}
-                  height={1254}
+                  src={getOptimizedProductImage(featuredProduct)}
+                  width={900}
+                  height={900}
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   alt={featuredProduct.imageAlt}
-                  priority
+                  preload
+                  fetchPriority="high"
+                  quality={76}
                   className="aspect-[4/3] w-full rounded-lg object-cover shadow-md shadow-stone-900/10"
                 />
               </Reveal>
@@ -103,6 +106,7 @@ export default function CategoryPage({ seo, category }) {
                     height={1000}
                     sizes="(min-width: 1024px) 34vw, 100vw"
                     alt="Empilhadeira e estoque físico no pátio da Madeiras Santos"
+                    quality={76}
                     className="aspect-[4/3] w-full object-cover object-center"
                   />
                   <div className="p-6">
@@ -134,7 +138,7 @@ export default function CategoryPage({ seo, category }) {
               <div className="mt-6 grid gap-5 sm:grid-cols-2">
                 {categoryProducts.map((product, index) => (
                   <Reveal key={product.slug}>
-                    <ProductCard product={product} priority={index === 0} />
+                    <ProductCard product={product} />
                   </Reveal>
                 ))}
               </div>

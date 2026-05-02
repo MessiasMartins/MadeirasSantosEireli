@@ -13,14 +13,8 @@ class MyDocument extends Document {
           <link rel="manifest" href="/static/favicons/site.webmanifest" />
           <meta name="msapplication-TileColor" content="#059669" />
           <meta name="theme-color" content="#059669" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-            rel="stylesheet"
-          />
         </Head>
-        <body className="bg-stone-50 font-sans text-brand-graphite antialiased">
+        <body className="bg-stone-50 text-brand-graphite antialiased">
           <Main />
           <NextScript />
         </body>

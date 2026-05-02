@@ -16,6 +16,7 @@ import pageMetadata from '@/data/config/pageMetadata'
 import visualAssets from '@/data/config/visualAssets'
 import productCategories from '@/data/productCategories'
 import { getProductBySlug, products } from '@/data/productCatalog'
+import { getOptimizedProductImage } from '@/lib/utils/productImages'
 import { getWhatsAppLink } from '@/lib/utils/whatsapp'
 
 const proofPoints = [
@@ -118,7 +119,9 @@ export default function Produtos() {
                   height={1000}
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   alt="Empilhadeira e estoque físico de produtos na Madeiras Santos"
-                  priority
+                  preload
+                  fetchPriority="high"
+                  quality={78}
                   className="aspect-[4/3] w-full object-cover object-center"
                 />
                 <div className="absolute inset-x-4 bottom-4 grid grid-cols-2 gap-2">
@@ -157,11 +160,12 @@ export default function Produtos() {
                   >
                     {featuredProduct && (
                       <Image
-                        src={featuredProduct.image}
+                        src={getOptimizedProductImage(featuredProduct)}
                         alt={category.imageAlt}
-                        width={1254}
-                        height={1254}
+                        width={900}
+                        height={900}
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        quality={76}
                         className="aspect-[4/3] w-full object-cover"
                       />
                     )}
@@ -196,7 +200,7 @@ export default function Produtos() {
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products.map((product, index) => (
               <Reveal key={product.slug}>
-                <ProductCard product={product} priority={index < 4} />
+                <ProductCard product={product} />
               </Reveal>
             ))}
           </div>
@@ -235,6 +239,7 @@ export default function Produtos() {
                   width={1600}
                   height={1000}
                   sizes="(min-width: 1024px) 50vw, 100vw"
+                  quality={76}
                   className="aspect-[5/3] w-full object-cover object-center"
                 />
                 <div className="p-6 sm:p-8">

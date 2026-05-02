@@ -93,7 +93,9 @@ export default function EntregaPage() {
                   height={1000}
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   alt="Empilhadeira com madeiras preparadas para entrega sob consulta"
-                  priority
+                  preload
+                  fetchPriority="high"
+                  quality={78}
                   className="aspect-[4/3] w-full object-cover object-center"
                 />
                 <div className="absolute inset-x-4 bottom-4 rounded-md bg-white/92 p-4 shadow-sm backdrop-blur">
@@ -145,6 +147,7 @@ export default function EntregaPage() {
                   height={1000}
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   alt="Empilhadeira e estoque físico da Madeiras Santos para retirada"
+                  quality={76}
                   className="aspect-[4/3] w-full object-cover object-center"
                 />
               </Card>

@@ -51,6 +51,7 @@ function run() {
   const siteMetadata = read('data/siteMetadata.js')
   const siteStructure = read('data/config/siteStructure.js')
   const nextConfig = read('next.config.js')
+  const vercelConfig = read('vercel.json')
   const seoComponent = read('components/SEO.js')
   const robots = read('public/robots.txt')
   const sitemap = read('public/sitemap.xml')
@@ -70,6 +71,7 @@ function run() {
   const aboutPage = read('pages/about.jsx')
   const faqData = read('data/faqData.js')
   const primaryCtas = read('components/common/PrimaryCtas.js')
+  const productImages = read('lib/utils/productImages.js')
   const whatsappUtils = read('lib/utils/whatsapp.js')
   const tailwindCss = read('css/tailwind.css')
 
@@ -86,6 +88,10 @@ function run() {
   assert(
     packageJson.scripts.test === 'node scripts/tests/site-validation.js',
     'Script test deve rodar a validação estrutural.'
+  )
+  assert(
+    packageJson.scripts['optimize:images'] === 'node scripts/optimize-images.js',
+    'Script optimize:images deve rodar a otimização local de imagens.'
   )
   Object.values(packageJson.scripts).forEach((script) => {
     assert(!script.includes('next lint'), 'Scripts não devem usar next lint.')
@@ -342,9 +348,19 @@ function run() {
     'CTA por produto ausente.'
   )
   assert(productCard.includes('Solicitar pelo WhatsApp'), 'Texto de CTA de produto ausente.')
-  assert(productCard.includes('width={1254}'), 'Cards sem largura de imagem definida.')
-  assert(productCard.includes('height={1254}'), 'Cards sem altura de imagem definida.')
+  assert(
+    productCard.includes('getOptimizedProductImage(product)'),
+    'Cards devem usar derivados WebP otimizados para renderização visual.'
+  )
+  assert(productCard.includes('width={900}'), 'Cards sem largura otimizada de imagem definida.')
+  assert(productCard.includes('height={900}'), 'Cards sem altura otimizada de imagem definida.')
   assert(productCard.includes('sizes='), 'Cards sem atributo sizes.')
+  assert(productCard.includes('quality={76}'), 'Cards devem limitar qualidade visual otimizada.')
+  assert(
+    productImages.includes('/assets/products/optimized/') &&
+      productImages.includes("replace(/\\.png$/, '.webp')"),
+    'Resolver de imagens otimizadas de produto inválido.'
+  )
 
   assert(
     siteMetadataData.siteLogo === visualAssets.brand.logoHorizontal,
@@ -363,13 +379,16 @@ function run() {
     'siteMetadata.socialBanner deve usar a imagem OG aprovada.'
   )
   assert(
-    visualAssets.images.hero === '/assets/images/hero-forest-generic.jpg',
-    'Hero temporário deve usar a floresta genérica aprovada.'
+    visualAssets.images.hero === '/assets/images/hero-forest-generic.webp' &&
+      visualAssets.images.heroSource === '/assets/images/hero-forest-generic.jpg',
+    'Hero temporário deve usar WebP otimizado e preservar o JPG fonte aprovado.'
   )
   assert(
-    visualAssets.images.forklift === '/assets/images/empilhadeira.jpg' &&
-      visualAssets.images.forkliftWide === '/assets/images/empilhadeira-wide.jpg',
-    'Empilhadeira oficial deve estar centralizada em visualAssets.'
+    visualAssets.images.forklift === '/assets/images/empilhadeira.webp' &&
+      visualAssets.images.forkliftSource === '/assets/images/empilhadeira.jpg' &&
+      visualAssets.images.forkliftWide === '/assets/images/empilhadeira-wide.webp' &&
+      visualAssets.images.forkliftWideSource === '/assets/images/empilhadeira-wide.jpg',
+    'Empilhadeira oficial deve preservar fontes JPG e usar derivados WebP.'
   )
   ;['stock', 'yard', 'delivery'].forEach((key) => {
     assert(
@@ -378,9 +397,10 @@ function run() {
     )
   })
   assert(
-    header.includes('visualAssets.brand.logoHorizontal') &&
-      footer.includes('visualAssets.brand.logoHorizontal'),
-    'Header e footer devem renderizar a nova logo.'
+    header.includes('visualAssets.brand.logoHorizontalWebp') &&
+      footer.includes('visualAssets.brand.logoHorizontalWebp') &&
+      mobileMenu.includes('visualAssets.brand.logoHorizontalWebp'),
+    'Header, footer e menu mobile devem renderizar a logo WebP otimizada.'
   )
   assert(
     documentPage.includes('/assets/brand/madeiras-santos-favicon.ico') &&
@@ -401,6 +421,36 @@ function run() {
     'Store structured data deve usar imagem SEO e logo novas.'
   )
   assert(!appPage.includes('ThemeProvider'), 'Dark mode provider deve ser removido.')
+  assert(appPage.includes('next/font/google'), 'Fonte deve ser carregada via next/font.')
+  assert(
+    !documentPage.includes('fonts.googleapis.com'),
+    'Google Fonts externo não deve bloquear render.'
+  )
+  assert(
+    !documentPage.includes('fonts.gstatic.com'),
+    'Preconnect de Google Fonts não deve permanecer.'
+  )
+  assert(
+    vercelConfig.includes('"source": "/assets/(.*)"') &&
+      vercelConfig.includes('"value": "public, max-age=31536000, immutable"'),
+    'Assets públicos devem ter cache longo configurado na Vercel.'
+  )
+  assert(
+    appPage.includes("import CookieConsent from 'react-cookie-consent'") &&
+      appPage.includes('cookieName="madeiras-santos-cookie-consent"') &&
+      appPage.includes('buttonText="Aceitar cookies"'),
+    'Cookie banner aprovado deve usar react-cookie-consent com a configuração original.'
+  )
+  assert(
+    heroSection.includes('preload') &&
+      heroSection.includes('fetchPriority="high"') &&
+      !read('pages/index.js').includes('rel="preload" as="image"'),
+    'Preload do hero deve ser delegado ao next/image.'
+  )
+  assert(
+    !heroSection.includes('<Reveal') && heroSection.includes('<h1'),
+    'Conteúdo crítico do hero não deve depender de reveal pós-hidratação.'
+  )
   assert(!layoutWrapper.includes('ThemeSwitch'), 'Layout não deve renderizar toggle de tema.')
   assert(mobileMenu.includes('aria-expanded'), 'Menu mobile deve expor estado acessível.')
 
@@ -582,9 +632,14 @@ function run() {
     'public/assets/seo/madeiras-santos-search-square.jpg',
     'public/assets/seo/madeiras-santos-og-1200x630.jpg',
     'public/assets/images/hero-forest-generic.jpg',
+    'public/assets/images/hero-forest-generic.webp',
     'public/assets/images/empilhadeira.jpg',
+    'public/assets/images/empilhadeira.webp',
     'public/assets/images/empilhadeira-wide.jpg',
+    'public/assets/images/empilhadeira-wide.webp',
     'public/assets/images/madeiras-santos-fachada.jpg',
+    'public/assets/images/madeiras-santos-fachada.webp',
+    'public/assets/images/madeiras-santos-loja.webp',
     'public/static/favicons/favicon.ico',
     'public/static/favicons/favicon-16x16.png',
     'public/static/favicons/favicon-32x32.png',
@@ -602,6 +657,17 @@ function run() {
     'public/favicon.ico',
   ].forEach((file) => {
     assert(exists(file), `Asset essencial ausente: ${file}`)
+  })
+
+  products.forEach((product) => {
+    const optimizedProductImage = path.join(
+      'public/assets/products/optimized',
+      path.basename(product.image).replace(/\.png$/, '.webp')
+    )
+    assert(
+      exists(optimizedProductImage),
+      `Asset WebP otimizado ausente para ${product.slug}: ${optimizedProductImage}`
+    )
   })
 
   walkFiles('pages').forEach((file) => {

@@ -12,6 +12,7 @@
     "start": "next start",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
+    "optimize:images": "node scripts/optimize-images.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky",

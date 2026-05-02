@@ -20,10 +20,10 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr_0.85fr_0.85fr]">
           <div>
             <Image
-              src={visualAssets.brand.logoHorizontal}
+              src={visualAssets.brand.logoHorizontalWebp}
               alt="Madeiras Santos"
-              width={300}
-              height={99}
+              width={900}
+              height={297}
               className="h-14 w-auto"
             />
             <p className="mt-5 max-w-sm text-sm leading-6 text-stone-700">

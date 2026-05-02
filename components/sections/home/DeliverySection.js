@@ -20,6 +20,7 @@ export default function DeliverySection() {
                 width={1600}
                 height={1000}
                 sizes="(min-width: 1024px) 45vw, 100vw"
+                quality={76}
                 className="aspect-[4/3] w-full object-cover object-center"
               />
             </div>
