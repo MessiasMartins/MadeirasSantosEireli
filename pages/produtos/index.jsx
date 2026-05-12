@@ -4,7 +4,6 @@ import Link from '@/components/Link'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import FAQSection from '@/components/FAQSection'
 import ProductCard from '@/components/sections/products/ProductCard'
-import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
 import Container from '@/components/ui/Container'
@@ -18,13 +17,6 @@ import productCategories from '@/data/productCategories'
 import { getProductBySlug, products } from '@/data/productCatalog'
 import { getOptimizedProductImage } from '@/lib/utils/productImages'
 import { getWhatsAppLink } from '@/lib/utils/whatsapp'
-
-const proofPoints = [
-  'Estoque no local',
-  'Atendimento rápido',
-  'Entrega sob consulta',
-  'Atacado e varejo',
-]
 
 const faqs = [
   {
@@ -82,13 +74,16 @@ export default function Produtos() {
           <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <Reveal>
               <div>
-                <Badge>Catálogo Madeiras Santos</Badge>
                 <h1 className="mt-5 text-balance text-4xl font-black tracking-tight text-brand-graphite sm:text-5xl">
                   {seo.h1}
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-700">
-                  Madeiras, telhas, chapas, portas, marcos, ferragens e serviços para obra, reforma
-                  e uso geral, com atendimento rápido em Belo Horizonte e região.
+                  Consulte madeiras, telhas, chapas, portas, marcos, ferragens e serviços para obra,
+                  reforma e uso geral, com atendimento rápido em Belo Horizonte e região.
+                </p>
+                <p className="mt-3 max-w-3xl text-base leading-7 text-stone-700">
+                  Confira as principais linhas do catálogo e fale com a equipe para confirmar
+                  medidas, disponibilidade e entrega sob consulta.
                 </p>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Button
@@ -115,25 +110,15 @@ export default function Produtos() {
               <div className="relative overflow-hidden rounded-lg">
                 <Image
                   src={visualAssets.images.stock}
-                  width={1600}
-                  height={1000}
+                  width={1254}
+                  height={1254}
                   sizes="(min-width: 1024px) 45vw, 100vw"
-                  alt="Empilhadeira e estoque físico de produtos na Madeiras Santos"
+                  alt="Madeiras, empilhadeira e marca Madeiras Santos"
                   preload
                   fetchPriority="high"
                   quality={78}
-                  className="aspect-[4/3] w-full object-cover object-center"
+                  className="aspect-square w-full bg-white object-contain"
                 />
-                <div className="absolute inset-x-4 bottom-4 grid grid-cols-2 gap-2">
-                  {proofPoints.map((proofPoint) => (
-                    <span
-                      key={proofPoint}
-                      className="rounded-md bg-white/92 px-3 py-2 text-xs font-black text-brand-graphite shadow-sm backdrop-blur"
-                    >
-                      {proofPoint}
-                    </span>
-                  ))}
-                </div>
               </div>
             </Reveal>
           </div>
@@ -216,7 +201,7 @@ export default function Produtos() {
                   Não sabe exatamente qual material escolher?
                 </h2>
                 <p className="mt-3 text-stone-700">
-                  Nossa equipe ajuda você a avaliar o tipo de uso, medidas, disponibilidade e melhor
+                  Nossa equipe ajuda você a avaliar tipo de uso, medidas, disponibilidade e melhor
                   opção para sua obra, reforma ou necessidade específica.
                 </p>
                 <Button
@@ -235,12 +220,12 @@ export default function Produtos() {
               <Card className="h-full overflow-hidden">
                 <Image
                   src={visualAssets.images.delivery}
-                  alt="Empilhadeira com madeiras para entrega sob consulta"
-                  width={1600}
-                  height={1000}
+                  alt="Madeiras, empilhadeira e marca Madeiras Santos"
+                  width={1254}
+                  height={1254}
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   quality={76}
-                  className="aspect-[5/3] w-full object-cover object-center"
+                  className="aspect-square w-full bg-white object-contain"
                 />
                 <div className="p-6 sm:p-8">
                   <div className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-emerald-50 text-primary-700">
@@ -250,8 +235,8 @@ export default function Produtos() {
                     Entrega sob consulta para facilitar sua compra
                   </h2>
                   <p className="mt-3 text-stone-700">
-                    Consulte disponibilidade e condições de entrega para Belo Horizonte e região.
-                    Também é possível retirar o material diretamente na loja.
+                    Consulte condições de entrega para Belo Horizonte e região. Também é possível
+                    retirar o material diretamente na loja.
                   </p>
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                     <Button

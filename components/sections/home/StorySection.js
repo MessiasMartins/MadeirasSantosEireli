@@ -20,7 +20,7 @@ export default function StorySection() {
             <SectionHeader
               eyebrow="Nossa história"
               title="Uma madeireira de presença real, construída com atendimento próximo."
-              description="A Madeiras Santos carrega a experiência de uma família ligada ao setor madeireiro e atende Belo Horizonte e região com foco em orientação, agilidade e confiança."
+              description="Desde 2018, a Madeiras Santos atende Belo Horizonte e região metropolitana reunindo a experiência de gestores com mais de 40 anos no setor madeireiro. Nossa rotina é orientar clientes do varejo, construtoras, empreiteiros e empresas em geral na escolha de materiais para obra, reforma e acabamento."
             />
             <Button href="/about" icon={ArrowRightIcon} className="mt-7">
               Conhecer a história

@@ -18,10 +18,10 @@ export default function DeliverySection() {
                 src={visualAssets.images.delivery}
                 alt="Empilhadeira movimentando madeiras para entrega sob consulta"
                 width={1600}
-                height={1000}
+                height={1600}
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 quality={76}
-                className="aspect-[4/3] w-full object-cover object-center"
+                className="aspect-square w-full bg-white object-contain"
               />
             </div>
           </Reveal>
@@ -35,6 +35,7 @@ export default function DeliverySection() {
               </h2>
               <p className="mt-4 text-lg leading-8 text-white/82">
                 Consulte condições conforme produto, volume, endereço e disponibilidade logística.
+                Também é possível retirar o material diretamente na loja.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Button

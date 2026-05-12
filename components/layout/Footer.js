@@ -115,8 +115,20 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-stone-200 pt-6 text-xs text-stone-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Madeiras Santos. Todos os direitos reservados.</p>
-          <Link href="https://auderemg.com.br" className="hover:text-primary-700">
-            Desenvolvimento Audere
+          <Link
+            href="https://auderemg.com.br"
+            aria-label="Desenvolvido por Audere"
+            className="inline-flex items-center gap-2 hover:text-primary-700"
+          >
+            <Image
+              src={visualAssets.brand.audereSymbol}
+              alt=""
+              width={20}
+              height={20}
+              className="h-5 w-5 object-contain"
+              aria-hidden="true"
+            />
+            Desenvolvido por: Audere
           </Link>
         </div>
       </Container>

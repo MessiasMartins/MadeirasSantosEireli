@@ -20,8 +20,9 @@ export default function ContactSection({ mapsEmbedSrc }) {
                 Estoque físico e atendimento direto em Belo Horizonte.
               </h2>
               <p className="mt-4 text-lg leading-8 text-stone-700">
-                {companyInfo.address.full}. Fale no WhatsApp, ligue ou veja a rota para chegar à
-                loja.
+                Visite nossa loja na Avenida Portugal, 901A, Santa Amélia. Veja materiais
+                disponíveis, tire dúvidas com a equipe e combine a retirada no local ou a entrega
+                sob consulta.
               </p>
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
                 <Button href={companyInfo.links.routeMap} icon={MapPinIcon} external full>
@@ -52,12 +53,12 @@ export default function ContactSection({ mapsEmbedSrc }) {
               />
               <Image
                 src={visualAssets.images.stock}
-                alt="Empilhadeira e madeiras no pátio da Madeiras Santos"
-                width={1600}
-                height={1000}
+                alt="Madeiras, empilhadeira e marca Madeiras Santos"
+                width={1254}
+                height={1254}
                 sizes="(min-width: 1024px) 26vw, (min-width: 640px) 50vw, 100vw"
                 quality={76}
-                className="aspect-[4/3] rounded-lg object-cover object-center shadow-md shadow-stone-900/10"
+                className="aspect-[4/3] rounded-lg bg-white object-contain shadow-md shadow-stone-900/10"
               />
             </div>
           </Reveal>
