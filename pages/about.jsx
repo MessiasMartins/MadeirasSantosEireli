@@ -21,19 +21,19 @@ const aboutSections = [
   {
     title: 'Experiência que ajuda na escolha do material',
     description:
-      'Comprar madeira em geral, chapas, telhas, portas ou ferragens exige mais do que escolher um item no catálogo. Cada obra tem medidas, aplicações e necessidades diferentes. Por isso, nossa equipe orienta o cliente sobre usos comuns, durabilidade e estética, além da disponibilidade em nosso estoque, possibilidade de retirada no local e de entrega.',
+      'Comprar madeira, chapa, telha, porta ou ferragem exige mais do que escolher um item no catálogo. Cada obra tem medidas, aplicações e necessidades diferentes. Por isso, a equipe orienta o cliente sobre disponibilidade, usos comuns, retirada no local e entrega sob consulta.',
     icon: ClockIcon,
   },
   {
     title: 'Estoque físico e atendimento local',
     description:
-      'Nossa loja está localizada na Avenida Portugal, 901A, no bairro Santa Amélia, em Belo Horizonte. O cliente pode visitar a unidade, verificar materiais disponíveis e conversar diretamente com a equipe antes de fechar a compra.',
+      'A loja está localizada na Avenida Portugal, 901A, no bairro Santa Amélia, em Belo Horizonte. O cliente pode visitar a unidade, verificar materiais disponíveis e conversar diretamente com a equipe antes de fechar a compra.',
     icon: MapPinIcon,
   },
   {
-    title: 'Atendimento para atacado e varejo',
+    title: 'Atendimento para varejo, empresas e obras',
     description:
-      'Atendemos compras no atacado e no varejo, sempre com foco em clareza, agilidade e relação de confiança com nossos clientes. Nosso catálogo inclui madeiras para obra em geral, como tábuas, ripas e pontaletes, incluindo também chapas/compensados, portas, marcos, ferragens e material específico para telhado, incluindo telhas.',
+      'Atendemos compras no varejo e demandas maiores sob consulta, sempre com foco em clareza, agilidade e relação de confiança. Nosso catálogo inclui chapas e compensados, telhas, portas, marcos, ferragens, tábuas, ripas, caibros, peças de Paraju, materiais de apoio e serviços sob consulta.',
     icon: ShoppingBagIcon,
   },
   {
@@ -67,11 +67,10 @@ export default function AboutPage() {
                   {seo.h1}
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-700">
-                  A Madeiras Santos atua desde 2018 com sede em Belo Horizonte, reunindo a
-                  experiência de gestores com mais de 40 anos de atuação no setor madeireiro.
-                  Atendemos clientes do varejo, construtoras, empreiteiros e empresas que buscam
-                  materiais para obra, reforma e acabamento com orientação personalizada e
-                  atendimento objetivo.
+                  A Madeiras Santos atua desde 2018 em Belo Horizonte, reunindo a experiência de
+                  gestores com mais de 30 anos no setor madeireiro. A empresa atende clientes do
+                  varejo, construtoras, empreiteiros e empresas que buscam materiais para obra,
+                  reforma e acabamento com orientação próxima e atendimento objetivo.
                 </p>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Button

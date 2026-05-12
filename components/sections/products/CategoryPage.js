@@ -38,8 +38,8 @@ export default function CategoryPage({ seo, category }) {
       <section className="bg-white">
         <Container className="py-8 sm:py-12">
           <Breadcrumbs items={breadcrumbs} />
-          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <Reveal>
+          <div className="grid min-w-0 gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <Reveal className="min-w-0">
               <div>
                 <Badge>{category.name}</Badge>
                 <h1 className="mt-5 text-balance text-4xl font-black tracking-tight text-brand-graphite sm:text-5xl">
@@ -61,7 +61,7 @@ export default function CategoryPage({ seo, category }) {
             </Reveal>
 
             {featuredProduct && (
-              <Reveal>
+              <Reveal className="min-w-0">
                 <Image
                   src={getOptimizedProductImage(featuredProduct)}
                   width={900}
@@ -71,7 +71,7 @@ export default function CategoryPage({ seo, category }) {
                   preload
                   fetchPriority="high"
                   quality={76}
-                  className="aspect-[4/3] w-full rounded-lg object-cover shadow-md shadow-stone-900/10"
+                  className="aspect-[4/3] w-full max-w-full rounded-lg object-cover shadow-md shadow-stone-900/10"
                 />
               </Reveal>
             )}
