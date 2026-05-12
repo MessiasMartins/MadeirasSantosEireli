@@ -102,12 +102,12 @@ export default function CategoryPage({ seo, category }) {
                 <Card className="overflow-hidden">
                   <Image
                     src={visualAssets.images.yard}
-                    width={1600}
-                    height={1000}
+                    width={1254}
+                    height={1254}
                     sizes="(min-width: 1024px) 34vw, 100vw"
-                    alt="Empilhadeira e estoque físico no pátio da Madeiras Santos"
+                    alt="Madeiras, empilhadeira e marca Madeiras Santos"
                     quality={76}
-                    className="aspect-[4/3] w-full object-cover object-center"
+                    className="aspect-square w-full bg-white object-contain"
                   />
                   <div className="p-6">
                     <h2 className="text-xl font-black text-brand-graphite">Como comprar</h2>

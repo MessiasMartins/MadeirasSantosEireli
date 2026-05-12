@@ -2,12 +2,13 @@ const companyInfo = {
   brandName: 'Madeiras Santos',
   legalName: 'Madeiras Santos',
   address: {
-    street: 'Avenida Portugal 901A - Santa Amélia',
+    street: 'Avenida Portugal, 901A - Santa Amélia',
+    neighborhood: 'Santa Amélia',
     city: 'Belo Horizonte',
     state: 'MG',
     postalCode: '31550-000',
     country: 'BR',
-    full: 'Avenida Portugal 901A - Santa Amélia, Belo Horizonte / MG',
+    full: 'Avenida Portugal, 901A - Santa Amélia, Belo Horizonte / MG',
   },
   contact: {
     phoneDisplay: '(31) 3653-2390',

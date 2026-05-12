@@ -9,7 +9,6 @@ import {
 import Link from '@/components/Link'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import { BreadcrumbSEO, PageSEO } from '@/components/SEO'
-import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
 import Container from '@/components/ui/Container'
@@ -62,13 +61,17 @@ export default function ContatoPage() {
           <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <Reveal>
               <div>
-                <Badge>Loja em Belo Horizonte</Badge>
                 <h1 className="mt-5 text-balance text-4xl font-black tracking-tight text-brand-graphite sm:text-5xl">
                   {seo.h1}
                 </h1>
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-stone-700">
-                  Fale com a Madeiras Santos pelo WhatsApp, ligue para a loja ou veja a rota para
-                  atendimento presencial em Santa Amélia.
+                  Fale com a Madeiras Santos pelo WhatsApp, telefone ou visite a loja em Belo
+                  Horizonte.
+                </p>
+                <p className="mt-3 max-w-2xl text-base leading-7 text-stone-700">
+                  Nossa equipe atende clientes no varejo, empresas, construtoras e empreiteiros com
+                  orientação sobre produtos, medidas, disponibilidade, retirada e entrega sob
+                  consulta.
                 </p>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Button href={companyInfo.links.whatsapp} icon={ChatBubbleLeftRightIcon}>
@@ -83,7 +86,7 @@ export default function ContatoPage() {
                     Ver rota
                   </Button>
                   <Button href={companyInfo.contact.phoneHref} icon={PhoneIcon} variant="subtle">
-                    Ligar
+                    Ligar para a loja
                   </Button>
                 </div>
               </div>

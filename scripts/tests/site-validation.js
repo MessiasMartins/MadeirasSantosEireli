@@ -11,6 +11,14 @@ function exists(file) {
   return fs.existsSync(path.join(root, file))
 }
 
+function pngDimensions(file) {
+  const buffer = fs.readFileSync(path.join(root, file))
+  return {
+    width: buffer.readUInt32BE(16),
+    height: buffer.readUInt32BE(20),
+  }
+}
+
 function assert(condition, message) {
   if (!condition) {
     throw new Error(message)
@@ -56,6 +64,7 @@ function run() {
   const robots = read('public/robots.txt')
   const sitemap = read('public/sitemap.xml')
   const manifest = read('public/static/favicons/site.webmanifest')
+  const faviconSvg = read('public/assets/brand/madeiras-santos-favicon.svg')
   const header = read('components/layout/Header.js')
   const footer = read('components/layout/Footer.js')
   const mobileMenu = read('components/layout/MobileMenu.js')
@@ -371,12 +380,20 @@ function run() {
     'siteMetadata.siteSymbol deve usar o novo símbolo.'
   )
   assert(
-    siteMetadataData.image === '/assets/seo/madeiras-santos-search-square.jpg',
-    'siteMetadata.image deve usar a imagem SEO quadrada aprovada.'
+    siteMetadataData.siteName === 'Madeiras Santos',
+    'siteMetadata.siteName deve sinalizar Madeiras Santos.'
   )
   assert(
-    siteMetadataData.socialBanner === '/assets/seo/madeiras-santos-og-1200x630.jpg',
-    'siteMetadata.socialBanner deve usar a imagem OG aprovada.'
+    siteMetadataData.image === '/assets/seo/og-imagem.png',
+    'siteMetadata.image deve usar og-imagem.png.'
+  )
+  assert(
+    siteMetadataData.socialBanner === '/assets/seo/og-imagem.png',
+    'siteMetadata.socialBanner deve usar og-imagem.png.'
+  )
+  assert(
+    visualAssets.seo.ogImage === '/assets/seo/og-imagem.png',
+    'visualAssets.seo.ogImage deve apontar para og-imagem.png.'
   )
   assert(
     visualAssets.images.hero === '/assets/images/hero-forest-generic.webp' &&
@@ -392,10 +409,18 @@ function run() {
   )
   ;['stock', 'yard', 'delivery'].forEach((key) => {
     assert(
-      visualAssets.images[key] === visualAssets.images.forkliftWide,
-      `Imagem ${key} deve usar a variação oficial wide da empilhadeira.`
+      visualAssets.images[key] === visualAssets.seo.ogImage,
+      `Imagem ${key} deve usar og-imagem.png.`
     )
   })
+  assert(
+    visualAssets.brand.audereSymbol === '/assets/brand/audere-symbol.png',
+    'Ícone Audere deve estar centralizado nos assets de marca.'
+  )
+  assert(
+    faviconSvg.includes('.green-dark') && faviconSvg.includes('<polygon'),
+    'Favicon deve preservar o símbolo 3D com profundidade lateral.'
+  )
   assert(
     header.includes('visualAssets.brand.logoHorizontalWebp') &&
       footer.includes('visualAssets.brand.logoHorizontalWebp') &&
@@ -407,8 +432,9 @@ function run() {
       documentPage.includes('/assets/brand/favicon-16x16.png') &&
       documentPage.includes('/assets/brand/favicon-32x32.png') &&
       documentPage.includes('/assets/brand/favicon-48x48.png') &&
-      documentPage.includes('/assets/brand/apple-touch-icon.png'),
-    'Favicon novo deve estar configurado no document.'
+      documentPage.includes('/assets/brand/apple-touch-icon.png') &&
+      documentPage.includes('name="application-name" content="Madeiras Santos"'),
+    'Favicon novo e application-name devem estar configurados no document.'
   )
   assert(
     manifest.includes('/assets/brand/android-chrome-192x192.png') &&
@@ -416,9 +442,13 @@ function run() {
     'Manifest deve apontar para os favicons regenerados.'
   )
   assert(
-    homeStructuredData.includes('visualAssets.seo.searchSquare') &&
-      homeStructuredData.includes('siteMetadata.siteLogo'),
-    'Store structured data deve usar imagem SEO e logo novas.'
+    homeStructuredData.includes('visualAssets.seo.ogImage') &&
+      homeStructuredData.includes('siteMetadata.siteLogo') &&
+      homeStructuredData.includes("'@id': `${siteMetadata.siteUrl}/#website`") &&
+      homeStructuredData.includes(
+        "alternateName: ['Madeireira Madeiras Santos', 'Madeiras Santos BH']"
+      ),
+    'Store/WebSite structured data deve usar imagem SEO, logo e site name novos.'
   )
   assert(!appPage.includes('ThemeProvider'), 'Dark mode provider deve ser removido.')
   assert(appPage.includes('next/font/google'), 'Fonte deve ser carregada via next/font.')
@@ -469,6 +499,10 @@ function run() {
     'PageSEO deve aceitar título e descrição Open Graph específicos.'
   )
   assert(
+    seoComponent.includes('<meta property="og:site_name" content={siteMetadata.siteName} />'),
+    'PageSEO deve emitir og:site_name com siteMetadata.siteName.'
+  )
+  assert(
     seoComponent.includes('`${siteMetadata.siteUrl}${itemListId}#produto-${item.slug}`'),
     'ItemListSEO deve apontar para âncoras únicas por produto.'
   )
@@ -502,6 +536,13 @@ function run() {
     'Footer sem bloco dinâmico de links para categorias.'
   )
   assert(footer.includes('href="/about"'), 'Footer sem link institucional para /about.')
+  assert(
+    footer.includes('Desenvolvido por: Audere') &&
+      footer.includes('aria-label="Desenvolvido por Audere"') &&
+      footer.includes('visualAssets.brand.audereSymbol') &&
+      !footer.includes('Desenvolvimento Audere'),
+    'Footer deve exibir o crédito Audere revisado com ícone discreto.'
+  )
   assert(aboutPage.includes('BreadcrumbSEO'), '/about deve preservar BreadcrumbList.')
   assert(
     nextConfig.includes("source: '/sobre'") && nextConfig.includes("destination: '/about'"),
@@ -629,8 +670,10 @@ function run() {
     'public/assets/brand/android-chrome-192x192.png',
     'public/assets/brand/android-chrome-512x512.png',
     'public/assets/brand/apple-touch-icon.png',
+    'public/assets/brand/audere-symbol.png',
     'public/assets/seo/madeiras-santos-search-square.jpg',
     'public/assets/seo/madeiras-santos-og-1200x630.jpg',
+    'public/assets/seo/og-imagem.png',
     'public/assets/images/hero-forest-generic.jpg',
     'public/assets/images/hero-forest-generic.webp',
     'public/assets/images/empilhadeira.jpg',
@@ -658,6 +701,33 @@ function run() {
   ].forEach((file) => {
     assert(exists(file), `Asset essencial ausente: ${file}`)
   })
+  ;[
+    ['public/assets/brand/favicon-16x16.png', 16],
+    ['public/assets/brand/favicon-32x32.png', 32],
+    ['public/assets/brand/favicon-48x48.png', 48],
+    ['public/assets/brand/apple-touch-icon.png', 180],
+    ['public/assets/brand/android-chrome-192x192.png', 192],
+    ['public/assets/brand/android-chrome-512x512.png', 512],
+    ['public/assets/brand/madeiras-santos-favicon-512.png', 512],
+    ['public/static/favicons/favicon-16x16.png', 16],
+    ['public/static/favicons/favicon-32x32.png', 32],
+    ['public/static/favicons/favicon-48x48.png', 48],
+    ['public/static/favicons/apple-touch-icon.png', 180],
+    ['public/static/favicons/android-chrome-192x192.png', 192],
+    ['public/static/favicons/android-chrome-512x512.png', 512],
+  ].forEach(([file, size]) => {
+    const dimensions = pngDimensions(file)
+    assert(
+      dimensions.width === size && dimensions.height === size,
+      `${file} deve ser quadrado ${size}x${size}.`
+    )
+  })
+
+  assert(
+    pngDimensions('public/assets/seo/og-imagem.png').width ===
+      pngDimensions('public/assets/seo/og-imagem.png').height,
+    'og-imagem.png deve ser 1:1.'
+  )
 
   products.forEach((product) => {
     const optimizedProductImage = path.join(

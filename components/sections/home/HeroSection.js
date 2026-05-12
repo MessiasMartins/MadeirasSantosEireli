@@ -9,7 +9,7 @@ const proofPoints = [
   'Atendimento rápido',
   'Entrega sob consulta',
   'Atacado e varejo',
-  'Mais de 35 anos de experiência',
+  'Mais de 40 anos de experiência',
   'Fácil acesso em BH',
 ]
 
@@ -39,8 +39,8 @@ export default function HeroSection() {
               Madeiras, telhas, chapas, portas e marcos em Belo Horizonte e região.
             </h1>
             <p className="mt-5 max-w-2xl text-pretty text-lg leading-8 text-white/88 sm:text-xl">
-              Estoque no local, atendimento rápido e entrega sob consulta para obra, reforma e
-              varejo.
+              Estoque físico, atendimento direto e entrega sob consulta para obras, reformas e
+              compras no varejo.
             </p>
             <div className="mt-8">
               <PrimaryCtas />

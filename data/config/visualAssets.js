@@ -11,10 +11,12 @@ const visualAssets = {
     appleTouchIcon: '/assets/brand/apple-touch-icon.png',
     android192: '/assets/brand/android-chrome-192x192.png',
     android512: '/assets/brand/android-chrome-512x512.png',
+    audereSymbol: '/assets/brand/audere-symbol.png',
   },
   seo: {
-    searchSquare: '/assets/seo/madeiras-santos-search-square.jpg',
-    socialBanner: '/assets/seo/madeiras-santos-og-1200x630.jpg',
+    ogImage: '/assets/seo/og-imagem.png',
+    searchSquare: '/assets/seo/og-imagem.png',
+    socialBanner: '/assets/seo/og-imagem.png',
   },
   images: {
     hero: '/assets/images/hero-forest-generic.webp',
@@ -27,9 +29,9 @@ const visualAssets = {
     forkliftSource: '/assets/images/empilhadeira.jpg',
     forkliftWide: '/assets/images/empilhadeira-wide.webp',
     forkliftWideSource: '/assets/images/empilhadeira-wide.jpg',
-    stock: '/assets/images/empilhadeira-wide.webp',
-    yard: '/assets/images/empilhadeira-wide.webp',
-    delivery: '/assets/images/empilhadeira-wide.webp',
+    stock: '/assets/seo/og-imagem.png',
+    yard: '/assets/seo/og-imagem.png',
+    delivery: '/assets/seo/og-imagem.png',
     saw: '/assets/images/madeiras-santos-serra.jpg',
   },
 }

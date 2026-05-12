@@ -11,6 +11,7 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon-48x48.png" />
           <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
           <link rel="manifest" href="/static/favicons/site.webmanifest" />
+          <meta name="application-name" content="Madeiras Santos" />
           <meta name="msapplication-TileColor" content="#059669" />
           <meta name="theme-color" content="#059669" />
         </Head>

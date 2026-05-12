@@ -2,19 +2,19 @@ const pageMetadata = {
   home: {
     title: 'Madeiras Santos | Madeireira em Belo Horizonte e região',
     description:
-      'Madeiras, telhas, chapas, portas e marcos com atendimento rápido, estoque no local e entrega sob consulta em Belo Horizonte e região.',
-    h1: 'Madeiras Santos',
+      'Madeiras, telhas, chapas, compensados, portas e marcos em Belo Horizonte e região. Atendimento rápido, estoque físico e entrega sob consulta.',
+    h1: 'Madeiras, telhas, chapas, portas e marcos em Belo Horizonte e região.',
   },
   about: {
     title: 'Sobre a Madeiras Santos | História e tradição em BH',
     description:
-      'Conheça a história da Madeiras Santos, madeireira em Belo Horizonte com tradição familiar, estoque físico, atendimento direto e relação de confiança.',
-    h1: 'Sobre a Madeiras Santos',
+      'Conheça a história da Madeiras Santos, madeireira em Belo Horizonte com tradição familiar, estoque físico e atendimento direto para obras e reformas.',
+    h1: 'Tradição no setor madeireiro, atendimento direto e presença em Belo Horizonte e região Metropolitana.',
   },
   produtos: {
     title: 'Produtos | Madeiras Santos',
     description:
-      'Conheça telhas, tábuas, madeira para telhado, chapas, compensados, OSB, portas, marcos, ferragens, lenha e serviços sob consulta na Madeiras Santos.',
+      'Conheça madeiras, telhas, chapas, compensados, OSB, portas, marcos, ferragens e serviços sob consulta na Madeiras Santos.',
     h1: 'Produtos Madeiras Santos',
     ogTitle: 'Produtos | Madeiras Santos',
     ogDescription:
@@ -55,13 +55,13 @@ const pageMetadata = {
     title: 'Entrega | Madeiras Santos',
     description:
       'Consulte condições de entrega para madeiras, telhas, chapas, portas e outros produtos em Belo Horizonte e região.',
-    h1: 'Entrega',
+    h1: 'Entrega sob consulta',
   },
   contato: {
     title: 'Contato e Localização | Madeiras Santos',
     description:
       'Fale com a Madeiras Santos pelo WhatsApp, telefone ou visite a loja em Belo Horizonte para atendimento direto.',
-    h1: 'Contato e Localização',
+    h1: 'Contato e localização',
   },
 }
 

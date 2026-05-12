@@ -21,7 +21,7 @@ export default function CategoryHighlights() {
         <SectionHeader
           eyebrow="Linhas principais"
           title="Produtos organizados para compra rápida."
-          description="Escolha a categoria, veja as opções principais e fale com a equipe para confirmar estoque, medidas e entrega sob consulta."
+          description="Escolha a categoria, veja as opções principais e fale com a equipe para confirmar medidas, disponibilidade e entrega sob consulta."
         />
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
