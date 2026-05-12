@@ -1,8 +1,14 @@
 const faqData = [
   {
-    question: 'Quais produtos a Madeiras Santos oferece em Belo Horizonte?',
+    question: 'Quais produtos a loja oferece em Belo Horizonte?',
     answerLines: [
-      'Trabalhamos com madeiras para telhado, chapas e compensados, telhas, portas, marcos, ferragens, materiais de apoio e serviços sob consulta, como corte e bancos de madeira sob encomenda. Fale com a equipe para confirmar medidas e disponibilidade.',
+      'O catálogo inclui chapas e compensados, telhas, portas, marcos, ferragens, tábuas, ripas, caibros, peças de Paraju, escoras, materiais de apoio e serviços sob consulta. Fale com a equipe para confirmar medidas e disponibilidade.',
+    ],
+  },
+  {
+    question: 'Tábuas, ripas e caibros são apenas para telhado?',
+    answerLines: [
+      'Não. Tábuas, ripas e caibros também são usados em apoio, fechamento, reforma, montagem, estrutura leve e aplicações gerais. Para telhados e coberturas que exigem madeira estrutural, consulte também peças de Paraju e opções específicas sob consulta.',
     ],
   },
   {
@@ -14,25 +20,19 @@ const faqData = [
   {
     question: 'Como solicitar orçamento?',
     answerLines: [
-      'Você pode solicitar orçamento pelo WhatsApp, telefone ou atendimento na loja. Informe o produto desejado, medidas aproximadas e quantidade para que a equipe confirme disponibilidade e oriente a melhor opção.',
+      'Você pode pedir orçamento pelo WhatsApp, telefone ou atendimento na loja. Informe o produto desejado, medidas aproximadas e quantidade para que a equipe confirme disponibilidade e oriente a melhor opção.',
     ],
   },
   {
     question: 'Vocês trabalham com compensado plastificado e resinado?',
     answerLines: [
-      'Sim. Nós da Madeiras Santos trabalhamos com chapas, compensados, OSB e opções para diferentes aplicações em obra, forma, fechamento e reforma. Consulte medidas e disponibilidade pelo WhatsApp.',
-    ],
-  },
-  {
-    question: 'Como escolher a madeira ideal para construção, telhado, reforma ou acabamento?',
-    answerLines: [
-      'Nossa equipe orienta conforme o tipo de uso, medidas, resistência esperada e aplicação do material. Assim, você compra com mais segurança, garante a qualidade final e evita desperdício.',
+      'Sim. Trabalhamos com chapas, compensados, OSB e opções para diferentes aplicações em obra, forma, fechamento e reforma. Consulte medidas e disponibilidade pelo WhatsApp.',
     ],
   },
   {
     question: 'Quais formas de pagamento são aceitas?',
     answerLines: [
-      'Aceitamos cartões de Débito e Crédito de diversas bandeiras, Dinheiro ou PIX. Para condições atualizadas, compras maiores ou pedidos sob consulta, fale diretamente com a equipe. Encontraremos as melhores condições para a sua necessidade.',
+      'Aceitamos as principais formas de pagamento, incluindo PIX. Para condições atualizadas, compras maiores ou pedidos sob consulta, fale diretamente com a equipe.',
     ],
   },
 ]

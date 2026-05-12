@@ -2,23 +2,23 @@ const pageMetadata = {
   home: {
     title: 'Madeiras Santos | Madeireira em Belo Horizonte e região',
     description:
-      'Madeiras, telhas, chapas, compensados, portas e marcos em Belo Horizonte e região. Atendimento rápido, estoque físico e entrega sob consulta.',
+      'Madeiras, telhas, chapas, compensados, portas e marcos em Belo Horizonte e região. Estoque físico, atendimento direto e entrega sob consulta.',
     h1: 'Madeiras, telhas, chapas, portas e marcos em Belo Horizonte e região.',
   },
   about: {
     title: 'Sobre a Madeiras Santos | História e tradição em BH',
     description:
       'Conheça a história da Madeiras Santos, madeireira em Belo Horizonte com tradição familiar, estoque físico e atendimento direto para obras e reformas.',
-    h1: 'Tradição no setor madeireiro, atendimento direto e presença em Belo Horizonte e região Metropolitana.',
+    h1: 'Tradição no setor madeireiro, atendimento direto e presença real em Belo Horizonte.',
   },
   produtos: {
     title: 'Produtos | Madeiras Santos',
     description:
-      'Conheça madeiras, telhas, chapas, compensados, OSB, portas, marcos, ferragens e serviços sob consulta na Madeiras Santos.',
+      'Conheça chapas, compensados, telhas, portas, marcos, ferragens, tábuas, ripas, caibros, Paraju e serviços sob consulta.',
     h1: 'Produtos Madeiras Santos',
     ogTitle: 'Produtos | Madeiras Santos',
     ogDescription:
-      'Madeiras, telhas, chapas, portas, marcos, ferragens e serviços para obra, reforma e uso geral em Belo Horizonte e região.',
+      'Consulte chapas, compensados, telhas, portas, marcos, ferragens, tábuas, ripas, caibros, peças de Paraju e serviços para obra, reforma e uso geral.',
     ogImage: '/assets/products/compensado-plastificado.png',
   },
   telhas: {
@@ -28,10 +28,16 @@ const pageMetadata = {
     h1: 'Telhas',
   },
   madeiraTelhado: {
-    title: 'Madeira para Telhado | Madeiras Santos',
+    title: 'Madeira para Telhado e Paraju | Madeiras Santos',
     description:
-      'Tábuas, ripas, caibros e peças de madeira para telhados, coberturas e obras. Consulte medidas e disponibilidade.',
-    h1: 'Madeira para Telhado',
+      'Peças de Paraju e opções estruturais sob consulta para telhados, coberturas e obras. Consulte medidas e disponibilidade.',
+    h1: 'Peças de Paraju e madeira estrutural para telhados.',
+  },
+  tabuasRipasCaibros: {
+    title: 'Tábuas, Ripas e Caibros | Madeiras Santos',
+    description:
+      'Tábuas, ripas e caibros de Pinus, Eucalipto e Angelim para obra, reforma, apoio e uso geral. Consulte medidas e disponibilidade.',
+    h1: 'Tábuas, ripas e caibros para obra, reforma e uso geral.',
   },
   chapasCompensados: {
     title: 'Chapas e Compensados | Madeiras Santos',
@@ -54,7 +60,7 @@ const pageMetadata = {
   entrega: {
     title: 'Entrega | Madeiras Santos',
     description:
-      'Consulte condições de entrega para madeiras, telhas, chapas, portas e outros produtos em Belo Horizonte e região.',
+      'Consulte entrega para madeiras, telhas, chapas, portas e outros produtos em Belo Horizonte e região. Retirada na loja e entrega sob consulta.',
     h1: 'Entrega sob consulta',
   },
   contato: {

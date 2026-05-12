@@ -199,6 +199,7 @@ function run() {
     'pages/produtos/index.jsx',
     'pages/produtos/telhas.jsx',
     'pages/produtos/madeira-para-telhado.jsx',
+    'pages/produtos/tabuas-ripas-e-caibros.jsx',
     'pages/produtos/chapas-e-compensados.jsx',
     'pages/produtos/portas-e-marcos.jsx',
     'pages/produtos/bancos-de-madeira-sob-encomenda.jsx',
@@ -215,6 +216,7 @@ function run() {
     '/produtos',
     '/produtos/telhas',
     '/produtos/madeira-para-telhado',
+    '/produtos/tabuas-ripas-e-caibros',
     '/produtos/chapas-e-compensados',
     '/produtos/portas-e-marcos',
     '/produtos/bancos-de-madeira-sob-encomenda',
@@ -222,9 +224,10 @@ function run() {
     '/contato',
   ]
 
-  assert(productCategories.length === 6, 'Quantidade de categorias diferente de 6.')
+  assert(productCategories.length === 7, 'Quantidade de categorias diferente de 7.')
   ;[
     'chapas-e-compensados',
+    'tabuas-ripas-e-caibros',
     'madeira-para-telhado',
     'telhas',
     'portas-e-marcos',
@@ -276,6 +279,31 @@ function run() {
     )
   })
 
+  const productsBySlug = Object.fromEntries(products.map((product) => [product.slug, product]))
+
+  ;['tabuas', 'tabuas-pinus', 'tabuas-angelim', 'ripas', 'ripas-angelim', 'caibros'].forEach(
+    (slug) => {
+      assert(
+        productsBySlug[slug].categorySlug === 'tabuas-ripas-e-caibros' &&
+          productsBySlug[slug].categoryHref === '/produtos/tabuas-ripas-e-caibros' &&
+          productsBySlug[slug].category === 'Tábuas, Ripas e Caibros',
+        `Produto deve estar em Tábuas, Ripas e Caibros: ${slug}`
+      )
+    }
+  )
+  assert(
+    productsBySlug['pecas-paraju'].categorySlug === 'madeira-para-telhado' &&
+      productsBySlug['pecas-paraju'].categoryHref === '/produtos/madeira-para-telhado' &&
+      productsBySlug['pecas-paraju'].category === 'Madeira para Telhado e Paraju',
+    'Peças de Paraju deve permanecer em Madeira para Telhado e Paraju.'
+  )
+  assert(
+    productsBySlug['escoras-eucalipto'].categorySlug === 'materiais-de-apoio' &&
+      productsBySlug['escoras-eucalipto'].categoryHref === '/produtos' &&
+      productsBySlug['escoras-eucalipto'].category === 'Materiais de Apoio',
+    'Escoras de Eucalipto deve estar em Materiais de Apoio.'
+  )
+
   products.forEach((product) => {
     assert(product.name, `Produto sem nome: ${product.slug}`)
     assert(product.categorySlug, `Produto sem categoria: ${product.slug}`)
@@ -315,9 +343,23 @@ function run() {
     'H1 configurado de /produtos inválido.'
   )
   assert(
-    pageMetadata.produtos.description.includes('OSB') &&
+    pageMetadata.produtos.description.includes('tábuas') &&
+      pageMetadata.produtos.description.includes('ripas') &&
+      pageMetadata.produtos.description.includes('caibros') &&
+      pageMetadata.produtos.description.includes('Paraju') &&
       pageMetadata.produtos.description.includes('serviços sob consulta'),
     'Description de /produtos incompleta.'
+  )
+  assert(
+    pageMetadata.tabuasRipasCaibros.title === 'Tábuas, Ripas e Caibros | Madeiras Santos' &&
+      pageMetadata.tabuasRipasCaibros.h1 ===
+        'Tábuas, ripas e caibros para obra, reforma e uso geral.',
+    'Metadata da nova categoria Tábuas, Ripas e Caibros inválida.'
+  )
+  assert(
+    pageMetadata.madeiraTelhado.title === 'Madeira para Telhado e Paraju | Madeiras Santos' &&
+      pageMetadata.madeiraTelhado.h1 === 'Peças de Paraju e madeira estrutural para telhados.',
+    'Metadata de Madeira para Telhado e Paraju inválida.'
   )
   ;[
     pageMetadata.home,
@@ -325,6 +367,7 @@ function run() {
     pageMetadata.produtos,
     pageMetadata.telhas,
     pageMetadata.madeiraTelhado,
+    pageMetadata.tabuasRipasCaibros,
     pageMetadata.chapasCompensados,
     pageMetadata.portasMarcos,
     pageMetadata.bancosSobEncomenda,

@@ -6,7 +6,7 @@ const productCategories = [
     title: 'Chapas e Compensados',
     href: '/produtos/chapas-e-compensados',
     description:
-      'A Madeiras Santos trabalha com chapas, compensados e OSB para obras, formas, fechamentos, reformas e aplicações diversas.',
+      'Chapas, compensados e OSB para obras, formas, fechamentos, reformas e aplicações diversas.',
     seoDescription:
       'A Madeiras Santos trabalha com chapas, compensados e OSB para obras, formas, fechamentos, reformas e aplicações diversas. Consulte disponibilidade, medidas e opções indicadas para o seu tipo de uso.',
     ctaLabel: 'Consultar chapas e compensados',
@@ -15,18 +15,46 @@ const productCategories = [
     featuredProductSlug: 'compensado-plastificado',
   },
   {
+    id: 'tabuas-ripas-e-caibros',
+    slug: 'tabuas-ripas-e-caibros',
+    name: 'Tábuas, Ripas e Caibros',
+    title: 'Tábuas, Ripas e Caibros',
+    href: '/produtos/tabuas-ripas-e-caibros',
+    description:
+      'Peças de Pinus, Eucalipto e Angelim para obra, reforma, apoio, fechamento, estrutura leve e uso geral.',
+    seoDescription:
+      'Consulte tábuas, ripas e caibros de Pinus, Eucalipto e Angelim para diferentes aplicações em obra, reforma, apoio, fechamento, estrutura leve e uso geral. A equipe orienta sobre medidas, disponibilidade e retirada ou entrega sob consulta.',
+    ctaLabel: 'Consultar tábuas, ripas e caibros',
+    imageAlt: 'Tábuas, ripas e caibros disponíveis na Madeiras Santos',
+    applications: [
+      'Apoio em obra',
+      'Reforma e manutenção',
+      'Fechamentos e estruturas leves',
+      'Uso geral em madeira',
+      'Serviços sob consulta conforme medida e disponibilidade',
+    ],
+    featuredProductSlug: 'tabuas-pinus',
+  },
+  {
     id: 'madeira-para-telhado',
     slug: 'madeira-para-telhado',
-    name: 'Madeira para Telhado',
-    title: 'Madeira para Telhado',
+    name: 'Madeira para Telhado e Paraju',
+    title: 'Madeira para Telhado e Paraju',
     href: '/produtos/madeira-para-telhado',
-    description: 'Tábuas, ripas, caibros e peças de madeira para estrutura, apoio e cobertura.',
+    description:
+      'Peças de Paraju e opções estruturais sob consulta para telhados, coberturas e obras que exigem madeira resistente.',
     seoDescription:
-      'Tábuas, ripas, caibros e peças de madeira para estrutura, apoio e cobertura. Atendimento direto para quem precisa comprar madeira para telhado com orientação, agilidade e possibilidade de entrega sob consulta.',
+      'Para telhados, coberturas e obras que exigem madeira resistente, consulte peças de Paraju e opções estruturais disponíveis sob consulta. A equipe orienta sobre medidas, disponibilidade, aplicação indicada e condições de retirada ou entrega.',
     ctaLabel: 'Consultar madeira para telhado',
-    imageAlt: 'Madeiras para telhado disponíveis na Madeiras Santos',
-    applications: ['telhados', 'coberturas', 'estruturas auxiliares', 'reformas'],
-    featuredProductSlug: 'caibros',
+    imageAlt: 'Peças de Paraju e madeira para telhado disponíveis na Madeiras Santos',
+    applications: [
+      'Estrutura de telhado',
+      'Coberturas',
+      'Obras com necessidade estrutural',
+      'Reformas e reposições',
+      'Projetos sob consulta',
+    ],
+    featuredProductSlug: 'pecas-paraju',
   },
   {
     id: 'telhas',
@@ -35,7 +63,7 @@ const productCategories = [
     title: 'Telhas',
     href: '/produtos/telhas',
     description:
-      'Telhas para obras, reformas e coberturas, com atendimento rápido e orientação para escolha.',
+      'Telhas para obras, reformas, reposições e coberturas, com disponibilidade e entrega sob consulta.',
     seoDescription:
       'Telhas para obras, reformas e coberturas, com atendimento rápido e orientação para escolha conforme a necessidade do projeto. Consulte disponibilidade e condições de entrega.',
     ctaLabel: 'Consultar telhas',
@@ -65,10 +93,10 @@ const productCategories = [
     title: 'Serviços e Sob Encomenda',
     href: '/produtos/bancos-de-madeira-sob-encomenda',
     description:
-      'Serviços de corte sob medida e produtos sob encomenda, como bancos de madeira para áreas externas.',
+      'Corte sob medida e bancos de madeira sob encomenda, conforme viabilidade, medidas e disponibilidade.',
     seoDescription:
       'Serviços de corte sob medida e produtos sob encomenda, como bancos de madeira para áreas externas, jardins, sítios, condomínios e projetos especiais. Consulte medidas, acabamento e disponibilidade.',
-    ctaLabel: 'Consultar sob encomenda',
+    ctaLabel: 'Consultar serviços sob encomenda',
     imageAlt: 'Banco de madeira sob encomenda produzido pela Madeiras Santos',
     applications: ['corte sob medida', 'bancos de madeira', 'projetos especiais', 'áreas externas'],
     featuredProductSlug: 'bancos-de-madeira-sob-encomenda',
@@ -80,9 +108,9 @@ const productCategories = [
     title: 'Materiais de Apoio',
     href: '/produtos',
     description:
-      'Itens complementares para obra, instalação e uso geral, disponíveis conforme estoque.',
+      'Pregos, lenha, escoras e itens complementares para obra, instalação e uso geral, disponíveis conforme estoque.',
     seoDescription:
-      'Itens complementares para obra, instalação e uso geral, incluindo pregos, lenha e outros produtos de apoio disponíveis conforme estoque.',
+      'Pregos, lenha, escoras e itens complementares para obra, instalação e uso geral, disponíveis conforme estoque.',
     ctaLabel: 'Consultar materiais de apoio',
     imageAlt: 'Materiais de apoio para obra e uso geral disponíveis na Madeiras Santos',
     applications: ['obra', 'instalação', 'uso geral', 'apoio para compra de madeira'],

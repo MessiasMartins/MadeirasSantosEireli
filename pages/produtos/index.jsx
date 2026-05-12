@@ -71,15 +71,15 @@ export default function Produtos() {
       <section className="bg-white">
         <Container className="py-8 sm:py-12">
           <Breadcrumbs items={breadcrumbs} />
-          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <Reveal>
+          <div className="grid min-w-0 gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <Reveal className="min-w-0">
               <div>
                 <h1 className="mt-5 text-balance text-4xl font-black tracking-tight text-brand-graphite sm:text-5xl">
                   {seo.h1}
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-700">
-                  Consulte madeiras, telhas, chapas, portas, marcos, ferragens e serviços para obra,
-                  reforma e uso geral, com atendimento rápido em Belo Horizonte e região.
+                  Consulte chapas, compensados, telhas, portas, marcos, ferragens, tábuas, ripas,
+                  caibros, peças de Paraju e serviços para obra, reforma e uso geral.
                 </p>
                 <p className="mt-3 max-w-3xl text-base leading-7 text-stone-700">
                   Confira as principais linhas do catálogo e fale com a equipe para confirmar
@@ -106,7 +106,7 @@ export default function Produtos() {
               </div>
             </Reveal>
 
-            <Reveal>
+            <Reveal className="min-w-0">
               <div className="relative overflow-hidden rounded-lg">
                 <Image
                   src={visualAssets.images.stock}
@@ -117,7 +117,7 @@ export default function Produtos() {
                   preload
                   fetchPriority="high"
                   quality={78}
-                  className="aspect-square w-full bg-white object-contain"
+                  className="aspect-square w-full max-w-full bg-white object-contain"
                 />
               </div>
             </Reveal>
