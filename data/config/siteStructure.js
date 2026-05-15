@@ -9,11 +9,19 @@ const primaryNavLinks = [
   { href: '/contato', title: 'Contato' },
 ]
 
+const productDetailRoutes = [
+  '/produtos/compensado-plastificado',
+  '/produtos/compensado-resinado',
+  '/produtos/tabuas-de-pinus',
+  '/produtos/caibros-pinus-eucalipto',
+]
+
 const priorityRoutes = [
   '/',
   '/about',
   '/produtos',
   ...productCategories.map((category) => category.href),
+  ...productDetailRoutes,
   '/entrega',
   '/contato',
 ]
@@ -21,6 +29,7 @@ const priorityRoutes = [
 module.exports = {
   companyInfo,
   productCategories,
+  productDetailRoutes,
   primaryNavLinks,
   priorityRoutes,
 }

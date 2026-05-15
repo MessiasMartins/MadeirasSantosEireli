@@ -87,6 +87,33 @@ export const BreadcrumbSEO = ({ items = [] }) => {
   )
 }
 
+export const WebPageSEO = ({ title, description }) => {
+  const router = useRouter()
+  const canonicalUrl = `${siteMetadata.siteUrl}${router.asPath}`.split('?')[0]
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: title,
+    description,
+    isPartOf: {
+      '@id': `${siteMetadata.siteUrl}/#website`,
+    },
+  }
+
+  return (
+    <Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+    </Head>
+  )
+}
+
 export const ItemListSEO = ({ items = [], itemListId = '/produtos' }) => {
   if (items.length === 0) return null
 

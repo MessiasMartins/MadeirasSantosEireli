@@ -53,6 +53,7 @@ function run() {
   const pageMetadata = requireFromRoot('data/config/pageMetadata.js')
   const productCategories = requireFromRoot('data/productCategories.js')
   const { products } = requireFromRoot('data/productCatalog.js')
+  const { productSeoPages } = requireFromRoot('data/productSeoPages.js')
   const siteMetadataData = requireFromRoot('data/siteMetadata.js')
   const visualAssets = requireFromRoot('data/config/visualAssets.js')
   const companyInfo = read('data/config/companyInfo.js')
@@ -73,7 +74,9 @@ function run() {
   const appPage = read('pages/_app.jsx')
   const homeStructuredData = read('lib/homeStructuredData.js')
   const produtosPage = read('pages/produtos/index.jsx')
+  const entregaPage = read('pages/entrega.jsx')
   const categoryPage = read('components/sections/products/CategoryPage.js')
+  const productSeoPage = read('components/sections/products/ProductSeoPage.js')
   const productCard = read('components/sections/products/ProductCard.js')
   const heroSection = read('components/sections/home/HeroSection.js')
   const storySection = read('components/sections/home/StorySection.js')
@@ -197,6 +200,10 @@ function run() {
     'pages/index.js',
     'pages/about.jsx',
     'pages/produtos/index.jsx',
+    'pages/produtos/compensado-plastificado.jsx',
+    'pages/produtos/compensado-resinado.jsx',
+    'pages/produtos/tabuas-de-pinus.jsx',
+    'pages/produtos/caibros-pinus-eucalipto.jsx',
     'pages/produtos/telhas.jsx',
     'pages/produtos/madeira-para-telhado.jsx',
     'pages/produtos/tabuas-ripas-e-caibros.jsx',
@@ -218,6 +225,10 @@ function run() {
     '/produtos/madeira-para-telhado',
     '/produtos/tabuas-ripas-e-caibros',
     '/produtos/chapas-e-compensados',
+    '/produtos/compensado-plastificado',
+    '/produtos/compensado-resinado',
+    '/produtos/tabuas-de-pinus',
+    '/produtos/caibros-pinus-eucalipto',
     '/produtos/portas-e-marcos',
     '/produtos/bancos-de-madeira-sob-encomenda',
     '/entrega',
@@ -280,7 +291,32 @@ function run() {
   })
 
   const productsBySlug = Object.fromEntries(products.map((product) => [product.slug, product]))
+  const productSeoPagesBySlug = Object.fromEntries(productSeoPages.map((page) => [page.slug, page]))
 
+  const expectedProductSeoRoutes = [
+    ['compensado-plastificado', 'compensado-plastificado'],
+    ['compensado-resinado', 'compensado-resinado'],
+    ['tabuas-pinus', 'tabuas-de-pinus'],
+    ['caibros', 'caibros-pinus-eucalipto'],
+  ]
+
+  assert(productSeoPages.length === 4, 'Deve haver 4 páginas SEO de produto.')
+  expectedProductSeoRoutes.forEach(([productSlug, pageSlug]) => {
+    const product = productsBySlug[productSlug]
+    const page = productSeoPagesBySlug[pageSlug]
+    assert(page, `Página SEO de produto ausente: ${pageSlug}`)
+    assert(
+      product.detailHref === `/produtos/${pageSlug}`,
+      `detailHref inválido para ${productSlug}.`
+    )
+    assert(page.href === `/produtos/${pageSlug}`, `href inválido para ${pageSlug}.`)
+    assert(page.whatsappMessage.startsWith('Olá,'), `WhatsApp ausente em ${pageSlug}.`)
+    assert(page.heroImage.startsWith('/assets/product-pages/'), `Imagem inválida em ${pageSlug}.`)
+    assert(
+      exists(path.join('public', page.heroImage)),
+      `Asset de página SEO ausente: ${page.heroImage}`
+    )
+  })
   ;['tabuas', 'tabuas-pinus', 'tabuas-angelim', 'ripas', 'ripas-angelim', 'caibros'].forEach(
     (slug) => {
       assert(
@@ -361,6 +397,39 @@ function run() {
       pageMetadata.madeiraTelhado.h1 === 'Peças de Paraju e madeira estrutural para telhados.',
     'Metadata de Madeira para Telhado e Paraju inválida.'
   )
+  assert(
+    pageMetadata.compensadoPlastificado.title ===
+      'Compensado Plastificado em Belo Horizonte e Região Metropolitana | Madeiras Santos' &&
+      pageMetadata.compensadoPlastificado.h1 ===
+        'Compensado plastificado em Belo Horizonte e Região Metropolitana',
+    'Metadata de compensado plastificado inválida.'
+  )
+  assert(
+    pageMetadata.compensadoResinado.title ===
+      'Compensado Resinado em Belo Horizonte e Região Metropolitana | Madeiras Santos' &&
+      pageMetadata.compensadoResinado.h1 ===
+        'Compensado resinado em Belo Horizonte e Região Metropolitana',
+    'Metadata de compensado resinado inválida.'
+  )
+  assert(
+    pageMetadata.tabuasDePinus.title ===
+      'Tábuas de Pinus em Belo Horizonte e Região Metropolitana | Madeiras Santos' &&
+      pageMetadata.tabuasDePinus.h1 === 'Tábuas de Pinus em Belo Horizonte e Região Metropolitana',
+    'Metadata de tábuas de Pinus inválida.'
+  )
+  assert(
+    pageMetadata.caibrosPinusEucalipto.title ===
+      'Caibros de Pinus e Eucalipto em Belo Horizonte e Região Metropolitana | Madeiras Santos' &&
+      pageMetadata.caibrosPinusEucalipto.h1 ===
+        'Caibros de Pinus e Eucalipto em Belo Horizonte e Região Metropolitana',
+    'Metadata de caibros inválida.'
+  )
+  assert(
+    pageMetadata.entrega.title ===
+      'Entrega de Madeiras em Belo Horizonte e Região Metropolitana | Madeiras Santos' &&
+      pageMetadata.entrega.h1 === 'Entrega de madeiras em Belo Horizonte e Região Metropolitana',
+    'Metadata de /entrega inválida.'
+  )
   ;[
     pageMetadata.home,
     pageMetadata.about,
@@ -369,12 +438,16 @@ function run() {
     pageMetadata.madeiraTelhado,
     pageMetadata.tabuasRipasCaibros,
     pageMetadata.chapasCompensados,
+    pageMetadata.compensadoPlastificado,
+    pageMetadata.compensadoResinado,
+    pageMetadata.tabuasDePinus,
+    pageMetadata.caibrosPinusEucalipto,
     pageMetadata.portasMarcos,
     pageMetadata.bancosSobEncomenda,
     pageMetadata.entrega,
     pageMetadata.contato,
   ].forEach((metadata) => {
-    assert(metadata.title && metadata.title.length <= 70, `Title inválido: ${metadata.title}`)
+    assert(metadata.title && metadata.title.length <= 95, `Title inválido: ${metadata.title}`)
     assert(
       metadata.description && metadata.description.length <= 170,
       `Description inválida: ${metadata.title}`
@@ -386,8 +459,26 @@ function run() {
   assert(countMatches(aboutPage, /<h1/g) === 1, '/about deve ter exatamente um H1.')
   assert(countMatches(produtosPage, /<h1/g) === 1, '/produtos deve ter exatamente um H1.')
   assert(countMatches(categoryPage, /<h1/g) === 1, 'Páginas de categoria devem ter um H1.')
-  assert(countMatches(read('pages/entrega.jsx'), /<h1/g) === 1, '/entrega deve ter um H1.')
+  assert(countMatches(productSeoPage, /<h1/g) === 1, 'Páginas SEO de produto devem ter um H1.')
+  assert(countMatches(entregaPage, /<h1/g) === 1, '/entrega deve ter um H1.')
   assert(countMatches(read('pages/contato.jsx'), /<h1/g) === 1, '/contato deve ter um H1.')
+  ;[
+    'pages/produtos/compensado-plastificado.jsx',
+    'pages/produtos/compensado-resinado.jsx',
+    'pages/produtos/tabuas-de-pinus.jsx',
+    'pages/produtos/caibros-pinus-eucalipto.jsx',
+  ].forEach((file) => {
+    assert(read(file).includes('ProductSeoPage'), `Rota SEO sem ProductSeoPage: ${file}`)
+  })
+  assert(productSeoPage.includes('BreadcrumbSEO'), 'Páginas SEO sem BreadcrumbSEO.')
+  assert(productSeoPage.includes('WebPageSEO'), 'Páginas SEO sem WebPageSEO.')
+  assert(productSeoPage.includes('PageSEO'), 'Páginas SEO sem PageSEO.')
+  assert(productSeoPage.includes('preload'), 'Hero das páginas SEO deve usar preload.')
+  assert(
+    productSeoPage.includes('fetchPriority="high"'),
+    'Hero das páginas SEO deve declarar fetchPriority.'
+  )
+  assert(productSeoPage.includes('sizes='), 'Imagens das páginas SEO devem declarar sizes.')
   assert(produtosPage.includes('ItemListSEO'), '/produtos sem ItemListSEO.')
   assert(produtosPage.includes('ogTitle={seo.ogTitle}'), '/produtos sem ogTitle específico.')
   assert(
@@ -399,6 +490,8 @@ function run() {
     productCard.includes('getWhatsAppLink(product.whatsappMessage)'),
     'CTA por produto ausente.'
   )
+  assert(productCard.includes('product.detailHref'), 'ProductCard deve respeitar detailHref.')
+  assert(productCard.includes("'Ver detalhes'"), 'ProductCard sem link Ver detalhes.')
   assert(productCard.includes('Solicitar pelo WhatsApp'), 'Texto de CTA de produto ausente.')
   assert(
     productCard.includes('getOptimizedProductImage(product)'),
@@ -531,10 +624,16 @@ function run() {
     seoComponent.includes("'@type': 'BreadcrumbList'"),
     'Structured data de breadcrumb não encontrado.'
   )
+  assert(seoComponent.includes("'@type': 'WebPage'"), 'Structured data de WebPage ausente.')
   assert(seoComponent.includes("'@type': 'ItemList'"), 'Structured data de ItemList ausente.')
   assert(!seoComponent.includes("'@type': 'Product'"), 'Não adicionar Product markup no hub.')
   assert(!seoComponent.includes('AggregateRating'), 'Não declarar AggregateRating.')
   assert(!seoComponent.includes("'@type': 'Offer'"), 'Não declarar Offer sem preço.')
+  assert(!seoComponent.includes("'@type': 'Review'"), 'Não declarar Review.')
+  assert(!productSeoPage.includes("'@type': 'Product'"), 'Páginas SEO não devem declarar Product.')
+  assert(!productSeoPage.includes("'@type': 'Offer'"), 'Páginas SEO não devem declarar Offer.')
+  assert(!productSeoPage.includes('AggregateRating'), 'Páginas SEO não devem declarar rating.')
+  assert(!productSeoPage.includes("'@type': 'Review'"), 'Páginas SEO não devem declarar Review.')
   assert(seoComponent.includes('canonicalUrl'), 'Canonical não identificado no SEO component.')
   assert(
     seoComponent.includes('ogTitle = title') &&
@@ -626,8 +725,33 @@ function run() {
       `Sitemap sem rota ${route}`
     )
   })
+  assert(
+    sitemap.includes(
+      '<loc>https://www.madeirassantos.com.br/produtos/compensado-plastificado</loc>'
+    ) &&
+      sitemap.includes(
+        '<loc>https://www.madeirassantos.com.br/produtos/compensado-resinado</loc>'
+      ) &&
+      sitemap.includes('<loc>https://www.madeirassantos.com.br/produtos/tabuas-de-pinus</loc>') &&
+      sitemap.includes(
+        '<loc>https://www.madeirassantos.com.br/produtos/caibros-pinus-eucalipto</loc>'
+      ),
+    'Sitemap sem uma das novas rotas SEO de produto.'
+  )
   ;['/blog', '/construction', '/sobre', '/tags', '[', ']'].forEach((forbiddenRoute) => {
     assert(!sitemap.includes(forbiddenRoute), `Sitemap contém rota indevida: ${forbiddenRoute}`)
+  })
+  ;[
+    '/belo-horizonte',
+    '/betim',
+    '/sabará',
+    '/ibirité',
+    '/contagem',
+    '/nova-lima',
+    '/santa-luzia',
+    '/ribeirão-das-neves',
+  ].forEach((forbiddenRoute) => {
+    assert(!sitemap.includes(forbiddenRoute), `Sitemap contém página de cidade: ${forbiddenRoute}`)
   })
 
   assert(robots.includes('User-agent: *'), 'robots.txt sem User-agent global.')
@@ -637,10 +761,74 @@ function run() {
     robots.includes('Sitemap: https://www.madeirassantos.com.br/sitemap.xml'),
     'robots.txt sem sitemap correto.'
   )
+  ;[
+    'Belo Horizonte',
+    'Betim',
+    'Sabará',
+    'Ibirité',
+    'Contagem',
+    'Nova Lima',
+    'Santa Luzia',
+    'Pedro Leopoldo',
+    'Esmeraldas',
+    'Confins',
+    'Ribeirão das Neves',
+    'Brumadinho',
+    'Vespasiano',
+    'Lagoa Santa',
+    'São José da Lapa',
+  ].forEach((city) => {
+    assert(entregaPage.includes(city), `/entrega sem cidade atendida: ${city}`)
+  })
+  assert(
+    entregaPage.toLowerCase().includes('entrega sob consulta'),
+    '/entrega deve informar entrega sob consulta.'
+  )
+  assert(
+    entregaPage.includes('O valor da entrega é informado antes da confirmação'),
+    '/entrega deve informar que o valor é consultado antes da confirmação.'
+  )
+  ;[
+    '/produtos',
+    '/produtos/chapas-e-compensados',
+    '/produtos/tabuas-ripas-e-caibros',
+    '/produtos/madeira-para-telhado',
+    '/contato',
+  ].forEach((href) => {
+    assert(entregaPage.includes(`href: '${href}'`), `/entrega sem link interno para ${href}`)
+  })
+  assert(
+    productSeoPagesBySlug['compensado-plastificado'].blocks.some((block) =>
+      block.text.includes('madeirite')
+    ) &&
+      productSeoPagesBySlug['compensado-resinado'].blocks.some((block) =>
+        block.text.includes('madeirite')
+      ),
+    'Páginas de compensado devem citar madeirite nos blocos.'
+  )
+  assert(
+    productSeoPagesBySlug['compensado-plastificado'].openingText.join(' ').includes('chapa') &&
+      productSeoPagesBySlug['compensado-resinado'].openingText.join(' ').includes('chapa'),
+    'Páginas de compensado devem citar chapa.'
+  )
+  ;[
+    ['compensado-plastificado', '/produtos/compensado-resinado'],
+    ['compensado-resinado', '/produtos/compensado-plastificado'],
+    ['tabuas-de-pinus', '/produtos/caibros-pinus-eucalipto'],
+    ['caibros-pinus-eucalipto', '/produtos/tabuas-de-pinus'],
+  ].forEach(([slug, href]) => {
+    const page = productSeoPagesBySlug[slug]
+    assert(
+      page.relatedLinks.some((item) => item.href === href) ||
+        page.blocks.some((block) => block.linkHref === href),
+      `Página ${slug} sem cross-link ${href}.`
+    )
+  })
 
   const publicContent = [
     produtosPage,
     categoryPage,
+    productSeoPage,
     productCard,
     heroSection,
     storySection,
@@ -654,8 +842,9 @@ function run() {
     siteMetadata,
     read('data/config/pageMetadata.js'),
     read('data/productCatalog.js'),
+    read('data/productSeoPages.js'),
     read('data/productCategories.js'),
-    read('pages/entrega.jsx'),
+    entregaPage,
     read('pages/contato.jsx'),
   ].join('\n')
 
@@ -726,6 +915,10 @@ function run() {
     'public/assets/images/madeiras-santos-fachada.jpg',
     'public/assets/images/madeiras-santos-fachada.webp',
     'public/assets/images/madeiras-santos-loja.webp',
+    'public/assets/product-pages/compensado-plastificado.webp',
+    'public/assets/product-pages/compensado-resinado.webp',
+    'public/assets/product-pages/tabuas-de-pinus.webp',
+    'public/assets/product-pages/caibros-pinus-eucalipto.webp',
     'public/static/favicons/favicon.ico',
     'public/static/favicons/favicon-16x16.png',
     'public/static/favicons/favicon-32x32.png',
@@ -786,6 +979,16 @@ function run() {
   walkFiles('pages').forEach((file) => {
     assert(!file.includes('/blog/'), `Rota de blog remanescente: ${file}`)
     assert(!file.includes('/tags/'), `Rota de tag remanescente: ${file}`)
+    ;[
+      'belo-horizonte',
+      'betim',
+      'contagem',
+      'nova-lima',
+      'santa-luzia',
+      'ribeirao-das-neves',
+    ].forEach((citySlug) => {
+      assert(!file.includes(citySlug), `Página por cidade não deve existir: ${file}`)
+    })
   })
 
   const sourceFiles = walkFiles('components')
