@@ -11,7 +11,13 @@ const productCategories = [
       'A Madeiras Santos trabalha com chapas, compensados e OSB para obras, formas, fechamentos, reformas e aplicações diversas. Consulte disponibilidade, medidas e opções indicadas para o seu tipo de uso.',
     ctaLabel: 'Consultar chapas e compensados',
     imageAlt: 'Chapas e compensados disponíveis na Madeiras Santos',
-    applications: ['formas para concreto', 'fechamentos', 'tapumes', 'obras e reformas'],
+    applications: [
+      'Formas para concreto',
+      'Fechamentos',
+      'Tapumes',
+      'Obras e reformas',
+      'Acabamentos',
+    ],
     featuredProductSlug: 'compensado-plastificado',
   },
   {
