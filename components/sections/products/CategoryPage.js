@@ -16,7 +16,7 @@ import { getOptimizedProductImage } from '@/lib/utils/productImages'
 import { getWhatsAppLink } from '@/lib/utils/whatsapp'
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
 
-export default function CategoryPage({ seo, category }) {
+export default function CategoryPage({ seo, category, beforeProductList = null }) {
   const categoryProducts = getProductsByCategory(category.slug)
   const featuredProduct =
     getProductBySlug(category.featuredProductSlug) || categoryProducts[0] || null
@@ -135,6 +135,7 @@ export default function CategoryPage({ seo, category }) {
                 title={`Opções de ${category.name}`}
                 description="Consulte disponibilidade pelo WhatsApp e receba orientação da equipe."
               />
+              {beforeProductList && <div className="mt-6">{beforeProductList}</div>}
               <div className="mt-6 grid gap-5 sm:grid-cols-2">
                 {categoryProducts.map((product, index) => (
                   <Reveal key={product.slug}>
