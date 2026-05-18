@@ -8,10 +8,15 @@ import { getWhatsAppLink } from '@/lib/utils/whatsapp'
 
 export default function ProductCard({ product }) {
   const detailHref =
-    product.categoryHref === '/produtos'
+    product.detailHref ||
+    (product.categoryHref === '/produtos'
       ? `/produtos#produto-${product.slug}`
-      : product.categoryHref
-  const detailLabel = product.categoryHref === '/produtos' ? 'Ver no catálogo' : 'Ver categoria'
+      : product.categoryHref)
+  const detailLabel = product.detailHref
+    ? 'Ver detalhes'
+    : product.categoryHref === '/produtos'
+      ? 'Ver no catálogo'
+      : 'Ver categoria'
 
   return (
     <article

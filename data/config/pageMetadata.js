@@ -45,6 +45,31 @@ const pageMetadata = {
       'Chapas, compensados e OSB para obras, formas, fechamentos e reformas. Consulte medidas, disponibilidade e orientação de uso.',
     h1: 'Chapas e Compensados',
   },
+  compensadoPlastificado: {
+    title: 'Compensado Plastificado em Belo Horizonte e Região Metropolitana | Madeiras Santos',
+    description:
+      'Compensado plastificado, chapa e madeirite plastificado para formas, obras e fechamentos. Consulte medidas e entrega sob consulta em BH e Região Metropolitana.',
+    h1: 'Compensado plastificado em Belo Horizonte e Região Metropolitana',
+  },
+  compensadoResinado: {
+    title: 'Compensado Resinado em Belo Horizonte e Região Metropolitana | Madeiras Santos',
+    description:
+      'Compensado resinado, chapa e madeirite resinado para obras, tapumes, formas e fechamentos. Consulte medidas e entrega sob consulta em BH e região.',
+    h1: 'Compensado resinado em Belo Horizonte e Região Metropolitana',
+  },
+  tabuasDePinus: {
+    title: 'Tábuas de Pinus em Belo Horizonte e Região Metropolitana | Madeiras Santos',
+    description:
+      'Tábuas de Pinus para obra, reforma, apoio, fechamento e uso geral. Consulte medidas, disponibilidade e entrega sob consulta em BH e região.',
+    h1: 'Tábuas de Pinus em Belo Horizonte e Região Metropolitana',
+  },
+  caibrosPinusEucalipto: {
+    title:
+      'Caibros de Pinus e Eucalipto em Belo Horizonte e Região Metropolitana | Madeiras Santos',
+    description:
+      'Caibros de Pinus e Eucalipto para obra, apoio, estrutura leve e uso geral. Consulte medidas, disponibilidade e entrega sob consulta em BH e região.',
+    h1: 'Caibros de Pinus e Eucalipto em Belo Horizonte e Região Metropolitana',
+  },
   portasMarcos: {
     title: 'Portas, Marcos e Ferragens | Madeiras Santos',
     description:
@@ -58,10 +83,10 @@ const pageMetadata = {
     h1: 'Bancos de Madeira Sob Encomenda',
   },
   entrega: {
-    title: 'Entrega | Madeiras Santos',
+    title: 'Entrega de Madeiras em Belo Horizonte e Região Metropolitana | Madeiras Santos',
     description:
-      'Consulte entrega para madeiras, telhas, chapas, portas e outros produtos em Belo Horizonte e região. Retirada na loja e entrega sob consulta.',
-    h1: 'Entrega sob consulta',
+      'Consulte entrega de madeiras, chapas, telhas, portas e materiais de apoio em Belo Horizonte e cidades da Região Metropolitana. Entrega sob consulta.',
+    h1: 'Entrega de madeiras em Belo Horizonte e Região Metropolitana',
   },
   contato: {
     title: 'Contato e Localização | Madeiras Santos',
